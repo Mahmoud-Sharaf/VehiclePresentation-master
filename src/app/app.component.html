@@ -1,0 +1,11 @@
+<div class="min-height mainHolderForAll">
+    <router-outlet></router-outlet>
+    <div class="row serverErrValidation" [hidden]="!showErrDescSubmitInq">
+        <div class="error-msg">
+            <div class="alert alert-danger">
+                <i class="icon fa fa-times-circle"></i>{{servererror}}
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

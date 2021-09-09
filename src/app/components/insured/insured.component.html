@@ -1,0 +1,923 @@
+<!-- <app-main-pg-header></app-main-pg-header> -->
+
+<div class="main-bannerInsured">
+    <div class="transparent-bg">
+        <app-header></app-header>
+
+        <app-main-pg-header></app-main-pg-header>
+    </div>
+    <div class="homepageTitle">
+        <h1>{{"fastestCar" | translate}}</h1>
+        <!-- <div class="yellow-dash custom-float-right">
+            <img src="../../../assets/imgs/yellowDash.png" width="100%">
+        </div> -->
+    </div>
+
+    <div class="desktop-show">
+        <div class="container insuredComponent desktop-show">
+            <div class="mobile-show">
+                <div class="row">
+
+                    <div class="col-xs-12 center-title">
+                        <div class="title">
+                            تأمين المركبات
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row serverErrValidation" [hidden]="!showErrDescSubmitInq">
+                <div class="error-msg">
+                    <div class="alert alert-danger">
+                        <i class="icon fa fa-times-circle"></i>{{servererror}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-white-bg desktop-show">
+            <div class="container">
+                <form [formGroup]="fixedFormData">
+                    <div>
+                        <div class="row insured-header">
+
+                            <div
+                                class="form-group car-value input-group-lg col-lg-4 col-md-4 col-xs-12 custom-float-left mt-20 remove-r">
+
+                                <mat-form-field appearance="standard" class="testMatInput">
+                                    <mat-label> {{'vehicalValue' | translate}}</mat-label>
+
+                                    <input matInput type="tel" (keypress)="allowOnlyNumbers($event)"
+                                        class="form-control transparentBg" placeholder="{{'vehicalValue' | translate}}"
+                                        formControlName="vehicleValue" (change)="vehicleValueChange()" id="vehicleFocus"
+                                        onkeypress="if(this.value.length==50) return false;" minlength="4"
+                                        inputWithComma>
+                                </mat-form-field>
+
+                                <div *ngIf="submitted && fixedFormData.controls['vehicleValue'].errors">
+                                    <span *ngIf="fixedFormData.controls['vehicleValue'].errors.required"
+                                        class="validateFire2 ">{{'vehicleValueRequired' | translate}}</span>
+                                    <span *ngIf="fixedFormData.controls['vehicleValue'].errors.vehicleValueLength"
+                                        class="validateFire2 ">{{'invalidvehicleValue' | translate}}</span>
+                                </div>
+                            </div>
+                            <div class="form-group input-group-lg col-lg-4 col-md-4 col-xs-6 custom-float-left mt-20 ">
+
+                                <div class="fixedHijriCalendar" *ngIf="showFixedHijriCalendar">
+                                    <mat-form-field  appearance="standard" class="testMatInput"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                                      <mat-select formControlName="hijrimonth"  (change)="fillDateHijriMonth()"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg">
+                                       <mat-option *ngFor="let hijriMonthAr of hijriMonthsAr" [value]="hijriMonthAr.id">
+                                        {{hijriMonthAr.value}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                
+                                    <mat-form-field  appearance="standard" class="testMatInput"
+                                    *ngIf="myLanguageCus == 'English'">
+                                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                                      <mat-select formControlName="hijrimonth"  (change)="fillDateHijriMonth()" 
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg">
+                                       <mat-option *ngFor="let hijriMonthEn of hijriMonthsEn" [value]="hijriMonthEn.id">
+                                        {{hijriMonthEn.value}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+
+                                    <div *ngIf="submitted && fixedFormData.controls['hijrimonth'].errors">
+                                        <span *ngIf="fixedFormData.controls['hijrimonth'].errors.required "
+                                            class="validateFire2">{{'birthOfDateRequired' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="fixedMeladiCalendar" *ngIf="showFixedMeladiCalendar">
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                                      <mat-select formControlName="meladimonth"  (change)="fillDateMeladiMonth()" 
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let meladiMonthAr of meladiMonthsAr" [value]="meladiMonthAr.id">
+                                        {{meladiMonthAr.value}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                                      <mat-select formControlName="meladimonth"  (change)="fillDateMeladiMonth()" 
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let meladiMonthEn of meladiMonthsEN" [value]="meladiMonthEn.id">
+                                        {{meladiMonthEn.value}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && fixedFormData.controls['meladimonth'].errors">
+                                        <span *ngIf="fixedFormData.controls['meladimonth'].errors.required "
+                                            class="validateFire2">{{'birthOfDateRequired' | translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="form-group input-group-lg col-lg-4 col-md-4 col-xs-6 custom-float-left mt-20 remove-l">
+                                <div class="fixedHijriCalendar" *ngIf="showFixedHijriCalendar">
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15">
+                                        <mat-label>{{'birthOfyear' | translate}}</mat-label>
+                                         <mat-select formControlName="hijriyear"  (change)="fillDateHijriYear()" 
+                                          (keypress)="allowOnlyNumbers($event)"
+                                          class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg">
+                                          <mat-option *ngFor="let hijriyear of hijriyears" [value]="hijriyear">
+                                           {{hijriyear}}
+                                          </mat-option>
+                                         </mat-select>
+                                       </mat-form-field>
+                                    <div *ngIf="submitted && fixedFormData.controls['hijriyear'].errors">
+                                        <span *ngIf="fixedFormData.controls['hijriyear'].errors.required "
+                                            class="validateFire2">{{'birthOfyearRequired' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="fixedMeladiCalendar" *ngIf="showFixedMeladiCalendar">
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15">
+                                        <mat-label>{{'birthOfyear' | translate}}</mat-label>
+                                         <mat-select formControlName="meladiyear"  (change)="fillDateMeladiYear()" 
+                                           (keypress)="allowOnlyNumbers($event)"
+                                          class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg">
+                                          <mat-option *ngFor="let meladiyear of meladiyears" [value]="meladiyear">
+                                           {{meladiyear}}
+                                          </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && fixedFormData.controls['meladiyear'].errors">
+                                        <span *ngIf="fixedFormData.controls['meladiyear'].errors.required "
+                                            class=" validateFire2">{{'birthOfyearRequired' | translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="insured-tabs">
+                    <!-- <div class="container"> -->
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12 cancel-padding">
+                            <div class="main-tabs">
+                                <div class="row cancel-margin ">
+                                    <div class="col-lg-4 tab col-xs-4" [class.active]="showOffersBool">
+                                        <a (click)="showOffers()" class="item">
+                                            <span class="icon">
+                                                <img src="../../../assets/imgs/insured-icon-1.svg"></span>
+                                            <span class="text"> {{'offers' | translate}} </span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 tab col-xs-4" [class.active]="showAdditionalDriversBool">
+                                        <a (click)="showAdditionalDrivers()" class="item">
+                                            <span class=" icon"> <img
+                                                    src="../../../assets/imgs/insured-icon-2.svg"></span>
+                                            <span class="text">{{'showAdditionalDrivers' | translate}}</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 tab col-xs-4" [class.active]="showAdditionalInfoBool">
+                                        <a (click)="showAdditionalInfo()" class="item">
+                                            <span class="icon">
+                                                <img src="../../../assets/imgs/insured-icon-3.svg"></span>
+                                            <span class="text"> {{"otherInformation" | translate}}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="container custom-white-bg padding-top-15 desktop-show">
+
+            <app-offers *ngIf="showOffersBool"></app-offers>
+
+
+            <app-additional-info *ngIf="showAdditionalInfoBool" [additionalInfoDataForm]="additionalInfoDataForm"
+                [index]="i">
+            </app-additional-info>
+            <div *ngIf="errorUpdateMsg" class="updatesValidation">
+                {{updateRequired}}
+           </div>
+ 
+            <div *ngIf="showAdditionalDriversBool" class="driversContainer">
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12 cancel-padding">
+                        <label class="gridDivLbl">{{'driverName' | translate}}</label>
+
+                        <div class="white-wrapper">
+                            <div class="table-responsive">
+                                <table class="table table-striped additionaDriverGrid">
+                                    <thead class="additionaDriverGridHead">
+                                        <tr>
+                                            <th class="txt-sm additionaDriverGridTH">
+                                                {{'nationalIdIqama' | translate}}
+                                            </th>
+                                            <th class="txt-sm additionaDriverGridTH">{{'birthDate' | translate}}
+                                            </th>
+                                            <th class="txt-sm additionaDriverGridTH">
+                                                {{'DrivingPercentage' | translate}}
+                                            </th>
+
+                                            <th class="txt-sm additionaDriverGridTH controlWidth">
+                                                {{'control' | translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let driver of driverArrayToDrawGrid; let i = index">
+                                            <td class="additionaDriverGridTD"><span>{{driver.nationalId}}</span>
+                                            </td>
+                                            <td class="additionaDriverGridTD">
+                                                <span *ngIf="driver.hijrimonth">{{driver.hijrimonth}}
+                                                    -{{driver.hijriyear}}
+                                                </span>
+
+                                                <span *ngIf="driver.meladimonth">{{driver.meladimonth}}
+                                                    -{{driver.meladiyear}}
+                                                </span>
+                                            </td>
+                                            <td class="additionaDriverGridTD">
+                                                <span>{{driver.drivingPercentage}}</span>
+                                            </td>
+                                            <td class="additionaDriverGridTD">
+                                                <span>
+                                                    <i class="fa fa-times-circle" aria-hidden="true"
+                                                        (click)='deleteSelectedDriver(i)'></i>
+                                                    <i class="fa fa-edit custom-edit-btn"
+                                                        (click)="editSelectedDriver(i)"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="driverArrayToDrawGrid.length == 0">
+                                            <td class="additionaDriverGridTD">
+                                                <span>{{'NotExist' | translate}}</span>
+                                            </td>
+                                            <td class="additionaDriverGridTD">
+                                                <span>{{'NotExist' | translate}}</span>
+                                            </td>
+                                            <td class="additionaDriverGridTD">
+                                                <span>{{'NotExist' | translate}}</span>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12 checkbox-inline">
+                        <h3 class="custom-blue-label">
+                            {{'addAdditionalDYes' | translate}}
+                        </h3>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="switchIco" id="addnewdriver"
+                                [(ngModel)]="addNewDriversContainer" [ngModelOptions]="{standalone: true}"
+                                (change)="toggleDriver($event.target.checked)" />
+                            <label class="lbl_Checkbox" for="addnewdriver">
+                                <span class="stat true txt-brand custom-float-right">{{'checkYes' |
+                                    translate}}</span>
+                                <span class="stat false txt-gray custom-float-right">{{'checkNo' |
+                                    translate}}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div *ngIf="addNewDriversContainer">
+                <app-additional-drivers [formdataDrivers]="formdataDrivers" (messageToEmit)="getMessage($event)"
+                    [index]="i" [isEditMode]="isEditMode" [isEdit]="isEdit">
+                </app-additional-drivers>
+            </div>
+            <div class="buttons-wrap">
+                <div class="row">
+                    <div class="col-lg-12 cancel-padding col-xs-12">
+                        <div class="big-buttons">
+                            <button class="orange-btn custom-float-right"
+                                (click)="submitIquiryBecare()">{{'showQuotations'|translate}}
+                                <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                            </button>
+                            <button class="secondary-btn custom-float-right big-btn"
+                                (click)="backPrev()">{{'previous'|translate}}</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="container insuredComponent mobile-show">
+    <div class="mobile-show">
+        <div class="row">
+
+            <div class="col-xs-12 center-title">
+                <div class="title">
+                    تأمين المركبات
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row serverErrValidation" [hidden]="!showErrDescSubmitInq">
+        <div class="error-msg">
+            <div class="alert alert-danger">
+                <i class="icon fa fa-times-circle"></i>{{servererror}}
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="fixedFormData">
+        <div>
+            <div class="row insured-header">
+                <div class="form-group input-group-lg col-lg-4 col-md-4 col-xs-12 custom-float-left mt-20 remove-r">
+                    <input matInput type="tel" (keypress)="allowOnlyNumbers($event)" class="form-control transparentBg"
+                        placeholder="{{'vehicalValue' | translate}}" formControlName="vehicleValue"
+                        (change)="vehicleValueChange()" onkeypress="if(this.value.length==50) return false;"
+                        minlength="4" inputWithComma>
+
+                    <div *ngIf="submitted && fixedFormData.controls['vehicleValue'].errors">
+                        <span *ngIf="fixedFormData.controls['vehicleValue'].errors.required"
+                            class="validateFire2 ">{{'vehicleValueRequired' | translate}}</span>
+                        <span *ngIf="fixedFormData.controls['vehicleValue'].errors.vehicleValueLength"
+                            class="validateFire2 ">{{'invalidvehicleValue' | translate}}</span>
+                    </div>
+                </div>
+                <div class="form-group input-group-lg col-lg-4 col-md-4 col-xs-6 custom-float-left mt-20 remove-l">
+
+                    <div class="fixedHijriCalendar" *ngIf="showFixedHijriCalendar">
+                        <ng-select *ngIf="myLanguageCus == 'Arabic'" placeholder="{{'birthOfDate' | translate}}"
+                            class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg"
+                            [items]="hijriMonthsAr" formControlName="hijrimonth" bindLabel="value" bindValue="id"
+                            (change)="fillDateHijriMonth()">
+                        </ng-select>
+
+
+                        <ng-select *ngIf="myLanguageCus == 'English'" placeholder="{{'birthOfDate' | translate}}"
+                            class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg"
+                            [items]="hijriMonthsEn" formControlName="hijrimonth" bindLabel="value" bindValue="id"
+                            (change)="fillDateHijriMonth()">
+                        </ng-select>
+
+                        <div *ngIf="submitted && fixedFormData.controls['hijrimonth'].errors">
+                            <span *ngIf="fixedFormData.controls['hijrimonth'].errors.required "
+                                class="validateFire2">{{'birthOfDateRequired' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="fixedMeladiCalendar" *ngIf="showFixedMeladiCalendar">
+
+                        <ng-select *ngIf="myLanguageCus == 'Arabic'" placeholder="{{'birthOfDate' | translate}}"
+                            class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg"
+                            [items]="meladiMonthsAr" formControlName="meladimonth" bindLabel="value" bindValue="id"
+                            (change)="fillDateMeladiMonth()"></ng-select>
+
+                        <ng-select *ngIf="myLanguageCus == 'English'"
+                            placeholder="{{'birthOfDate' | translate}} transparentBg"
+                            class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                            [items]="meladiMonthEN" formControlName="meladimonth" bindLabel="value" bindValue="id"
+                            (change)="fillDateMeladiMonth()">
+                        </ng-select>
+                        <div *ngIf="submitted && fixedFormData.controls['meladimonth'].errors">
+                            <span *ngIf="fixedFormData.controls['meladimonth'].errors.required "
+                                class="validateFire2">{{'birthOfDateRequired' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group input-group-lg col-lg-4 col-md-4 col-xs-6 custom-float-left mt-20 remove-r">
+                    <div class="fixedHijriCalendar" *ngIf="showFixedHijriCalendar">
+                        <ng-select
+                            class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg"
+                            [items]="hijriyears" formControlName="hijriyear" (keypress)="allowOnlyNumbers($event)"
+                            bindLabel="year" bindValue="id" (change)="fillDateHijriYear()"
+                            placeholder="{{'birthOfyear' | translate}}">
+                        </ng-select>
+                        <div *ngIf="submitted && fixedFormData.controls['hijriyear'].errors">
+                            <span *ngIf="fixedFormData.controls['hijriyear'].errors.required "
+                                class="validateFire2">{{'birthOfyearRequired' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="fixedMeladiCalendar" *ngIf="showFixedMeladiCalendar">
+                        <ng-select
+                            class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width transparentBg"
+                            [items]="meladiyears" formControlName="meladiyear" (keypress)="allowOnlyNumbers($event)"
+                            bindLabel="year" bindValue="id" (change)="fillDateMeladiYear()"
+                            placeholder="{{'birthOfyear' | translate}}">
+                        </ng-select>
+                        <div *ngIf="submitted && fixedFormData.controls['meladiyear'].errors">
+                            <span *ngIf="fixedFormData.controls['meladiyear'].errors.required "
+                                class=" validateFire2">{{'birthOfyearRequired' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="insured-tabs">
+        <!-- <div class="container"> -->
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 cancel-padding">
+                <div class="main-tabs">
+                    <div class="row cancel-margin ">
+                        <div class="col-lg-4 col-xs-4 tab" [class.active]="showOffersBool">
+                            <a (click)="showOffers()" class="item">
+                                <span class="icon">
+                                    <img src="../../../assets/imgs/insured-icon-1.svg"></span>
+                                <span class="text"> {{'offers' | translate}} </span>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-4 tab" [class.active]="showAdditionalDriversBool">
+                            <a (click)="showAdditionalDrivers()" class="item">
+                                <span class=" icon"> <img src="../../../assets/imgs/insured-icon-2.svg"></span>
+                                <span class="text">{{'showAdditionalDrivers' | translate}}</span>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-4 tab" [class.active]="showAdditionalInfoBool">
+                            <a (click)="showAdditionalInfo()" class="item">
+                                <span class="icon">
+                                    <img src="../../../assets/imgs/insured-icon-3.svg"></span>
+                                <span class="text"> {{"otherInformation" | translate}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+    <app-offers *ngIf="showOffersBool"></app-offers>
+
+
+    <app-additional-info *ngIf="showAdditionalInfoBool" [additionalInfoDataForm]="additionalInfoDataForm" [index]="i">
+    </app-additional-info>
+    <div *ngIf="errorUpdateMsg" class="updatesValidation">
+        {{updateRequired}}
+   </div>
+
+
+    <div *ngIf="showAdditionalDriversBool" class="driversContainer">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 cancel-padding">
+                <label class="gridDivLbl">{{'driverName' | translate}}</label>
+
+                <div class="white-wrapper">
+                    <div class="table-responsive">
+                        <table class="table table-striped additionaDriverGrid">
+                            <thead class="additionaDriverGridHead">
+                                <tr>
+                                    <th class="txt-sm additionaDriverGridTH">
+                                        {{'driverNumber' | translate}}
+                                    </th>
+                                    <th class="txt-sm additionaDriverGridTH">{{'birthDate' | translate}}
+                                    </th>
+                                    <th class="txt-sm additionaDriverGridTH">
+                                        {{'DrivingPercentage' | translate}}
+                                    </th>
+
+                                    <th class="txt-sm additionaDriverGridTH controlWidth">
+                                        {{'control' | translate}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let driver of driverArrayToDrawGrid; let i = index">
+                                    <td class="additionaDriverGridTD"><span>{{driver.nationalId}}</span>
+                                    </td>
+                                    <td class="additionaDriverGridTD">
+                                        <span *ngIf="driver.hijrimonth">{{driver.hijrimonth}}
+                                            -{{driver.hijriyear}}
+                                        </span>
+
+                                        <span *ngIf="driver.meladimonth">{{driver.meladimonth}}
+                                            -{{driver.meladiyear}}
+                                        </span>
+                                    </td>
+                                    <td class="additionaDriverGridTD">
+                                        <span>{{driver.drivingPercentage}}</span>
+                                    </td>
+                                    <td class="additionaDriverGridTD">
+                                        <span>
+                                            <i class="fa fa-times-circle" aria-hidden="true"
+                                                (click)='deleteSelectedDriver(i)'></i>
+                                            <i class="fa fa-edit custom-edit-btn" (click)="editSelectedDriver(i)"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="driverArrayToDrawGrid.length == 0">
+                                    <td class="additionaDriverGridTD">
+                                        <span>{{'NotExist' | translate}}</span>
+                                    </td>
+                                    <td class="additionaDriverGridTD">
+                                        <span>{{'NotExist' | translate}}</span>
+                                    </td>
+                                    <td class="additionaDriverGridTD">
+                                        <span>{{'NotExist' | translate}}</span>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 checkbox-inline">
+                <h3 class="custom-blue-label">
+                    {{'addAdditionalDYes' | translate}}
+                </h3>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" class="switchIco" id="addnewdriver" [(ngModel)]="addNewDriversContainer"
+                        [ngModelOptions]="{standalone: true}" (change)="toggleDriver($event.target.checked)" />
+                    <label class="lbl_Checkbox" for="addnewdriver">
+                        <span class="stat true txt-brand custom-float-right">{{'checkYes' |
+                            translate}}</span>
+                        <span class="stat false txt-gray custom-float-right">{{'checkNo' |
+                            translate}}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="addNewDriversContainer">
+        <app-additional-drivers [formdataDrivers]="formdataDrivers" (messageToEmit)="getMessage($event)" [index]="i"
+            [isEditMode]="isEditMode" [isEdit]="isEdit">
+        </app-additional-drivers>
+    </div>
+    <div class="buttons-wrap">
+        <div class="row">
+            <div class="col-lg-12 cancel-padding col-xs-12">
+                <div class="big-buttons">
+
+                    <button class="secondary-btn custom-float-right big-btn"
+                        (click)="backPrev()">{{'previous'|translate}}</button>
+                    <button class="orange-btn custom-float-right"
+                        (click)="submitIquiryBecare()">{{'showQuotations'|translate}}
+                        <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="bcare-info">
+    <div class="container">
+        <div class="col-xs-12 col-md-12">
+            <div class="whyHeader">
+                <div class="whyMainTitle">
+                    {{"whyBcare" | translate}}
+                </div>
+                <div class="whySubTitle">
+                    {{"whyBcareDesc" | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="mobile-show">
+            <div class="why show-in-mobile" *ngIf="cardsViewMode">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-25 custom-width " (click)="showCard('firstCard')">
+                    <div class="item">
+                        <div class="wrap-why special-top">
+                            <div class="whyImg pad-top-20">
+                                <img src="../../../assets/imgs/homeicons/home1.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"withinTwo" | translate}}
+                            </div>
+                        </div>
+                        <div class="arrow">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-25 custom-width" (click)="showCard('secondCard')">
+                    <div class="item">
+                        <div class="wrap-why">
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home2.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"bestRates" | translate}}
+                            </div>
+
+                        </div>
+                        <div class="arrow pink-arrow">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mb-25 custom-width" (click)="showCard('thirdCard')">
+                    <div class="item">
+                        <div class="wrap-why">
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home3.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"clear" | translate}}
+                            </div>
+                        </div>
+                        <div class="arrow purple-arrow">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 why-mobile-margin-bottom custom-width"
+                    (click)="showCard('fourthCard')">
+                    <div class="item">
+                        <div class="wrap-why special-top">
+                            <div class="whyImg pad-top-20">
+                                <img src="../../../assets/imgs/homeicons/home4.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"supportTwoFour" | translate}}
+                            </div>
+                        </div>
+                        <div class="arrow pink-arrow">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 why-mobile-margin-bottom custom-width"
+                    (click)="showCard('fifthCard')">
+                    <div class="item">
+                        <div class="wrap-why">
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home5.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"saudis" | translate}}
+                            </div>
+                        </div>
+                        <div class="arrow treq-arrow">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 why-mobile-margin-bottom custom-width"
+                    (click)="showCard('sixCard')">
+                    <div class="item">
+                        <div class="wrap-why">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home6.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"paymentOption" | translate}}
+                            </div>
+                        </div>
+                        <div class="arrow blue-arrow">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="why">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-50" *ngIf="firstCard">
+                    <div class="item">
+                        <div class="special-flex">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home1.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"withinTwo" | translate}}
+                            </div>
+                        </div>
+
+                        <div class="whyDescription blue">
+                            {{"withinTwoDesc" | translate}}
+                        </div>
+                        <div class="arrow show-in-mobile up-arrow" (click)="hideAll()">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-50" *ngIf="secondCard">
+                    <div class="item">
+                        <div class="special-flex">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home2.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"bestRates" | translate}}
+                            </div>
+                        </div>
+                        <div class="whyDescription orange">
+                            {{"bestRatesDesc" | translate}}
+
+                        </div>
+                        <div class="arrow show-in-mobile up-arrow">
+                            <span class="icon-double-arrows" (click)="hideAll()"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-50" *ngIf="thirdCard">
+                    <div class="item">
+                        <div class="special-flex">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home3.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"clear" | translate}}
+                            </div>
+                        </div>
+                        <div class="whyDescription blue">
+                            {{"clearOption" | translate}}
+                        </div>
+                        <div class="arrow show-in-mobile up-arrow" (click)="hideAll()">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 why-mobile-margin-bottom" *ngIf="fourthCard">
+                    <div class="item">
+                        <div class="special-flex">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home4.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"supportTwoFour" | translate}}
+                            </div>
+                        </div>
+                        <div class="whyDescription purple">
+                            {{"supportTwoFourDesc" | translate}}
+
+                        </div>
+                        <div class="arrow show-in-mobile up-arrow " (click)="hideAll()">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 why-mobile-margin-bottom" *ngIf="fifthCard">
+                    <div class="item">
+                        <div class="special-flex">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home5.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"saudis" | translate}} </div>
+                        </div>
+                        <div class="whyDescription green">
+                            {{"saudisDesc" | translate}}
+                        </div>
+                        <div class="arrow show-in-mobile up-arrow" (click)="hideAll()">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 why-mobile-margin-bottom" *ngIf="sixCard">
+                    <div class="item">
+                        <div class="special-flex">
+
+                            <div class="whyImg">
+                                <img src="../../../assets/imgs/homeicons/home6.svg">
+                            </div>
+                            <div class="whyTitle">
+                                {{"paymentOption" | translate}} </div>
+                        </div>
+                        <div class="whyDescription purple">
+                            {{"paymentOptionDesc" | translate}}
+                        </div>
+                        <div class="arrow show-in-mobile up-arrow " (click)="hideAll()">
+                            <span class="icon-double-arrows"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="why desktop-show">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-50">
+                <div class="item">
+                    <div class="whyImg">
+                        <img src="../../../assets/imgs/homeicons/home1.svg">
+                    </div>
+                    <div class="whyTitle">
+                        {{"withinTwo" | translate}}
+                    </div>
+                    <div class="whyDescription blue">
+                        {{"withinTwoDesc" | translate}}
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-50">
+                <div class="item">
+                    <div class="whyImg">
+                        <img src="../../../assets/imgs/homeicons/home2.svg">
+                    </div>
+                    <div class="whyTitle">
+                        {{"bestRates" | translate}}
+                    </div>
+                    <div class="whyDescription orange">
+                        {{"bestRatesDesc" | translate}}
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-50">
+                <div class="item">
+                    <div class="whyImg">
+                        <img src="../../../assets/imgs/homeicons/home3.svg">
+                    </div>
+                    <div class="whyTitle">
+                        {{"clear" | translate}}
+                    </div>
+                    <div class="whyDescription blue">
+                        {{"clearOption" | translate}}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 why-mobile-margin-bottom">
+                <div class="item">
+                    <div class="whyImg">
+                        <img src="../../../assets/imgs/homeicons/home4.svg">
+                    </div>
+                    <div class="whyTitle">
+                        {{"supportTwoFour" | translate}}
+                    </div>
+                    <div class="whyDescription purple">
+                        {{"supportTwoFourDesc" | translate}}
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 why-mobile-margin-bottom">
+                <div class="item">
+                    <div class="whyImg">
+                        <img src="../../../assets/imgs/homeicons/home5.svg">
+                    </div>
+                    <div class="whyTitle">
+                        {{"saudis" | translate}} </div>
+                    <div class="whyDescription green">
+                        {{"saudisDesc" | translate}}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 why-mobile-margin-bottom">
+                <div class="item">
+                    <div class="whyImg">
+                        <img src="../../../assets/imgs/homeicons/home6.svg">
+                    </div>
+                    <div class="whyTitle">
+                        {{"paymentOption" | translate}} </div>
+                    <div class="whyDescription purple">
+                        {{"paymentOptionDesc" | translate}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<app-logo-slider></app-logo-slider>
+
+
+
+
+
+
+
+<app-loader-quotations *ngIf="showLoading"> </app-loader-quotations>

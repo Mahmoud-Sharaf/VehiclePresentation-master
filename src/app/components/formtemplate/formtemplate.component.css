@@ -1,0 +1,7 @@
+
+  @media (max-width: 608px) {
+    .custom-icon.custom-icon-blue.orange-bg:after {
+      display: none;
+    }
+  }
+  

@@ -1,0 +1,86 @@
+<section class="registeration">
+    <!-- <div class="serverErrValidation"></div> -->
+    <div class="">
+        <div class="reg-form">
+            <div class="title hide-in-mobile">
+                {{'registerAccount'| translate}}
+            </div>
+            <div class="title show-in-mobile">
+                {{'newUser'| translate}}
+            </div>
+            <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+                <div [hidden]="!showRegisterError">
+                    <div class="serverErrValidation">
+                        <div>
+                            <i class="icon far fa-times-circle"></i>
+                            <div class="attrDis xs-mar bx-right">{{registerServererror}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <h5 class="">{{'register'|translate}}</h5> -->
+                <div class="col-lg-12 col-xs-12 mb-25">
+                    <div class="input-wrapper">
+                        <i class="icon-mail-icon custom-icon"></i> <input
+                            [ngClass]="{ '': submitted && formdata.controls['email'].errors}" type="text" formControlName="email"
+                            id="emailRegister" class="custom-input" name="username" placeholder="{{'loginEmail'|translate}}"
+                            required="" autofocus="" />
+                    </div>
+                    <div class="errorstyle" *ngIf="submitted && formdata.controls['email'].errors">
+                        <span *ngIf="formdata.controls['email'].errors.required"
+                            class="validateFire2">{{'emailRequired'| translate}}
+                        </span>
+                        <span *ngIf="formdata.controls['email'].errors.pattern"
+                            class="validateFire2">{{'emailValidation' | translate}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-12  col-xs-12 mb-25">
+                    <div class="input-wrapper">
+                        <i class="icon-phone-icon custom-icon"></i>
+                        <input [ngClass]="{ '': submitted && formdata.controls['mobile'].errors}" type="mobile"
+                            formControlName="mobile" class="custom-input " name="mobile"
+                            onkeypress="if(this.value.length == 12) return false;"
+                            (keypress)="allowOnlyNumbers($event)"
+                            placeholder="{{'phone'|translate}}" required="" />
+                    </div>
+                    <div class="errorstyle" *ngIf="submitted && formdata.controls['mobile'].errors">
+                        <span *ngIf="formdata.controls['mobile'].errors.required"
+                            class="validateFire2">{{'phoneRequired'| translate}}</span>
+                        <!-- <span *ngIf="formdata.controls['mobile'].errors.PhoneNumberLength"
+                        class="validateFire2">{{'phoneLengthNum'| translate}}</span> -->
+                        <span *ngIf="formdata.controls['mobile'].errors.pattern"
+                            class="validateFire2">{{'phoneValidation'| translate}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xs-12 mb-25">
+                    <div class="input-wrapper">
+                        <i class="icon-password-icon custom-icon"></i>
+                        <input [ngClass]="{ '': submitted && formdata.controls['password'].errors}" type="password"
+                            formControlName="password" class="custom-input " name="password"
+                            placeholder="{{'password'|translate}}" required="" />
+                    </div>
+                    <div class="errorstyle" *ngIf="submitted && formdata.controls['password'].errors">
+                        <span *ngIf="formdata.controls['password'].errors.required"
+                            class="validateFire2">{{'passwordRequired' | translate}}</span>
+                        <span *ngIf="formdata.controls['password'].errors.PasswordNumberLength"
+                        class="validateFire2">{{'passwordValidation' | translate}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xs-12">
+                    <div class="text">
+                        {{'registerTerms1'|translate}}
+                        <a href="https://bcare.com.sa/Home/TermsCondition" target="_blank" rel="noopener"> {{'registerTerms2'|translate}} </a>
+                        {{'registerTerms3'|translate}}
+                        <a href="https://bcare.com.sa/Home/PrivacyPolicy" target="_blank" rel="noopener"> {{'registerTerms4'|translate}} </a>
+                        {{'registerTerms5'|translate}}
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xs-12">
+                    <button class="primary-btn registerBtn" type="submit">{{'register'|translate}}
+                        <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

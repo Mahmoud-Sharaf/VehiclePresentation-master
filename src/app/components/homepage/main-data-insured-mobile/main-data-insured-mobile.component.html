@@ -1,0 +1,310 @@
+<form autocomplete="off" [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+    <div class="filter">
+        <div class="container">
+            <div class="row serverErrValidation" [hidden]="!showErrDesc">
+                <div class="col-lg-12">
+                    {{servererror}}
+                </div>
+            </div>
+            <div class="mobile-responsive mt-20 main-filter">
+                <div class="form-wrapper mobile special-title mobile" style="display: none;">
+                    <div class="title ">تأمين المركبات</div>
+                </div>
+                <div class="first-item custom-float-left">
+                    <div class="col-xs-12 col-md-12 padding-cancel">
+                        <div class="form-wrapper">
+                            <div class="title">{{"purposeofInsurance"|translate}}</div>
+
+                            <div class="mobile">
+                                <label for="3" class="ar-left">
+                                    <input type="radio" name="insurancePurposeTypeId" id="3"
+                                        formControlName="insurancePurposeTypeId"
+                                        [checked]="formdata.controls['insurancePurposeTypeId'].value == '3'"
+                                        (click)='newInsuranceClick()' value="3" class="full-space">
+                                    <span> {{"newInsurance"|translate}}</span>
+                                </label>
+                                <label for="4" class="ar-right">
+                                    <input type="radio" name="insurancePurposeTypeId" id="4"
+                                        formControlName="insurancePurposeTypeId"
+                                        [checked]="formdata.controls['insurancePurposeTypeId'].value == '4'"
+                                        (click)='transfereOwnerShipClick()' value="4" class="full-space">
+                                    <span>{{"transferOwnership" | translate}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf='vehicleIdType == 1 && showInOwnerTransfereOnly'>
+                        <div *ngIf="vehicleOwnerId"
+                            class="col-xs-12 col-md-6 custom-float-left small-label-font padding-3">
+                            <input matInput type="tel" (keypress)="alllowOnlyNumbers($event)" class="form-control input-readonly"
+                            [readonly]="is_edit" placeholder="{{'ownerNationalId' | translate}}"
+                                formControlName="ownerNationalId" required id="ownerNationalId" size="10">
+                            <div class="adjust-valdatior"
+                                *ngIf="submitted && formdata.controls['ownerNationalId'].errors">
+                                <span *ngIf="formdata.controls['ownerNationalId'].errors.required"
+                                    class="validateFire">{{'ownerNationalIdRequired' | translate}}</span>
+                                <span *ngIf="formdata.controls['ownerNationalId'].errors.mainLength"
+                                    class="validateFire">{{'invalidOwnerNationalId' | translate}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 custom-float-left small-label-font mb-15 padding-3">
+                            <input matInput type="tel" (keypress)="alllowOnlyNumbers($event)" class="form-control input-readonly"
+                                (focusout)="focusOutFunction()" placeholder="{{'nationalIdBuyyer' | translate}}"
+                                formControlName="nationalId" id="nationalId" size="10" [readonly]="is_edit"
+                                required>
+                            <div class="adjust-valdatior" *ngIf="submitted && formdata.controls['nationalId'].errors">
+                                <span *ngIf="formdata.controls['nationalId'].errors.required"
+                                    class="validateFire">{{'nationalIdBuyyerRequired' | translate}}</span>
+                                <span *ngIf="formdata.controls['nationalId'].errors.mainLength"
+                                    class="validateFire">{{'invalidnationalIdBuyyer' | translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf='vehicleIdType == 1 && showInNewInsurOnly'>
+                        <div
+                            class="col-xs-12 col-md-12 float-right small-label-font mb-15 padding-cancel center-input ">
+
+                            <input matInput type="tel" (keypress)="alllowOnlyNumbers($event)" class="form-control input-readonly"
+                                placeholder="{{'nationalId' | translate}}" [readonly]="is_edit"
+                                formControlName="nationalId" required id="nationalId" (focusout)="focusOutFunction()"
+                                size="10">
+                            <div class="adjust-valdatior" *ngIf="submitted && formdata.controls['nationalId'].errors">
+                                <span *ngIf="formdata.controls['nationalId'].errors.required"
+                                    class="validateFire">{{'nationalIdRequired' | translate}}</span>
+                                <span *ngIf="formdata.controls['nationalId'].errors.mainLength"
+                                    class="validateFire">{{'invalidNationalId' | translate}}</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- <span >
+                            <div class="col-xs-12 col-md-6 custom-float-left small-label-font mb-15 padding-5   cust-flex"
+                                *ngIf="sequenceOnly">
+                                <input matInput type="tel" (keypress)="alllowOnlyNumbers($event)" class="form-control"
+                                    id="sequenceNo" placeholder="{{'sequenceNo' | translate}}"
+                                    formControlName="sequenceNo" required>
+                                <div class="custom-tooltip custom-float-left"><span>!</span>
+                                    <div class="tooltiptext">
+                                        <img src="../../../../assets/imgs/car-id.png">                                   
+                                    </div>
+                                </div>
+                                <div *ngIf="formdata.controls['sequenceNo'].errors && formdata.controls['sequenceNo'].errors.SequenceNumberLength"
+                                    class="validator-pos">
+                                    <span class="validateFire">{{'invalidSequenceNo' | translate}}</span>
+                                </div>
+                            </div>
+                        </span> -->
+
+                    <div *ngIf='customNoOnly || vehicleIdType ==2'
+                        class="col-xs-12 col-md-12 custom-float-left small-label-font center-input special-padding">
+                        <input matInput type="tel" (keypress)="alllowOnlyNumbers($event)" class="form-control input-readonly"
+                            placeholder="{{'nationalId' | translate}}" [readonly]="is_edit"
+                            formControlName="nationalId" required id="nationalId" (focusout)="focusOutFunction()"
+                            size="10">
+
+                        <div class="adjust-valdatior" *ngIf="submitted && formdata.controls['nationalId'].errors">
+                            <span *ngIf="formdata.controls['nationalId'].errors.required"
+                                class="validateFire">{{'nationalIdRequired' | translate}}</span>
+                            <span *ngIf="formdata.controls['nationalId'].errors.mainLength"
+                                class="validateFire">{{'invalidNationalId' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="second-item custom-float-left label-removal item">
+                    <div class="form-wrapper">
+                        <div class="title">{{'registrationType'| translate}}</div>
+
+                        <div class="mobile">
+                            <label for="1" class="ar-left">
+                                <input type="radio" name="vehicleIdTypeId" id="1" formControlName="vehicleIdTypeId"
+                                    [checked]="formdata.controls['vehicleIdTypeId'].value == '1'"
+                                    (click)='sequenceNumberClick()' value="1" class="full-space">
+                                <span>{{"sequenceNoForm"|translate}}</span>
+                            </label>
+                            <label for="2" class="ar-right">
+                                <input type="radio" name="vehicleIdTypeId" id="2" formControlName="vehicleIdTypeId"
+                                    [checked]="formdata.controls['vehicleIdTypeId'].value == '2'"
+                                    (click)='customNoClick()' value="2" class="full-space">
+                                <span>{{"customCard"|translate}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div *ngIf="customNoOnly || vehicleIdType ==2"
+                            class="col-xs-12 col-md-6 custom-float-left seq-info custom-no-tooltip new-item">
+                            <div class=" col-md-12 col-xs-12 form-group input-group-lg custom-float-left full-width ">
+                                <ng-select
+                                    class="form-control col-sm-12 selectOptionStyle border-radius selectOptionStyledoDimmed input-width transparentBg"
+                                    [items]="meladiyearsManifacture" formControlName="manufactureYear"
+                                    (keypress)="allowOnlyNumbers($event)" bindLabel="year" bindValue="id"
+                                    placeholder="{{'manufactureYear' | translate}}" required>
+                                </ng-select>
+                                <div class="adjust-valdatior"
+                                    *ngIf="submitted && formdata.controls['manufactureYear'].errors">
+                                    <span *ngIf="formdata.controls['manufactureYear'].errors.required "
+                                        class="validateFire">{{'manufactureYearRequired' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="customNoOnly || vehicleIdType ==2"
+                            class="col-xs-12 col-md-6 custom-float-left seq-info custom-no-tooltip opposite-padding">
+                            <input matInput type="tel" (keypress)="alllowOnlyNumbers($event)"
+                                class="form-control tooltip-width input-readonly" placeholder="{{'customNo' | translate}}"
+                                formControlName="customNo" [readonly]="is_edit" required>
+                            <div class="custom-tooltip custom-float-left second-tooltip"><span>!</span>
+                                <div class="tooltiptext">
+                                    <img src="../../../../assets/imgs/custom-num.png" width="680px">
+                                </div>
+                            </div>
+
+                            <div class="adjust-valdatior" *ngIf="submitted && formdata.controls['customNo'].errors">
+                                <span *ngIf="formdata.controls['customNo'].errors.required"
+                                    class="validateFire">{{'customNoRequired' | translate}}</span>
+                                <span *ngIf="formdata.controls['customNo'].errors.CustomNumberLength"
+                                    class="validateFire">{{'invalidCustomNo' | translate}}</span>
+                            </div>
+
+                        </div>
+
+                        <div *ngIf="sequenceOnly"
+                            class="col-xs-12 col-md-12 custom-float-left seq-info small-label-font mb-15 custom-float-right">
+
+                            <!-- <div *ngIf="seqOrCustList?.length>0" class="col-xs-12 col-md-12">
+                                <ng-select *ngIf="myLanguageCus == 'Arabic'" [items]="seqOrCustList"
+                                    formControlName="sequenceNo" class="form-control" bindLabel="fullInfoAr"
+                                    bindValue="SequenceNumber" class="form-control"
+                                    placeholder="{{'sequenceNo' | translate}}" required>
+                                </ng-select>
+
+                                <ng-select *ngIf="myLanguageCus == 'English'" [items]="seqOrCustList"
+                                    formControlName="sequenceNo" class="form-control" bindLabel="fullInfoEn"
+                                    bindValue="SequenceNumber" class="form-control"
+                                    placeholder="{{'sequenceNo' | translate}}" required>
+                                </ng-select>
+                            </div>
+
+                            <input *ngIf="!seqOrCustList?.length>0" matInput type="tel"
+                                (keypress)="alllowOnlyNumbers($event)"
+                                class="form-control custom-float-left tooltip-width" id="sequenceNo"
+                                placeholder="{{'sequenceNo' | translate}}" formControlName="sequenceNo"
+                                [attr.disabled]="is_edit" required> -->
+
+                            <div class="sequenceNumberAutoComplete col-xs-12 col-md-12">
+                                <input type="tel" (keypress)="alllowOnlyNumbers($event)"
+                                    (keyup)="matchInputWithList($event.target.value)"
+                                    class="form-control custom-float-left tooltip-width input-readonly" id="sequenceNo"
+                                    placeholder="{{'sequenceNo' | translate}}" formControlName="sequenceNo" required
+                                    maxlength="15" [readonly]="is_edit">
+
+                                <div *ngIf="showLostSeqBool">
+                                    <div *ngFor="let item of newBindedArr"
+                                        class="col-xs-12 col-md-12 form-control custom-float-left tooltip-width hoverEffect">
+                                        <label *ngIf="myLanguageCus == 'Arabic'" class="jjjj"
+                                            (click)="bindDataFromListToInput(item.SequenceNumber)">
+                                            {{item.SequenceNumber}}-{{item.ModelAr}}
+                                            -{{item.ModelYear}}
+                                            -{{item.MakerAr}}
+                                        </label>
+                                        <label *ngIf="myLanguageCus == 'English'" class="jjjj"
+                                            (click)="bindDataFromListToInput(item.SequenceNumber)">
+                                            {{item.SequenceNumber}}-{{item.ModelEn}}
+                                            -{{item.ModelYear}}
+                                            -{{item.MakerEn}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="custom-tooltip custom-float-left"><span>!</span>
+                                <div class="tooltiptext">
+                                    <img src="../../../../assets/imgs/car-id.png">
+                                </div>
+                            </div>
+                            <div class="adjust-valdatior" *ngIf="submitted && formdata.controls['sequenceNo'].errors">
+                                <span *ngIf="formdata.controls['sequenceNo'].errors.required"
+                                    class="validateFire">{{'sequenceNoRequired' | translate}}</span>
+                                <span *ngIf="formdata.controls['sequenceNo'].errors.SequenceNumberLength"
+                                    class="validateFire">{{'invalidSequenceNo' | translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <label class="mobile-title-normal">
+                    {{'startDate' | translate}}
+                </label>
+                <div class="third-item custom-float-left item ">
+
+                    <div class="form-wrapper ">
+                        <mat-form-field class="example-full-width input-width">
+                            <input id="policystartDatex" (keypress)="alllowOnlyNumbers($event)"
+                                (dateChange)="detectChangePolicyDate()" matInput [min]="minDateStart" readonly
+                                class="form-control startDateS" [max]="maxDateStart"
+                                formControlName="policyEffectiveDate" [matDatepicker]="picker1"
+                                (focus)="_openCalendarPolicyStartDt(picker1)"
+                                (click)="_openCalendarPolicyStartDt(picker1)" #policyStartDateToFocus>
+                            <mat-datepicker-toggle mat-calendar-body-today-disabled matSuffix [for]="picker1">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker1="matDatepicker" (closed)="_closeCalendarPolicyStartDt($event)">
+                            </mat-datepicker>
+                        </mat-form-field>
+                        <div class="adjust-valdatior"
+                            *ngIf="submitted && formdata.controls['policyEffectiveDate'].errors">
+                            <span *ngIf="formdata.controls['policyEffectiveDate'].errors.required"
+                                class="validateFire">{{'startDateRequired' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="fourth-wrapper mobile">
+                        <app-captcha-mobile [CaptchaFormMobile]="CaptchaFormMobile"></app-captcha-mobile>
+                        <div *ngIf="cpatchaMandatory" class="validateFire"> {{'captchaCodeMandatory' |
+                            translate}}</div>
+                        <div class="row" style="text-align: center;">
+                            <div class="wrapper-filter">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fourth-item  custom-float-left item">
+                    <div class="terms-wrapper">
+                        <div class="terms-conditions">
+
+                            <div class="form-check orange-radio custom-float-left">
+                                <label class="radio-holder inquiryterms" for="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                        formControlName="inquiryTerms" required />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                            <label class="conditions font-weight text-tooltip" for="exampleCheck1">
+                                {{"inquiryTerms"|translate}}
+                                <span class="show-text-tooltip">
+                                    {{"privacyToolTip" | translate}}
+                                </span>
+                            </label>
+
+                            <div *ngIf="submitted && formdata.controls['inquiryTerms'].errors" class="adjust-valdatior">
+                                <span *ngIf="formdata.controls['inquiryTerms'].errors.required"
+                                    class="validateFire ">{{'inquiryTermsRequired' |
+                                    translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="btnSubmit" class="orange-btn btn" type="submit">{{'showQuotations'
+                        |translate}} <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<app-loader *ngIf="loading"> </app-loader>

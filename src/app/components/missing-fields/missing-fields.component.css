@@ -1,0 +1,28 @@
+.contentSection {margin: -15px 0 0 0;    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px -1px grey !important;
+    padding-right: 0px;
+    padding-left: 0px;
+    z-index: 101;
+}
+
+.titleCompletePage
+{
+    font-size: 20px;
+    color: #146394;
+}
+.sectionPadding
+{
+    padding:0px 150px;
+}
+
+.blue-color
+{
+    color: #80868a;
+    font-size:20px;
+}
+
+.main-bannerInsured
+{
+    margin-top:60px;
+}

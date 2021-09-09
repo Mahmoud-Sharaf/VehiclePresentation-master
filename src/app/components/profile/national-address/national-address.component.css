@@ -1,0 +1,254 @@
+/**** regression ***/
+.car-name {
+  color: #727373;
+}
+.orange-label {
+  color: #f9a52d;
+  font-weight: 700;
+  border-bottom: 2px solid white;
+}
+/*************/
+.filter button {
+  position: relative;
+  top: 10px;
+}
+.custom-flex {
+  justify-content: flex-start;
+}
+.filter {
+  padding-bottom: 5px;
+  border-bottom: 5px solid #fff;
+  margin-bottom: 40px;
+}
+flex-wrapper .custom-label {
+  background: #f2f9f9;
+  width: 123px;
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+.flex-wrapper .custom-text {
+  color: #727373;
+}
+
+.custom-flex-wrapper {
+  display: flex;
+}
+.custom-flex-wrapper div {
+  margin: 0 5px;
+  flex-grow: 1;
+}
+.blue-data {
+  position: relative;
+}
+.end-policy {
+  font-size: 0.5rem;
+}
+.end-date {
+  font-size: 0.7rem;
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  color: #a7a8a8;
+}
+.day {
+  font-size: 0.7rem;
+}
+.end-policy {
+  font-size: 0.4rem;
+}
+.cancel-padding {
+  padding: 0;
+}
+.car-plate {
+  background-repeat: no-repeat;
+  width: 120px;
+}
+
+.flex-wrapper .custom-label {
+  background: #f2f9f9;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1.0625rem;
+  text-align: center;
+}
+.city-width
+{
+  width:137px!important;
+}
+.custom-white-wrapper {
+  padding: 25px!important;
+  border-radius:0!important;
+  border: 1px solid #146394;
+  border:none;
+}
+
+.national-address-number
+{
+  background: #146394;
+  height: 30px;
+  width: 20px;
+  margin-top: 30px;
+  color: white;
+  position: absolute;
+  text-align: center;
+  line-height: 30px;
+}
+
+.border-bottom
+{
+  border: 1px solid #146394;
+  margin: 20px 0px;
+}
+
+.ng-select-width
+{
+  width:40%;
+}
+
+.flex-wrapper {
+  display: flex;
+  /* justify-content: space-between; */
+  color: #727373;
+  align-items: center;
+}
+.primary-btn {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.show-in-mobile {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .custom-white-wrapper {
+    padding: 20px 10px;
+    border: none;
+    background: white;
+  }
+
+  .flex-wrapper {
+    display: block;
+  }
+
+  .padding-none {
+    padding: 0px;
+  }
+
+  .flex-wrapper .custom-label {
+    width: 100%;
+    border: none;
+    border-radius: none;
+    font-size: 16px;
+    color: #146394;
+    text-align: center;
+    font-weight: bold;
+    border-radius: none;
+    padding: 5px 0px;
+  }
+
+  .custom-text {
+    font-size: 16px !important;
+    color: #727373 !important;
+    text-align: center;
+    line-height: 35px;
+    height: 20px;
+  }
+
+
+  .car-plate .arabic-character {
+    right: 15px;
+    top: 2px;
+    font-size: 15px !important;
+  }
+  .car-plate .arabic-number {
+    top: 2px;
+    right: 58px;
+    font-size: 15px !important;
+  }
+
+  .car-plate span.english-number {
+    right: 58px;
+    top: 30px;
+    font-size: 15px !important;
+  }
+
+  .car-plate .english-character {
+    top: 30px;
+    right: 20px;
+    font-size: 15px !important;
+  }
+
+  .car-plate {
+    width: 130px;
+  }
+  .car-numbers .car-name {
+    font-size: 15px;
+    color: gray;
+  }
+
+  .border {
+    border-top: 2px solid #cfcfcf;
+    width: 50%;
+  }
+
+  .show-in-mobile {
+    display: block;
+  }
+
+  .custom-flex-wrapper div {
+    flex-grow: 0 !important;
+  }
+  .custom-flex-wrapper {
+    justify-content: center;
+  }
+  .small-pad {
+    padding: 0px 2px;
+  }
+}
+/******* regression *****/
+.disAll
+{
+  border: none;
+  background: white;
+}
+
+.primary-btn
+{
+  border-radius: 0px 0px 10px 10px;
+  height: 40px;
+  top: -80px;
+}
+.sada-bill
+{
+  margin-bottom: 80px;
+}
+.full-width
+{
+  width:100%;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.national-address-title
+{
+  background: #146394;
+  border-radius: 5px 5px 0px 0px;
+  color:white;
+  padding: 7px 15px;
+  width: 350px;
+  height: 40px;
+  font-size: 17px;
+}
+
+.slash
+{
+  padding: 0px 20px;
+  color: orange;  
+}

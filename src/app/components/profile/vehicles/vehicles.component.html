@@ -1,0 +1,106 @@
+<div class="filter profile-filter">
+    <div class="row custom-flex mb-13">
+        <div class="form-group input-group-lg col-md-4 col-md-4 col-xs-12 custom-float-left custom-width-270">
+            <input matInput type="tel" (keypress)="allowOnlyNumbers($event)" class="form-control txt-gray txt-center"
+                placeholder="{{'SequenceCustomerNumber' | translate}}"
+                onkeypress="if(this.value.length==50) return false;" minlength="4" id="SequenceOrCustomCardNumber">
+        </div>
+        <div class="col-md-3 col-xs-12">
+            <button (click)="filterAllVehicles()" class="btn primary-btn search mobile-float-left">
+                {{'search' | translate}}
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="vehicleCount > 0">
+    <div class="row">
+        <div class="col-md-3 col-xs-12 custom-float-left" *ngFor="let car of vehicles">
+            <div class=" white-small-card">
+                <div class="col-md-12 col-xs-12 col-sm-12 pad  cancel-padding rmb-40 custom-float-left">
+                    <div class="logo">
+                        <img src="{{car.carImage}}">
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12  col-sm-12 pad  rmb-40 custom-float-left">
+
+                    <div class="car-info">
+                        <div class="description txt-lg">
+                            {{'vehicleDescription' | translate}}
+                        </div>
+                        <div class="brand txt-lg ">
+                            <span class="sm-pad">{{car.VehicleMaker}}</span>
+                            <span class="sm-pad">{{car.ModelYear}}</span>
+                            <span class="sm-pad">{{car.Vehicle_Model}}</span>
+                        </div>
+                        <div class="city txt-lg">
+                            {{car.RegisterationPlace}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12 col-sm-12 pad cancel-padding custom-float-left">
+
+                    <div class="car-numbers">
+                        <div class="car-plate">
+                            <span class="arabic-character">{{car.VehiclePlate.CarPlateTextAr}}</span>
+                            <span class="arabic-number">{{car.VehiclePlate.CarPlateNumberAr}}</span>
+                            <span class="english-number">{{car.VehiclePlate.CarPlateNumberEn}}</span>
+                            <span class="english-character">{{car.VehiclePlate.CarPlateTextEn}}</span>
+                        </div>
+                        <div class="earsing mobile-float-left"><a (click)="openDeleteVehiclePopup(car.ID)"><i
+                                    class="fa fa-trash"></i>
+                                <span>{{'deleteVehicle' | translate}}</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row txt-align-c" *ngIf="pagesCountMoreThanten">
+        <div>
+            <div slickContainer #slickController="slick" [slickConfig]="config">
+                <ng-container *ngIf="slickController.initialize">
+                    <span slickItem *ngFor="let page of arrayNoOfPages" class="slick-style"
+                        (click)="reCallGetVehicles(page)">{{page}}</span>
+                </ng-container>
+            </div>
+            <button (click)="slickController.next()">{{'next'|translate}}</button>
+            <button (click)="slickController.prev()">{{'previous'|translate}}</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': openPpUp ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{'delete' | translate}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+                    <span aria-hidden="true" class="closeicon">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="dis-flex col-lg-12 col-md-12 col-xs-12">
+                            <p>{{'confirmDeleteVehicleMessge'|translate}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 custom-float-right">
+                            <button type="submit" class="btn yes-action txt-sm" data-dismiss="modal"
+                                (click)="confirmDeleteVehicle()">{{'yes'|translate}}</button>
+                            <button class="btn no-action txt-sm" data-dismiss="modal"
+                                (click)="closePopup()">{{'no'|translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="not-found-data" *ngIf="vehicleCount == 0">
+    <span>{{'notFoundData'|translate}}</span>
+</div>
+
+<app-loader *ngIf="showLoading"> </app-loader>

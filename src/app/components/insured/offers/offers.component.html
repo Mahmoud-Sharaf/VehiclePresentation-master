@@ -1,0 +1,184 @@
+<div class="ifNotExist" *ngIf="ifNotExist">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="radio-container orange-radio ">
+                <label class="radio-holder radioHolderSpace selectedCheckBox" id="x">
+                    {{'OffersInvestigate' |
+                    translate}} <b>{{'offersInvestigateBold' |translate}}</b>
+                    <!-- <input id="x" type="checkbox" (click)="checkOptions =! checkOptions" checked />
+                    <span class="checkmark"></span> -->
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="checkOptions">
+        <div class="col-xs-12 col-md-12">
+            <div class="options mobile-margin-btm-15">
+                <div class="radio-container orange-radio" (click)="checkRadio()">
+                    <label class="radio-holder selectedCheckBox" id="x">
+                        {{"workPost" | translate}}
+                        <input id="x" type="radio" (click)="showOptions('postWork')" [checked]="postWork"
+                            name="option" />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="radio-container orange-radio" (click)="checkRadio()">
+                    <label class="radio-holder selectedCheckBox" id="x">
+                        {{"id" | translate}} <input id="x" type="radio" (click)="showOptions('idNumber')"
+                            name="option" />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="radio-container orange-radio" (click)="checkRadio()">
+                    <label class="radio-holder selectedCheckBox" id="x">
+                        {{"promotionSymbol" | translate}}
+                        <input id="x" type="radio" (click)="showOptions('codePromotion') " name="option" />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="radio-container orange-radio" (click)="checkRadio()">
+                    <label class="radio-holder selectedCheckBox" id="x">
+                        {{"uploadWorkId" | translate}}
+                        <input id="x" type="radio" (click)="showOptions('uploadCardNumber')" name="option" />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form>
+
+        <div class="button-options row" *ngIf="postWork">
+            <div class="col-xs-12 col-md-4 custom-float-left mobile-margin-btm-15">
+                <input type="text" class="form-control br-10" [(ngModel)]="WorkPlace"
+                    [ngModelOptions]="{standalone: true}" placeholder="{{'enterWorkPlace' | translate}}">
+            </div>
+            <!-- <div class="col-xs-6 mobile-show width-100">
+                <button class="orange-btn br-10" (click)="confirm()"> {{"investigate" | translate}}</button>
+            </div> -->
+
+            <button class="orange-btn br-10 desktop-show" (click)="confirm()"> {{"postInvestigate" |
+                translate}}</button>
+            <div class="mobile-btn-wrapper">
+                <div class="col-xs-6 mobile-show width-100 custom-float-right">
+                    <button class="secondary-btn br-10">{{"close" | translate}}</button>
+                </div>
+                <div class="col-xs-6 mobile-show">
+                    <button class="orange-btn br-10 mobile-show" (click)="confirm()"> {{"postInvestigate" |
+                        translate}}</button>
+                </div>
+            </div>
+            <button class="desktop-show secondary-btn br-10" (click)="closePromo()">{{"close" | translate}}</button>
+
+
+            <div class="col-lg-3 serverResponse" [hidden]="!showErrDesc">
+                {{responseMessages}}
+            </div>
+            <div class="col-lg-3 serverResponse" [hidden]="!showSeccussDesc">
+                {{responseMessagesSuccess}}
+            </div>
+        </div>
+
+        <div class="button-options row" *ngIf="idNumber">
+            <div class="col-xs-12 col-md-4 custom-float-left">
+                <ng-select class="" [items]="promotionPrograms" class="form-control custom-select-promotions"
+                    bindLabel="Name" bindValue="Id" [(ngModel)]="promotionVal" [ngModelOptions]="{standalone: true}"
+                    placeholder='{{"workPlace" | translate}}' (keypress)="allowOnlyChar($event)">
+                </ng-select>
+            </div>
+            <div class="col-xs-12 col-md-4 custom-float-left  remove-15 mobile-margin-btm-5">
+                <input type="text" class="form-control br-10" [(ngModel)]="nationalIDNum"
+                    [ngModelOptions]="{standalone: true}" placeholder="{{'id' | translate}}"
+                    (keypress)="alllowOnlyNumbers($event)" onkeypress="if(this.value.length==10) return false;">
+            </div>
+
+            <div class="col-xs-6 mobile-show width-100 custom-float-left">
+                <button class="orange-btn br-10" (click)="confirmByNIN()">{{"investigate" | translate}}</button>
+            </div>
+            <div class="col-xs-6 mobile-show width-100 custom-float-left">
+                <button class="secondary-btn br-10" (click)="closePromo()">{{"close" | translate}}</button>
+            </div>
+
+            <button class="orange-btn br-10 desktop-show" (click)="confirmByNIN()">{{"investigate" |
+                translate}}</button>
+            <button class="secondary-btn br-10 desktop-show" (click)="closePromo()">{{"close" | translate}}</button>
+
+            <div class="col-lg-3 serverResponse" [hidden]="!showErrDesc">
+                <span>{{responseMessages}}</span>
+            </div>
+            <div class="col-lg-3 serverResponse" [hidden]="!showSeccussDesc">
+                <span>{{responseMessagesSuccess}}</span>
+            </div>
+
+        </div>
+
+        <div class="button-options row" *ngIf="codePromotion">
+            <div class="col-xs-12 col-md-4 custom-float-left mobile-margin-btm-5">
+                <input type="text" class="form-control br-10" [(ngModel)]="promotionCode"
+                    [ngModelOptions]="{standalone: true}" placeholder="{{'promotionSymbol' | translate}}">
+            </div>
+            <div class="col-xs-6 mobile-show width-100 custom-float-left">
+                <button class="orange-btn br-10" (click)="confirmCodePromotion(promotionCode)">{{"investigate" |
+                    translate}}</button>
+            </div>
+            <div class="col-xs-6 mobile-show width-100 custom-float-left">
+                <button class="secondary-btn br-10">{{"close" | translate}}</button>
+            </div>
+            <button class="orange-btn br-10 desktop-show" (click)="confirmCodePromotion(promotionCode)">{{"investigate"
+                | translate}}</button>
+            <button class="secondary-btn br-10 desktop-show" (click)="closePromo()">{{"close" | translate}}</button>
+
+        </div>
+
+        <div class="button-options row" *ngIf="uploadCardNumber">
+            <div class="col-xs-12 col-md-3 custom-float-left">
+                <ng-select class="" [items]="promotionPrograms" class="form-control custom-select-promotions"
+                    bindLabel="Name" bindValue="Id" [(ngModel)]="promotionValForUploadCard"
+                    [ngModelOptions]="{standalone: true}" (change)="promotionUploadCard($event)"
+                    (keypress)="allowOnlyChar($event)" placeholder='{{"workPlace" | translate}}'>
+                </ng-select>
+            </div>
+            <div class="col-xs-12 col-md-4 custom-float-left uploader-wrapper cancel-padding mobile-margin-btm-5">
+                <label for="file" class="uploader-visible big-button-pad white-btn br-10"> <i class="fa fa-plus"
+                        aria-hidden="true"></i>
+                    <span class="padding-lr-40">{{"uploadFile" | translate}}</span></label>
+
+                <!-- <input type="file" id="file" (change)="onFileChange($event)" class="uploader-hidden"> -->
+
+                <input type="file" name="file" id="file" accept=".jpeg, .jpg, .png, .bmp,
+                .tif, .tiff, .webp, .jfif" class="uploader-hidden" (change)="handleInputChange($event)">
+
+
+            </div>
+            <div class="col-xs-12 col-md-4 custom-float-left mobile-show  center-button">
+                <button class="orange-btn br-10" (click)="confirmAttach()">{{"join" | translate}}</button>
+            </div>
+
+            <button class="orange-btn br-10 desktop-show" (click)="confirmAttach()">{{"investigate" |
+                translate}}</button>
+
+            <div class="col-lg-2 serverResponse" [hidden]="!showErrDesc">
+                <span>{{responseMessages}}</span>
+            </div>
+            <div class="col-lg-2 serverResponse" [hidden]="!showSeccussDesc">
+                <span>{{responseMessagesSuccess}}</span>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<!-- <div class="row serverErrValidation" [hidden]="!showErrorServer">
+    <div class="error-msg">
+        <div class="alert alert-danger">
+            <i class="icon fa fa-times-circle"></i>{{servererror}}
+        </div>
+    </div>
+</div> -->
+
+<div class="joinedBefore" *ngIf="joinedBefore">
+    {{ 'joinedBefore'| translate}}:
+    <span *ngIf="myLanguageCus == 'Arabic'">{{promotionProgram.ProgramNameAr}}</span>
+    <span *ngIf="myLanguageCus == 'English'">{{promotionProgram.ProgramNameEn}}</span>
+</div>

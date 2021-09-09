@@ -1,0 +1,113 @@
+<app-header class="main-header"></app-header>
+<form autocomplete="off" [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)"  class="terq-bg">
+    <div class="container">
+          <div class="row serverErrValidation" [hidden]="!showErrDesc">
+            <div class="col-lg-12">{{servererror}}</div>
+          </div>
+          <div class="row">
+            <div class="insured-document">
+                <div class="center-title">
+                    <div class="title"><span>{{'printPolicy' | translate}}</span></div>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-3 blue-border custom-float-left dis-none-inMobile">
+                            <img class="print-img-width" src="../../../assets/imgs/laptop.png" alt="laptop">
+                        </div>
+                        <div class="col-lg-9 col-xs-12 pad-content">
+                            <div class="form-wrapper">
+                                <div class="filter-flex">
+                                    <div class="radio-container orange-radio">
+                                        <label class="radio-holder selectedCheckBox" for="sequenceNoForm">{{"sequenceNoForm"|translate}}
+                                            <input formcontrolname="vehicleIdTypeId" id="sequenceNoForm"
+                                            name="vehicleIdTypeId" type="radio" value="1"
+                                            [checked]="formdata.controls['vehicleIdTypeId'].value == '1'"
+                                            (click)='sequenceNumberClick()'><span
+                                            class="checkmark vehicleType"></span></label>
+                                    </div>
+                                    <div class="radio-container orange-radio"><label
+                                        class="radio-holder selectedCheckBox" for="customCard">
+                                        {{"customCard"|translate}} <input formcontrolname="vehicleIdTypeId"
+                                        id="customCard" name="vehicleIdTypeId" type="radio"
+                                        [checked]="formdata.controls['vehicleIdTypeId'].value == '2'"
+                                        (click)='customNoClick()' value="2"><span
+                                        class="checkmark vehicleType"></span></label></div>
+                                </div>
+                            </div>
+                            <div class="wrap-div">
+                                <div  class="contactus-form">
+                                    <div class="col-lg-4 col-xs-12 mb-15 custom-float-left pad-right">
+                                        <input matInput type="tel" class="form-control" formControlName="nationalId"
+                                            placeholder="{{'nationalIdIqama' | translate}}"  required
+                                            onkeypress="if(this.value.length==10) return false;"
+                                            (keypress)="alllowOnlyNumbers($event)">
+
+                                        <div *ngIf="formdata.controls['nationalId'].errors && formdata.controls['nationalId'].errors.mainLength"
+                                            class="validator-pos">
+                                            <span class="validateFire">{{'invalidNationalIdIqama' | translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf='sequenceOnly' class="col-lg-4 col-xs-12 mb-15 custom-float-left pad-right">
+                                        <input matInput type="tel" class="form-control" formControlName="sequenceNo"
+                                            placeholder="{{'sequenceNo' | translate}}" 
+                                            (keypress)="alllowOnlyNumbers($event)" required>
+
+                                        <div *ngIf="formdata.controls['sequenceNo'].errors && formdata.controls['sequenceNo'].errors.SequenceNumberLength"
+                                            class="validator-pos">
+                                            <span class="validateFire">{{'invalidSequenceNo'| translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf='customNoOnly' class="col-lg-4 col-xs-12 mb-15 custom-float-left pad-right ">
+                                        <input matInput type="tel" class="form-control" formControlName="customNo"
+                                            placeholder="{{'customNo' | translate}}"  required
+                                            (keypress)="alllowOnlyNumbers($event)">
+                                            <div *ngIf="formdata.controls['customNo'].errors && formdata.controls['customNo'].errors['CustomNumberLength']"
+                                                class="validator-pos">
+                                                <span class="validateFire">{{'invalidCustomNo' | translate}}</span>
+                                            </div>
+                                    </div>
+                                    <div class="col-lg-4 top-captch">
+                                        <app-captcha class="captcha-width custom-myCaptcha" [CaptchaForm]="CaptchaForm" ></app-captcha>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                                <div class="col-lg-4  col-md-4 col-xs-4 custom-float-right insurance-doc">
+                                    <button class="primary-btn custom-float-right search-Btn" type="submit">{{'search' | translate}}
+                                    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+</form>
+
+<div class="col-lg-10" *ngIf="this.policies != null ||  this.policies == 0">
+    <div class="col-lg-10 tableDesign">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="txt-align-r">{{'policyNo' | translate}}</th>
+                    <th class="txt-align-r">{{'policyEffectiveDate' | translate}}</th>
+                    <th class="txt-align-r">{{'policyExpiryDate' | translate}}</th>
+                    <th class="txt-align-r">{{'firstName' | translate}}</th>
+                    <th class="txt-align-r">{{'lastName' | translate}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let policy of policies">
+                    <td>{{policy.PolicyNo}}</td>
+                    <td>{{policy.PolicyEffectiveDate}}</td>
+                    <td>{{policy.PolicyExpiryDate}}</td>
+                    <td>{{policy.EnglishFirstName}}</td>
+                    <td>{{policy.EnglishLastName}}</td>
+                    <td> <a (click)="downloadPolicy(policy.FileId)" >{{'download' | translate}}</a></td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+</div>

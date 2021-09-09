@@ -1,0 +1,257 @@
+.about-bg {
+  background: url("../../../assets/imgs/aboutus/aboutUs.png");
+  background-repeat: no-repeat;
+  min-height: 600px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  margin-top: 30px;
+}
+.white-title span {
+  display: block;
+  line-height: 1.5;
+}
+.white-title {
+  color: #fff;
+  font-size: 3.375rem;
+}
+.data {
+  position: absolute;
+  left: 13%;
+  top: 27%;
+}
+.blue-title {
+  color: #0167a2;
+  font-size: 1.825rem;
+}
+.blue-bg {
+  background-color: #f2f9f9;
+  padding: 40px;
+}
+.white-wrapper {
+  background: #fff;
+  border-radius: 35px;
+  padding: 25px;
+  overflow: hidden;
+}
+.white-wrapper .bcare-intro {
+  display: flex;
+}
+.white-wrapper .custom-icon {
+  display: flex;
+  align-items: center;
+  font-size: 75px;
+  width: 100px;
+}
+.white-wrapper .text {
+  color: #7b7778;
+  font-size: 1.625rem;
+}
+.white-wrapper .text .blue-clr {
+  color: #0167a2;
+}
+.box {
+  display: flex;
+  border-radius: 35px;
+  background: #fff;
+  position: relative;
+  font-size: 1.625rem;
+  line-height: 1.2;
+}
+.box i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  position: relative;
+}
+.box.pink i {
+  background: #df3a94;
+  padding: 20px;
+  width: 70px;
+}
+.box.purple i {
+  background: #7059a5;
+  padding: 20px 40px;
+}
+.custom-flex {
+  display: flex;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.box .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  color: #7b7778;
+  width: calc(100% - 78px);
+}
+.box i {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.middle-box {
+  height: 100%;
+}
+.vision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 2.5rem;
+  position: relative;
+  color: #156494;
+}
+.vision:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #df3a94;
+  top: 30px;
+}
+.vision::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #df3a94;
+  bottom: 30px;
+}
+
+.title-twolines {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 2.5rem;
+  position: relative;
+  color: #156494;
+}
+.title-twolines.babyblue:after {
+  background: #50c7ed;
+}
+.title-twolines.babyblue::before {
+  background: #50c7ed;
+}
+.title-twolines.black:after {
+  background: #000;
+}
+.title-twolines.black::before {
+  background: #000;
+}
+.title-twolines:after {
+  position: absolute;
+  content: "";
+  width: 400px;
+  height: 3px;
+  top: -30px;
+}
+.title-twolines::before {
+  position: absolute;
+  content: "";
+  width: 400px;
+  height: 3px;
+  bottom: -30px;
+}
+.mtb-55 {
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+.white-wrapper.targets {
+  width: 100%;
+  padding: 0;
+}
+.white-bg {
+  background: #fff;
+  border-radius: 35px;
+}
+.items .item {
+  background: #fff;
+  text-align: center;
+  color: #7b7778;
+  font-size: 1.0625rem;
+  position: relative;
+  z-index: 1;
+}
+
+.items {
+  position: relative;
+}
+.items:after {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  background: #50c7ed;
+}
+
+.box.left-box i {
+  /* position: absolute; */
+  height: 100%;
+}
+.box.right-box i {
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .items .row div:first-child .item {
+    border-radius: none;
+  }
+  .items .row div:last-child .item {
+    border-radius: none;
+  }
+  .items .item {
+    margin-bottom: 40px;
+  }
+  .items:after {
+    position: absolute;
+    width: 50px;
+    height: 90%;
+    content: "";
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background: #50c7ed;
+  }
+  .box {
+    margin-bottom: 40px;
+  }
+}
+.cancel-padding {
+  padding: 0;
+}
+.box.purple {
+  height: 179px;
+}
+.box.pink {
+  height: 171px;
+}
+.box-flex {
+  display: flex;
+}
+.center-box {
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+.about-us-items .item {
+  height: 330px;
+}
+.about-us-items .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.438rem;
+}
+.bold-txt {
+  font-weight: bold;
+}
+.mb-25 {
+  margin-bottom: 25px;
+}

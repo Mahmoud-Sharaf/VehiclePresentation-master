@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-lg-3 col-xs-12 mb-40 special-col" *ngFor="let notify of notifications">
+        <div class="notification" [ngClass]="notify.ticketStatusId == 3 ? 'pink': notify.ticketStatusId == 1 ? 'green' : 'white'">
+            <i class="icon-alert"></i>
+            <div class="text">{{notify.description}}</div>
+        </div>
+    </div>
+
+    <!-- <div class="col-lg-8 col-xs-12 mb-40">
+        <div class="notification green">
+
+            <i class="icon-alert"></i>
+            <div class="text">تم غلق التذكرة رقم 0154#</div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-xs-12 mb-40">
+        <div class="notification white">
+            <i class="icon-alert"></i>
+            <div class="text">تم غلق التذكرة رقم 0154#</div>
+        </div>
+    </div> -->
+</div>
+<app-loader *ngIf="showLoading"> </app-loader>

@@ -1,0 +1,127 @@
+.orange-radio .checkmark {
+  background: #fff;
+}
+.radio-holder {
+  color: #146394;
+  font-size: 1.375rem;
+  font-weight: normal;
+}
+.options {
+  display: flex;
+}
+.options label {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+/***********************************************/
+.white-btn {
+  background: #fff;
+  border: 1px solid #146394;
+  color: #146394;
+  outline: none;
+  position: relative;
+}
+.white-btn:hover {
+  background: #146394;
+  border: 1px solid #146394;
+  color: #fff;
+  outline: none;
+}
+.br-10 {
+  border-radius: 10px;
+}
+.big-button-pad {
+  padding: 0 5.375rem !important;
+  width: 100%;
+}
+.button-options {
+  padding: 10px 5px;
+  background: #fff;
+}
+
+.secondary-btn,
+.orange-btn {
+  outline: none;
+}
+.secondary-btn:hover {
+  background: #e7e7e7;
+}
+.orange-btn:hover {
+  background: #ffbb3c;
+}
+.custom-position {
+  position: absolute;
+  top: 49%;
+  transform: translateY(-50%);
+  border: 2px solid;
+  padding: 3px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+.custom-position i {
+  position: relative;
+  top: -12px;
+}
+.form-control {
+  height: 45px !important;
+  font-size: 1.25rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/******** uploader ************/
+.uploader-wrapper {
+  display: flex;
+}
+.uploader-wrapper .uploader-hidden {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
+.uploader-wrapper .uploader-visible {
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: normal !important;
+}
+.uploader-wrapper .uploader-visible i {
+  margin: 0 10px;
+  position: relative;
+  top: 4px;
+}
+/********* ng select ****************/
+.button-options {
+  display: flex;
+}
+button:nth-of-type(2) {
+  margin: 0 !important;
+}
+.cancel-padding {
+  padding: 0;
+}
+.padding-lr-40 {
+  padding: 0 40px;
+}
+
+.serverResponse {
+  color: red;
+  font-size: 13px;
+  word-break: break-all;
+}
+.ifNotExist .radio-holder {
+  font-size: 1.25rem;
+}
+@media (max-width: 480px) {
+  .ifNotExist .radio-holder {
+    font-size: 1.063rem;
+  }
+}
+
+
+.radioHolderSpace{
+  padding: 0px !important;
+}

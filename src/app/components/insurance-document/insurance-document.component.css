@@ -1,0 +1,147 @@
+.container {
+  background: #f2f9f9;
+  padding-right: none !important;
+  padding-left: none !important;
+}
+.insured-document {
+  background: #fff;
+  margin: 8rem auto 15rem;
+  width: 100%;
+  position: relative;
+}
+.insured-document .center-title {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  top: -80px;
+}
+.insured-document .title {
+  background: #d4eef5;
+  width: 415px;
+  height: 80px;
+  border-radius: 90px 90px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  position: relative;
+}
+.insured-document .title img {
+  width: auto;
+  height: 100px;
+  position: absolute;
+  bottom: -22px;
+}
+.insured-document .title span {
+  padding: 1.0625rem 0;
+  color: #146394;
+  font-size: 2rem;
+}
+.contactus-form {
+  overflow: hidden;
+  flex-grow: 2;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+.mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 0 !important;
+}
+textarea {
+  resize: none;
+  border: 2px solid #146394 !important;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+  color: #727373 !important;
+}
+textarea:focus {
+  border: 2px solid #146394 !important;
+}
+.form-control {
+  border: 1px solid #146394 !important;
+  height: 46px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+.insured-document .content {
+  padding: 10px 25px;
+}
+.filter-flex {
+  padding: 0 5px;
+  margin-bottom: 26px;
+  margin-top: 20px;
+}
+.radio-holder {
+  color: #146394;
+}
+
+.wrap-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #7059a5 !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #7059a5 !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #7059a5 !important;
+}
+
+.orange-radio .checkmark {
+  border-radius: 20%;
+  border: 1px solid #146394;
+}
+.orange-radio .checkmark:after {
+  top: 1px;
+  width: 12px;
+  height: 12px;
+}
+
+.insured-document .content .blue-border {
+  padding: 0px 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.print-img-width {
+  width: 100%;
+}
+
+.orange-radio .checkmark {
+  background-color: #f2f9f9;
+}
+
+.top-captch {
+  top: -20px;
+}
+
+.primary-btn:focus {
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .blue-border {
+    display: none;
+  }
+  .dis-none-inMobile {
+    display: none !important;
+  }
+  .insured-document {
+    background: #f2f9f9;
+    margin: 8rem auto 2rem;
+  }
+  .filter-flex {
+    justify-content: center;
+  }
+}

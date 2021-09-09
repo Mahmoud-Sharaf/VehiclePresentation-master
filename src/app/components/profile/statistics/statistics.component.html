@@ -1,0 +1,198 @@
+<div class="custom-white-wrapper custom-wrapper-spaces profile-statistics " *ngIf="hideIfExistQuotations">
+    <div class="row">
+        <div class="col-md-5 col-xs-12 mb-40 custom-float-left">
+            <div class="input-wrapper">
+                <input class="full-width form-control txt-gray" type="text" placeholder="{{UserName}}" />
+                <a class="input-btn" title="edit"><i class="icon-user-icon"></i></a>
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-12 mb-40 custom-float-left">
+            <div class="input-wrapper">
+                <input class="full-width form-control txt-gray" type="text" placeholder="{{Email}}" />
+                <a class="input-btn" title="edit"><i class="icon-message-icon"></i></a>
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-12 rmb-40 custom-float-left">
+            <div class="input-wrapper">
+                <input class="full-width form-control txt-gray " type="text" placeholder="{{PhoneNumber}}" />
+                <a class="input-btn" title="edit"><i class="icon-phone-icon"></i></a>
+            </div>
+        </div>
+
+        <div class="col-md-5 col-xs-12 rmb-40 custom-float-left">
+            <a routerLink="/promotionPrograms" target="_blank" rel="noopener">
+                <div class="input-wrapper">
+                    <span class="full-width form-control txt-gray">{{'promotionProgram' | translate}}</span>
+                    <a class="input-btn" title="edit"><i class="icon-microphone"></i></a>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-2 custom-float-left mobile-float-left">
+            <button class="primary-btn txt-md exit" type="submit">{{'exit' | translate}}</button>
+
+        </div>
+    </div>
+</div>
+<div class="custom-white-wrapper custom-wrapper-spaces person-stat" *ngIf="hideIfExistQuotations">
+    <div class="row">
+        <div class="col-md-6 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input ">
+                <div class="input-wrapper">
+                    <div class="full-width form-control adj-spaces">
+                        <a class="profile-quotation txt-gray" (click)="showQuotations()"> {{'quotations' | translate}}</a>
+                    </div>
+                    <div class="input-btn" title="edit"><i class="icon-price-papers"></i></div>
+                </div>
+                <div class="second-input"> {{OffersCount}} </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input ">
+                <div class="input-wrapper">
+                    <div class="full-width form-control adj-spaces txt-gray">{{'bills' | translate}}</div>
+                    <div class="input-btn" title="edit"><i class="icon-money"></i></div>
+                </div>
+                <div class="second-input"> {{InvoicesCount}} </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input ">
+                <div class="input-wrapper">
+                    <div class="full-width form-control adj-spaces txt-gray">{{'policies' | translate}}</div>
+                    <div class="input-btn" title="edit"><i class="icon-search-tickets"></i></div>
+                </div>
+                <div class="second-input"> {{PolicysCount}} </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input ">
+                <div class="input-wrapper">
+                    <div class="full-width form-control adj-spaces txt-gray">{{'technicalSupportRequests' | translate}}</div>
+                    <div class="input-btn" title="edit"><i class="icon-support"></i></div>
+                </div>
+                <div class="second-input"> {{EditRequestsCount}} </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input ">
+                <div class="input-wrapper">
+                    <div class="full-width form-control adj-spaces green txt-gray">{{'vaildPolicies' | translate}}</div>
+                    <div class="input-btn" title="edit"><i class="icon-privacy-icon"></i></div>
+                </div>
+                <div class="second-input"> {{ActivePolicysCount}} </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input ">
+                <div class="input-wrapper">
+                    <div class="full-width form-control adj-spaces pink txt-gray">{{'expiredPolicies' | translate}}</div>
+                    <div class="input-btn" title="edit"><i class="icon-policy-icon"></i></div>
+                </div>
+                <div class="second-input"> {{PoliciesExpiredCount}} </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-5 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input">
+                <div class="input-wrapper">
+                    <input class="full-width form-control adj-spaces" type="text" placeholder="الفواتير" />
+                    <a class="input-btn" title="edit"><i class="fa fa-edit"></i></a>
+                </div>
+                <input type="text" class="second-input">
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input">
+                <div class="input-wrapper">
+                    <input class="full-width form-control adj-spaces" type="text" placeholder="عدد الوثائق" />
+                    <a class="input-btn" title="edit"><i class="fa fa-edit"></i></a>
+                </div>
+                <input type="text" class="second-input">
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-12 mb-40 custom-float-left">
+            <div class="flex-input">
+                <div class="input-wrapper">
+                    <input class="full-width form-control adj-spaces" type="text" placeholder="طلبات الدعم الفني" />
+                    <a class="input-btn" title="edit"><i class="fa fa-edit"></i></a>
+                </div>
+                <input type="text" class="second-input">
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-12 rmb-40 custom-float-left">
+            <div class="flex-input">
+                <div class="input-wrapper">
+                    <input class="full-width form-control adj-spaces" type="text" placeholder="عدد الوثائق الساريه" />
+                    <a class="input-btn" title="edit"><i class="fa fa-edit"></i></a>
+                </div>
+                <input type="text" class="second-input">
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-12 rmb-40 custom-float-left">
+            <div class="flex-input">
+                <div class="input-wrapper">
+                    <input class="full-width form-control adj-spaces" type="text" placeholder="عدد الوثائق المنتهيه" />
+                    <a class="input-btn" title="edit"><i class="fa fa-edit"></i></a>
+                </div>
+                <input type="text" class="second-input">
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<div class="row" *ngIf="showIfExistQuotations">
+    <div class="col-md-12 col-xs-12 custom-float-left" *ngFor="let quotation of quotations">
+        <div class=" white-small-card">
+            <div class="col-md-3 col-xs-3  pad  cancel-padding rmb-40 custom-float-left">
+                <div class="logo-quotation">
+                    <img src="https://www.bcare.com.sa/resources/imgs/CarLogos/{{quotation.CarImage}}.svg">
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-3   pad  rmb-40 custom-float-left">
+
+                <div class="car-info">
+                    <div class="description txt-lg  ">
+                        {{'vehicleName' | translate}}:
+
+                        <span class="sm-pad">{{quotation.VehicleMaker}}</span>
+                        <span class="sm-pad">{{quotation.VehicleModel}}</span>
+                        <span class="sm-pad">{{quotation.VehicleModelYear}}</span>
+                    </div>
+                    <div class="txt-lg pad-bot">
+                        {{'driver' | translate}}: <span>{{quotation.DriverFirstName}}</span>
+                    </div>
+                    <div class="city txt-lg pad-bot">
+                        {{'city' | translate}}: <span>{{quotation.CityArabicDescription}}</span>
+                    </div>
+                    <div class="txt-lg pad-bot">
+                        {{quotation.CreatedDateTime}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-3   pad cancel-padding custom-float-left">
+
+                <div class="car-numbers">
+                    <div class="car-plate">
+                        <span class="arabic-character">{{quotation.VehiclePlate.CarPlateTextAr}}</span>
+                        <span class="arabic-number">{{quotation.VehiclePlate.CarPlateNumberAr}}</span>
+                        <span class="english-number">{{quotation.VehiclePlate.CarPlateNumberEn}}</span>
+                        <span class="english-character">{{quotation.VehiclePlate.CarPlateTextEn}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-3   pad cancel-padding custom-float-left">
+                <div>
+                    {{quotation.RemainingTimeToExpireInSeconds}}
+                </div>
+                <div class="custom-float-left"><a (click)="showSearchQuotations(quotation.ExternalId)">
+                        <i class="fa fa-plus w-addIcon" aria-hidden="true"></i>
+                        <span>{{'showResults' | translate}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<app-loader *ngIf="showLoading"> </app-loader>

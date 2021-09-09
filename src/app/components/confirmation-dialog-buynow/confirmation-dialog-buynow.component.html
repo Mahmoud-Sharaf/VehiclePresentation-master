@@ -1,0 +1,28 @@
+<!-- <p>confirmation-dialog works!</p> -->
+<div class="modal-header">
+  <h4 class="modal-title">{{ title }}
+    <button type="button" class="close custom-float-right" aria-label="Close" (click)="dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+  </h4>
+
+</div>
+<div class="modal-body">
+  {{ message }}
+  <div *ngIf="otpBuyNowBool">
+    <label class="label-style" style="visibility: hidden;margin-top: 15px;">
+      {{'otp' | translate}}
+    </label>
+    <mat-form-field appearance="standard" class="testMatInput">
+      <mat-label> {{'OTPIS' | translate}}</mat-label>
+      <input matInput class="form-control" type="text" id="otpBuyNow" [(ngModel)]="otpBuyNow"
+        (keyup)='otpFromUSer($event)' [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </div>
+
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="custom-float-right btn btn-primary custom-btn-ok" (click)="accept()"> {{'btnOkText' | translate}}</button>
+</div>

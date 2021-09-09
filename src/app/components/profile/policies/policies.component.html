@@ -1,0 +1,143 @@
+<div class="filter profile-filter">
+    <div class="row">
+        <div class="col-md-3 col-xs-12 mb-15 custom-float-left custom-width-270">
+            <input type="text" class="form-control txt-gray txt-center" placeholder="{{'policyNo'|translate}}" id="PolicyNumber">
+        </div>
+        <div class="col-md-3 col-xs-12 mb-15 custom-float-left custom-width-270">
+            <input type="text" class="form-control txt-gray txt-center " placeholder="{{'SequenceCustomerNumber'|translate}}"
+                id="SequenceOrCustomCardNumber">
+        </div>
+        <div class="col-md-3 col-xs-12 mb-15 custom-float-left custom-width-270">
+            <input type="text" class="form-control txt-gray txt-center" placeholder="{{'id'|translate}}" id="InsuredNIN">
+        </div>
+        <div class="col-md-2 col-xs-12 custom-float-left">
+            <button class="primary-btn  search mobile-float-left" type="submit"
+                (click)="filterPolices()">{{'search'|translate}}</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="policiesCount > 0">
+    <div class="custom-white-wrapper  mb-40 profile-policy" *ngFor="let data of polices">
+        <div class="row flex-row">
+            <div class="col-md-5 col-sm-6 col-xs-12 custom-float-left custom-p5">
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'policyNo'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{data.PolicyNo}}
+                    </div>
+                </div>
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'comanyName'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{data.InsuranceCompanyName}}
+                    </div>
+                </div>
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'status'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{data.PolicyStatusName}}
+                    </div>
+                </div>
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'startDate'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{data.PolicyEffectiveDate}}
+                    </div>
+                </div>
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'policyEndDate'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{data.PolicyExpiryDate}}
+                    </div>
+                </div>
+                <div class="flex-wrapper">
+                    <div class="custom-label">
+                        {{'najimStatus'|translate}}
+                    </div>
+                    <div class="custom-text orange-text">
+                        {{data.NajimStatus}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7  col-xs-12 custom-float-left custom-p5 grey-bg">
+
+                <div class="main-wrapper">
+                    <div class="car-numbers">
+                        <div class="car-plate">
+                            <span class="arabic-character">{{data.VehiclePlate.CarPlateTextAr}}</span>
+                            <span class="arabic-number">{{data.VehiclePlate.CarPlateNumberAr}}</span>
+                            <span class="english-number">{{data.VehiclePlate.CarPlateNumberEn}}</span>
+                            <span class="english-character">{{data.VehiclePlate.CarPlateTextEn}}</span>
+                        </div>
+                        <div class="car-name">{{data.VehicleModelName}}</div>
+
+                        <div class="renewal" *ngIf="data.PolicyExpiryDate != null">
+                            <a class="renewPolicy flex-wrapper"
+                                (click)="renewPolicy(data.ExternalId,1,data.CheckOutDetailsId,data.CustomCardNumber)">
+                                <div class="custom-label baby-white-bg"> {{'updatePolicy'|translate}}</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blue-data">
+                        <div class="flex-end">
+                            <img src="../../../../assets/imgs/blue-circle.png" alt="data">
+                        </div>
+                        <div class="end-date-policy" *ngIf="remindingDays >= 1 && remindingDays <= 365">
+                            <div class="day"><span class="orange-text">{{data.PolicyExpiryDate}}</span><span>{{'day'|translate}}</span></div>
+                            <div class="end-policy">{{'endPolicy'|translate}}</div>
+                        </div>
+                        <div class="end-date-policy" *ngIf="remindingDays < 1 || remindingDays > 365">
+                            <div class="end-policy">{{'policyExpired'|translate}}</div>
+                        </div>
+
+                        <div class="download-link flex-wrapper">
+                            <a class="download-policy custom-label baby-white-bg"
+                                (click)="downloadPolicy(data.PolicyFileId)">
+                                <img class="mar-download-icon"
+                                    src="../../../../assets/imgs/orange-download.png"><span>{{'download'|translate}}</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row txt-align-c" *ngIf="pagesCountMoreThanten">
+        <div>
+            <div slickContainer #slickController="slick" [slickConfig]="config">
+                <ng-container *ngIf="slickController.initialize">
+                    <span slickItem *ngFor="let page of arrayNoOfPages" class="slick-style"
+                        (click)="reCallGetPolices(page)">{{page}}</span>
+                </ng-container>
+            </div>
+            <button (click)="slickController.next()">{{'next'|translate}}</button>
+            <button (click)="slickController.prev()">{{'previous'|translate}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="not-found-data" *ngIf="policiesCount == 0">
+    <span>{{'notFoundData'|translate}}</span>
+</div>
+
+<div class="row txt-align-c">
+</div>
+<app-loader *ngIf="showLoading"> </app-loader>

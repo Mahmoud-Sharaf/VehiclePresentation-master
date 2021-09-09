@@ -1,0 +1,2081 @@
+<app-header class="main-header" [screenTitleAr]="screenTitleAr" [screenTitleEn]="screenTitleEn"></app-header>
+<div class="quotation">
+    <div class="pattern right"></div>
+    <div class="pattern left"></div>
+
+    <div class="container white-cont">
+
+        <div class="row">
+            <div class="quotation-details desktop-show">
+                <div class="row ">
+                    <div class="car-details">
+                        <div class="col-lg-2 col-sm-2 col-xs-3 custom-mr-b-10 item ">
+                            <div class="flex-center">
+                                <!-- <img class="fixedImgWidth" src="../../../assets/imgs/0031.svg" /> -->
+                                <img src="https://www.bcare.com.sa/resources/imgs/CarLogos/{{vehicleIMG}}.svg"
+                                    class="imgCarLogoInRespnsv custom-float-left" style="width: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-3 col-xs-3 custom-mr-b-10 item">
+                            <div class="flex-center ">
+                                <div class="title">{{'vehicleDescription'|translate}}</div>
+                                <div class="respond">
+                                    {{vehicleDesc}} {{vehicleModelYear}} {{vehicleModel}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-3 col-xs-3 custom-mr-b-10 item cancel-padding">
+                            <div class="flex-center ">
+                                <div class="title">{{'discountEligibility'|translate}}</div>
+                                <div class="respond" *ngIf="myLanguageCus == 'Arabic'">{{vehicleNCDFree}}</div>
+                                <div class="respond" *ngIf="myLanguageCus == 'English'">{{vehicleNCDFreeEn}}</div>
+                                <!-- <div class="respond">{{'noEligibile'|translate}}</div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-2 col-xs-3 custom-mr-b-10 item cancel-padding cancel-after">
+                            <div class="flex-center ">
+                                <div class="car-plate" *ngIf="typeVehicleId == 1">
+                                    <span class="arabic-character">{{CarPlateTextAr}}</span>
+                                    <span class="arabic-number">{{carPlateAR}}</span>
+                                    <span class="english-number">{{carPlateEN}}</span>
+                                    <span class="english-character">{{CarPlateTextEn}}</span>
+                                </div>
+                                <div class="" *ngIf="typeVehicleId == 2">
+                                    <span
+                                        class="txt-sm  txt-mgray dis-block xs-mar-bot">{{'customCard'|translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-2 col-xs-6 custom-mr-b-10 item hide-button cancel-padding">
+                            <div class="flex-center">
+                                <button class="buy-now" type="button" (click)="editApi()">{{'editInfoo'|translate}}
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="quotation-details mobile-show">
+                <div class="row ">
+                    <div class="car-details">
+                        <div class="col-lg-2 col-sm-6 col-xs-3 custom-mr-b-10 item ">
+                            <div class="flex-center">
+                                <!-- <img class="fixedImgWidth" src="../../../assets/imgs/0031.svg" /> -->
+                                <img src="https://www.bcare.com.sa/resources/imgs/CarLogos/{{vehicleIMG}}.svg"
+                                    class="imgCarLogoInRespnsv custom-float-left" style="width: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-3 custom-mr-b-10 item">
+                            <div class="flex-center ">
+                                <div class="title">{{'vehicleDescription'|translate}}</div>
+                                <div class="respond">
+                                    {{vehicleDesc}} {{vehicleModelYear}} {{vehicleModel}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-3 custom-mr-b-10 item cancel-padding">
+                            <div class="flex-center ">
+                                <div class="title">{{'discountEligibility'|translate}}</div>
+                                <div class="respond" *ngIf="myLanguageCus == 'Arabic'">{{vehicleNCDFree}}</div>
+                                <div class="respond" *ngIf="myLanguageCus == 'English'">{{vehicleNCDFreeEn}}</div>
+                                <!-- <div class="respond">{{'noEligibile'|translate}}</div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 col-xs-3 custom-mr-b-10 item cancel-padding cancel-after">
+                            <div class="flex-center ">
+                                <div class="car-plate" *ngIf="typeVehicleId == 1">
+                                    <span class="arabic-character">{{CarPlateTextAr}}</span>
+                                    <span class="arabic-number">{{carPlateAR}}</span>
+                                    <span class="english-number">{{carPlateEN}}</span>
+                                    <span class="english-character">{{CarPlateTextEn}}</span>
+                                </div>
+                                <div class="" *ngIf="typeVehicleId == 2">
+                                    <span
+                                        class="txt-sm  txt-mgray dis-block xs-mar-bot">{{'customCard'|translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 col-xs-12 custom-mr-b-10 item hide-button cancel-padding">
+                            <div class="flex-center">
+                                <button class="buy-now" type="button" (click)="editApi()">{{'editInfoo'|translate}}
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12  car-filter  col-xs-12">
+                <div class="row">
+                    <div class="col-lg-8 col-sm-8  col-xs-12">
+                        <div class="insurance-cat">
+                            <div class="title">
+
+                                {{'insuranceTyp'|translate}}
+                            </div>
+                            <ul class="cat-types">
+                                <li><a href="javascript:void(0)" [class.active]="accOpposite"
+                                        (click)="checkAcc('accOpposite')">
+                                        <div class="img-wrapper">
+                                            <img src="../../../assets/imgs/q-icon-3.svg">
+                                        </div>
+                                        <span>
+                                            {{'tPLLbl'|translate}}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0)" [class.active]="accComperhnsive" 
+                                    (click)="checkAcc('accComperhnsive')">
+                                        <div class="img-wrapper">
+                                            <img src="../../../assets/imgs/q-icon-1.svg">
+                                        </div><span> {{'comprehensiveLbl'|translate}}</span>
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0)" [class.active]="accAll"
+                                        (click)="checkAcc('accAll')">
+                                        <div class="img-wrapper">
+                                            <img src="../../../assets/imgs/q-icon-2.svg">
+                                        </div>
+                                        <span>
+                                            {{'all'|translate}}
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4   col-xs-12 resp-flex ">
+                        <div class="fixing-places custom-float-right" *ngIf="accOpposite == false">
+                            <div class="title">
+                                {{'maintenancecenter'|translate}}
+
+                            </div>
+                            <div class="filter-flex">
+                                <div class="radio-container orange-radio">
+                                    <label class="radio-holder selectedCheckBox" for="1">
+                                        {{'agencyRepair'|translate}}
+                                        <input type="radio" id="1" (change)="AgencyRepair($event)"
+                                            name="vehicleTypeval">
+                                        <span class="checkmark vehicleType"></span>
+                                    </label>
+                                </div>
+                                <div class="radio-container orange-radio">
+                                    <label class="radio-holder selectedCheckBox" for="2">
+                                        {{'workshop'|translate}}
+                                        <input id="2" type="radio" (change)="WorkShopRepair($event)"
+                                            name="vehicleTypeval" checked>
+                                        <span class="checkmark vehicleType"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blue-filter">
+                            <div class="price-filter">
+                                <a href="javascript:void(0)" class="clickedBtn filter-avg">
+                                    {{'SortRatesby'|translate}}
+                                </a>
+                                <a class="clickedBtn blue-burger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </a>
+
+                                <ul class="dropdown">
+
+                                    <li (click)="sort(true)">
+                                        <a href="javacript:void(0)"><img src="../../../assets/imgs/upArrow.png">
+                                            {{'hightoLow'|translate}}
+                                        </a>
+                                    </li>
+
+
+                                    <li (click)="sort(false)"> <a href="javacript:void(0)"><img
+                                                src="../../../assets/imgs/downArrow.png">
+                                            {{'lowToHigh'|translate}}
+                                        </a> </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        
+        <div class="row">
+            <div class="sharing-price" (click)="copyUrl()">
+                <div> مشاركة التسعيرة</div>
+            </div>
+            <div class="quotation-white-wrapper row">
+                <div [hidden]="!showQuotationError">
+                    <div class="serverErrValidation">
+                        <div>
+                            <div class="attrDis xs-mar bx-right">{{quotationServererror}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div [hidden]="!showAddtoCardError">
+                    <div class="serverErrValidation">
+                        <div>
+                            <div class="attrDis xs-mar bx-right">{{addtoCardServererror}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div [hidden]="!showCheckoutDetailsError">
+                    <div class="serverErrValidation">
+                        <div>
+                            <div class="attrDis xs-mar bx-right">{{checkoutDetailsServererror}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12  col-xs-12" *ngFor="let detailsC of productsARR"
+                [ngClass]="detailsC.products[0]?.isPromoted == true ?  'hasDiscountOffer' : ''">
+                <div *ngIf="detailsC.products[0] &&  detailsC.insurancecompanyid != 12">
+                    <div class="item-wrapper">
+                        <div class="row">
+                            <div class="col-lg-9 custom-float-right col-xs-12 mt-10">
+                                <div class="bcare-line">
+                                    <!-- <div class="left-side">
+                                        <div class="blue-month">الشهر الأزرق</div>
+                                        <div class="yellow-text">خدمة المساعدة على الطريق من بي كير مجانًا
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="right-side">
+                                        <div class="price"> <span class="number">200</span><span
+                                                class="money">ريال</span>
+                                        </div>
+                                        <img src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png"
+                                            width="75">
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-xs-12"></div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="insuranse-type">
+                                <span class="show-Type-insurance blue"
+                                    *ngIf="detailsC.deductibleValue == null || detailsC.deductibleValue == 0">{{'TPL'|translate}}</span>
+                                <span class="show-Type-insurance green"
+                                    *ngIf="detailsC.deductibleValue != null">{{'comperhnsiveInsurance'|translate}}</span>
+                            </div>
+                        </div>-->
+
+                        <div class="row">
+                            <div class="insuranse-type">
+                                <span class="show-Type-insurance blue"
+                                    *ngIf="detailsC.deductibleValue == null || detailsC.deductibleValue == 0">{{'TPL'|translate}}</span>
+                                <span class="show-Type-insurance green"
+                                    *ngIf="detailsC.deductibleValue != null">{{'comperhnsiveInsurance'|translate}}</span>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-lg-2 col-sm-2 col-xs-12 desktop-view">
+                                <div class="p-head">
+                                    <div class="wrapper">
+                                        <div class="insured-logo">
+                                            <img
+                                                src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                        </div>
+                                    </div>
+                                    <div class="speed-loader">
+
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div>
+
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div>
+
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==3">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div>
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==4">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==0">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>
+                                        <div class="bcare-stars"
+                                            *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>
+                                        <!-- <div class="bcare-stars" *ngIf="detailsC.autoLeasingBulkSelectedBenfits.length < 0">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>  -->
+
+                                        <!-- <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                            </div>
+                                            <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="intermediate">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                            </div>
+                                            <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade > 2">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                            </div>
+                                            <div class="bcare-balls"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==null">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                            </div> -->
+                                        <!-- <div class="bcare-stars">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div> -->
+                                        <div class="speed-text">ســـرعـــة الـــربـــط </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-xs-12 mobile-view">
+                                <div class="p-head">
+                                    <div class="wrapper">
+                                        <div class="insured-logo">
+                                            <img
+                                                src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                        </div>
+                                    </div>
+                                    <div class="speed-loader">
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div>
+
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div>
+
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==3">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-blue-star"></i>
+                                        </div>
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==4">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>
+                                        <div class="bcare-stars"
+                                            *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==0">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>
+                                        <div class="bcare-stars"
+                                            *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                            <i class="icon-yellow-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mobile-insurance">
+                                        <div class="show-insurance">
+                                            <span class="show-Type-insurance blue"
+                                                *ngIf="detailsC.deductibleValue == null || detailsC.deductibleValue == 0">{{'TPL'|translate}}</span>
+                                            <span class="show-Type-insurance green"
+                                                *ngIf="detailsC.deductibleValue != null">{{'comperhnsiveInsurance'|translate}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div *ngIf="detailsC.products[0].productBenefits?.length == 0"
+                                class="col-lg-6 col-sm-6 col-xs-12 p-middle">
+                                <div class="additiontal-title">{{'noBenefits'|translate}}</div>
+                            </div>
+                            <div *ngIf="detailsC.products[0].productBenefits?.length != 0"
+                                class="col-lg-6 col-sm-6  col-xs-12 p-middle">
+                                <div class="additiontal-title">{{'AdditionalBenefits'|translate}}</div>
+                                <div class="product-benefits addClass{{detailsC.products[0].id}}">
+                                    <div *ngFor="let prodDetailsInfo of detailsC.products[0].productBenefits"
+                                        class="flex-parent item-price">
+                                        <label class="custom-checkbox">
+                                            <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'Arabic'"
+                                                class="label-name">{{prodDetailsInfo.benefit.arabicDescription}}</label>
+                                            <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'English'"
+                                                class="label-name">{{prodDetailsInfo.benefit.englishDescription}}</label>
+                                            <span class="txt-sm txt-brand sm-pad" *ngIf="prodDetailsInfo.isReadOnly == true">{{'included'|translate}}</span>
+                                            <input *ngIf="prodDetailsInfo.isReadOnly == true && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                                disabled />
+                                            <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                            (click)="addBenifitToTotal($event,prodDetailsInfo,detailsC , detailsC.products[0]?.productPrice,prodDetailsInfo.id,prodDetailsInfo.benefitId)"/>
+                                            <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == false"  type="checkbox" name="radio" id="{{prodDetailsInfo.id}}"
+                                                class="benifitclassCheck{{prodDetailsInfo.benefitId}}"
+                                                (click)="addBenifitToTotal(
+                                                    $event,
+                                                prodDetailsInfo,
+                                                detailsC ,
+                                                detailsC.products[0]?.productPrice,
+                                                prodDetailsInfo.id,
+                                                prodDetailsInfo.benefitId)"/>
+                                            <span class="right-mark"></span>
+                                        </label>
+                                       
+                                        <div *ngIf= "prodDetailsInfo.benefitPrice > 0" class="currency">
+                                            {{prodDetailsInfo.benefitPrice}}
+                                            <span>
+                                                {{'reyalSauodiL' | translate}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="detailsC.products[0].productBenefits?.length > 4" class="desktop-show">
+                                    <a class="show-more pointer"
+                                        *ngIf="showMoreBenfits[detailsC.products[0].id]  == true && hideMoreBenfits[detailsC.products[0].id] == false"
+                                        (click)="openBenfits(detailsC.products[0].id)">{{'hideMoreBenfits'|translate}}</a>
+                                    <a class="show-more pointer"
+                                        *ngIf="hideMoreBenfits[detailsC.products[0].id] == true && showMoreBenfits[detailsC.products[0].id] == false"
+                                        (click)="hideBenfits(detailsC.products[0].id)">{{'showMoreBenfits'|translate}}</a>
+                                </div>
+
+                                <div *ngIf="detailsC.products[0].productBenefits?.length > 4" class="mobile-show">
+                                    <!-- <a class="show-more pointer"
+                                        *ngIf="showMoreBenfits[detailsC.products[0].id]  == true && hideMoreBenfits[detailsC.products[0].id] == false"
+                                        (click)="openBenfits(detailsC.products[0].id)">{{'hideMoreBenfits'|translate}}</a>
+                                    <a class="show-more pointer"
+                                        *ngIf="hideMoreBenfits[detailsC.products[0].id] == true && showMoreBenfits[detailsC.products[0].id] == false"
+                                        (click)="hideBenfits(detailsC.products[0].id)">{{'showMoreBenfits'|translate}}</a> -->
+                                    <div class="down-arrow">
+                                        <a class="show-more pointer"
+                                            *ngIf="showMoreBenfits[detailsC.products[0].id]  == true && hideMoreBenfits[detailsC.products[0].id] == false"
+                                            (click)="openBenfits(detailsC.products[0].id)"><i
+                                                class="icon-down-circle-arrow"></i></a>
+                                        <a class="show-more pointer"
+                                            *ngIf="hideMoreBenfits[detailsC.products[0].id] == true && showMoreBenfits[detailsC.products[0].id] == false"
+                                            (click)="hideBenfits(detailsC.products[0].id)"><i
+                                                class="icon-down-circle-arrow"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-xs-12 p-last desktop-show">
+                                <form [formGroup]="formdata">
+                                    <div class="row special-flex">
+                                        <div class="plast-wrapper col-lg-12 col-xs-12 ">
+                                            <div class="form-padding">
+                                                <div *ngFor="let prodPrice of detailsC.products[0]?.priceDetails"
+                                                    class="flex-parent item-data">
+                                                    <div *ngIf="myLanguageCus == 'English'" class="title">
+                                                        {{prodPrice.priceType.englishDescription}}</div>
+
+                                                    <div *ngIf="myLanguageCus == 'Arabic'" class="title">
+                                                        {{prodPrice.priceType.arabicDescription}}</div>
+
+                                                    <div class="currency">
+                                                        <strong>{{prodPrice.priceValue | number : '1.2-2'}}
+                                                            <span>{{'reyalSauodiL' | translate}}</span>
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                                <!--   8   ---    medgulf -->
+
+                                                <div *ngIf="detailsC.insuranceTypeCode == 2 && detailsC.insurancecompanyid == 8"
+                                                    class="flex-parent item-data">
+                                                    <label class="label-Screen2">
+                                                        مبلغ التحمل
+                                                    </label>
+                                                    <ng-select formControlName="deductablesmedgulf"
+                                                        class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                        [items]="deductMedGULF"
+                                                        (keypress)="allowOnlyNumbers($event)" bindLabel="value"
+                                                        bindValue="id"
+                                                        (change)="changeDeductablesMedGulf(detailsC,$event)"
+                                                        [attr.disabled]="deductDisabled">
+                                                    </ng-select>
+                                                </div>
+                                                <!--   9   ---    arabian shield-->
+                                                <div *ngIf="detailsC.insuranceTypeCode == 2 && detailsC.insurancecompanyid == 9"
+                                                    class="flex-parent item-data">
+                                                    <label class="label-Screen2">
+                                                        مبلغ التحمل
+                                                    </label>
+                                                    <ng-select formControlName="deductablesshield"
+                                                        class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                        [items]="deductArabianShield"
+                                                        (keypress)="allowOnlyNumbers($event)" bindLabel="value"
+                                                        bindValue="id"
+                                                        (change)="changeDeductablesArabianShield(detailsC,$event)"
+                                                        [attr.disabled]="deductDisabled">
+                                                    </ng-select>
+                                                </div>
+                                                <!--   2   ---    ACIG-->
+
+                                                <div *ngIf="detailsC.insuranceTypeCode == 2 && detailsC.insurancecompanyid == 2"
+                                                    class="flex-parent item-data">
+                                                    <label class="label-Screen2">
+                                                        مبلغ التحمل
+                                                    </label>
+
+                                                    <ng-select formControlName="deductablesAcig"
+                                                        class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                        [items]="deductACIG" (keypress)="allowOnlyNumbers($event)"
+                                                        (change)="changeDeductablesACIG(detailsC,$event)"
+                                                        bindLabel="value" bindValue="id" placeholder="5000"
+                                                        [attr.disabled]="deductDisabled">
+                                                    </ng-select>
+                                                </div>
+
+                                                <div *ngIf="detailsC.deductibleValue != null && detailsC.insurancecompanyid != 8
+                                                   && detailsC.insurancecompanyid != 9
+                                                  && detailsC.insurancecompanyid != 2" class="flex-parent item-data">
+                                                    <label class="label-Screen2">
+                                                        مبلغ التحمل
+                                                    </label>
+
+                                                    <ng-select *ngIf="myLanguageCus == 'Arabic'"
+                                                        formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                        class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                        [items]="detailsC.deductibleValuesList"
+                                                        (keypress)="allowOnlyNumbers($event)"
+                                                        bindValue="detailsC.deductibleValuesList[i]"
+                                                        (change)="changeDeductables(detailsC,$event)">
+                                                    </ng-select>
+
+                                                    <ng-select *ngIf="myLanguageCus == 'English'"
+                                                        formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                        class="form-control col-3 quotation-select selectOptionStyle selectOptionStyledoDimmed  input-width"
+                                                        [items]="detailsC.deductibleValuesList"
+                                                        (keypress)="allowOnlyNumbers($event)"
+                                                        bindValue="detailsC.deductibleValuesList[i]"
+                                                        (change)="changeDeductables(detailsC,$event)">
+                                                    </ng-select>
+                                                </div>
+
+                                                <div class="flex-parent item-data total-money">
+                                                    <div class="title">{{'totalPrice' | translate}}</div>
+                                                    <div class="currency">
+                                                        {{detailsC.products[0]?.productPrice}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="detailsC.insurancecompanyid ==20 && detailsC.insuranceTypeCode == 2">
+                                               <div  class="vehicelLimt" *ngIf="detailsC.products[0]?.vehicleLimitValue != null">
+                                                <div class="blue">
+                                                    <span class="pad-vehicle-limit">{{'vehicalValue'|translate}}</span>
+                                                    <span class="pad-vehicle-limit">{{detailsC.products[0]?.vehicleLimitValue}}</span>
+                                                    <span class="pad-vehicle-limit">{{'rial'|translate}}</span>
+                                                </div>
+                                               </div>
+                                            </div> 
+                                            <div class="buy-btn">
+                                                <div class="privacy-text">
+                                                    <a *ngIf="myLanguageCus == 'Arabic'"
+                                                        href="{{detailsC.products[0].termsFilePathAr}}"
+                                                        target="_blank">الشروط والأحكام</a>
+                                                    <a *ngIf="myLanguageCus == 'English'"
+                                                        href="{{detailsC.products[0].termsFilePathEn}}"
+                                                        target="_blank">
+                                                        Terms & Conditions</a>
+                                                </div>
+                                                <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                    (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[0].id, detailsC.products[0].productBenefits)">
+                                                    {{'buyNow'|translate}}<i
+                                                        class="fa fa-spinner fa-spin custom-loader"
+                                                        *ngIf="loading[detailsC.products[0].id]"></i></button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-xs-12 p-last mobile-show">
+                                <form [formGroup]="formdata">
+                                    <div class="row special-flex">
+                                        <div class="plast-wrapper col-lg-8 col-xs-12">
+                                            <div class="flex-parent item-data total-money mobile-total-cal">
+                                                <div class="col-xs-4 cancel-padding">
+                                                    <div *ngIf="detailsC.insuranceTypeCode == 2 && detailsC.insurancecompanyid == 8"
+                                                        class="flex-parent item-data col-xs-4 center-input cancel-padding center-input cancel-padding">
+                                                        <label class="label-Screen2">
+                                                            مبلغ التحمل
+                                                        </label>
+                                                        <ng-select formControlName="deductablesmedgulf"
+                                                            class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                            [items]="deductMedGULF"
+                                                            (keypress)="allowOnlyNumbers($event)" bindLabel="value"
+                                                            bindValue="id"
+                                                            (change)="changeDeductablesMedGulf(detailsC,$event)">
+                                                        </ng-select>
+                                                    </div>
+                                                    <!--   9   ---    arabian shield-->
+                                                    <div *ngIf="detailsC.insuranceTypeCode == 2 && detailsC.insurancecompanyid == 9"
+                                                        class="flex-parent item-data col-xs-4 center-input cancel-padding center-input cancel-padding">
+                                                        <label class="label-Screen2">
+                                                            مبلغ التحمل
+                                                        </label>
+                                                        <ng-select formControlName="deductablesshield"
+                                                            class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                            [items]="deductArabianShield"
+                                                            (keypress)="allowOnlyNumbers($event)" bindLabel="value"
+                                                            bindValue="id"
+                                                            (change)="changeDeductablesArabianShield(detailsC,$event)">
+                                                        </ng-select>
+                                                    </div>
+                                                    <!--   2   ---    ACIG-->
+
+                                                    <div *ngIf="detailsC.insuranceTypeCode == 2 && detailsC.insurancecompanyid == 2"
+                                                        class="flex-parent item-data col-xs-4 center-input cancel-padding">
+                                                        <label class="label-Screen2">
+                                                            مبلغ التحمل
+                                                        </label>
+
+                                                        <ng-select formControlName="deductablesAcig"
+                                                            class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                            [items]="deductACIG"
+                                                            (keypress)="allowOnlyNumbers($event)"
+                                                            (change)="changeDeductablesACIG(detailsC,$event)"
+                                                            bindLabel="value" bindValue="id" placeholder="5000">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    <div *ngIf="detailsC.deductibleValue != null && detailsC.insurancecompanyid != 8
+                                                        && detailsC.insurancecompanyid != 9
+                                                         && detailsC.insurancecompanyid != 2"
+                                                        class="flex-parent item-data col-xs-4 center-input cancel-padding">
+                                                        <label class="label-Screen2">
+                                                            مبلغ التحمل
+                                                        </label>
+
+                                                        <ng-select *ngIf="myLanguageCus == 'Arabic'"
+                                                            formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                            class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                            [items]="detailsC.deductibleValuesList"
+                                                            (keypress)="allowOnlyNumbers($event)"
+                                                            bindValue="detailsC.deductibleValuesList[i]"
+                                                            (change)="changeDeductables(detailsC,$event)">
+                                                        </ng-select>
+
+                                                        <ng-select *ngIf="myLanguageCus == 'English'"
+                                                            formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                            class="form-control col-3 quotation-select selectOptionStyle selectOptionStyledoDimmed  input-width"
+                                                            [items]="detailsC.deductibleValuesList"
+                                                            (keypress)="allowOnlyNumbers($event)"
+                                                            bindValue="detailsC.deductibleValuesList[i]"
+                                                            (change)="changeDeductables(detailsC,$event)">
+                                                        </ng-select>
+                                                    </div> 
+                                                   
+                                                </div>
+                                                <div class="col-xs-4 privacy-text">
+                                                    <a *ngIf="myLanguageCus == 'Arabic'"
+                                                        href="{{detailsC.products[0].termsFilePathAr}}"
+                                                        target="_blank">الشروط والأحكام</a>
+                                                    <a *ngIf="myLanguageCus == 'English'"
+                                                        href="{{detailsC.products[0].termsFilePathEn}}"
+                                                        target="_blank">
+                                                        Terms & Conditions</a>
+                                                </div>
+                                                <div class="col-xs-4 total-wrapper">
+                                                    <div class="title">{{'totalPrice' | translate}}</div>
+                                                    <div class="currency">
+                                                        {{detailsC.products[0]?.productPrice}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         
+                                            <div *ngIf="detailsC.insurancecompanyid ==20 && detailsC.insuranceTypeCode == 2">
+                                               <div class="vehicelLimt" *ngIf="detailsC.products[0]?.vehicleLimitValue != null">
+                                                <div class="blue">
+                                                    <span class="pad-vehicle-limit">{{'vehicalValue'|translate}}</span>
+                                                    <span class="pad-vehicle-limit">{{detailsC.products[0]?.vehicleLimitValue}}</span>
+                                                    <span class="pad-vehicle-limit">{{'rial'|translate}}</span>
+                                                </div>
+                                               </div>
+                                            </div> 
+                                        </div>
+
+                                        <div class="col-lg-4 col-xs-12 mobile-show pos-abs-btn ">
+                                            <div class="buy-btn ">
+                                                <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                    (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[0].id, detailsC.products[0].productBenefits)">
+                                                    {{'buyNow'|translate}}<i
+                                                        class="fa fa-spinner fa-spin custom-loader"
+                                                        *ngIf="loading[detailsC.products[0].id]"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="detailsC.insurancecompanyid == 12">
+                    <div *ngIf="detailsC.products[0]?.insuranceTypeCode == 1">
+                        <div class="item-wrapper">
+                            <div class="row">
+                                <div class="col-lg-9 custom-float-right col-xs-12 mt-10">
+                                    <div class="bcare-line">
+                                        <!-- <div class="left-side">
+                                            <div class="blue-month">الشهر الأزرق</div>
+                                            <div class="yellow-text">خدمة المساعدة على الطريق من بي كير مجانًا
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="right-side">
+                                            <div class="price"> <span class="number">200</span><span
+                                                    class="money">ريال</span>
+                                            </div>
+                                            <img src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png"
+                                                width="75">
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-12"></div>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="insuranse-type">
+                                    <span class="show-Type-insurance blue"
+                                        *ngIf="detailsC.deductibleValue == null || detailsC.deductibleValue == 0">{{'TPL'|translate}}</span>
+                                    <span class="show-Type-insurance green"
+                                        *ngIf="detailsC.deductibleValue != null">{{'comperhnsiveInsurance'|translate}}</span>
+                                </div>
+                            </div>-->
+
+                            <div class="row">
+                                <div class="insuranse-type">
+                                    <span class="show-Type-insurance blue">{{'motorFlex'|translate}}</span>    
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-lg-2 col-sm-2 col-xs-12 desktop-view">
+                                    <div class="p-head">
+                                        <div class="wrapper">
+                                            <div class="insured-logo">
+                                                <img
+                                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                            </div>
+                                        </div>
+                                        <div class="speed-loader">
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==3">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==4">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <!-- <div class="bcare-stars" *ngIf="detailsC.autoLeasingBulkSelectedBenfits.length < 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>  -->
+
+                                            <!-- <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                </div>
+                                                <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="intermediate">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div>
+                                                <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade > 2">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div>
+                                                <div class="bcare-balls"
+                                                    *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==null">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div> -->
+                                            <!-- <div class="bcare-stars">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div> -->
+                                            <div class="speed-text">ســـرعـــة الـــربـــط </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-xs-12 mobile-view">
+                                    <div class="p-head">
+                                        <div class="wrapper">
+                                            <div class="insured-logo">
+                                                <img
+                                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                            </div>
+                                        </div>
+                                        <div class="speed-loader">
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==3">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==4">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mobile-insurance">
+                                            <div class="show-insurance">
+                                                <span class="show-Type-insurance blue">{{'motorFlex'|translate}}</span>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="detailsC.products[0].productBenefits?.length == 0"
+                                    class="col-lg-6 col-sm-6 col-xs-12 p-middle">
+                                    <div class="additiontal-title">{{'noBenefits'|translate}}</div>
+                                </div>
+                                <div *ngIf="detailsC.products[0].productBenefits?.length != 0"
+                                    class="col-lg-6 col-sm-6  col-xs-12 p-middle">
+                                    <div class="additiontal-title">{{'AdditionalBenefits'|translate}}</div>
+                                    <div class="product-benefits addClass{{detailsC.products[0].id}}">
+                                        <div *ngFor="let prodDetailsInfo of detailsC.products[0].productBenefits"
+                                            class="flex-parent item-price">
+                                            <label class="custom-checkbox">
+                                                <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'Arabic'"
+                                                    class="label-name">{{prodDetailsInfo.benefit.arabicDescription}}</label>
+                                                <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'English'"
+                                                    class="label-name">{{prodDetailsInfo.benefit.englishDescription}}</label>
+                                                <span class="txt-sm txt-brand sm-pad" *ngIf="prodDetailsInfo.isReadOnly == true">{{'included'|translate}}</span>
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == true && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                                disabled />
+                                               <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                               (click)="addBenifitToTotal($event,prodDetailsInfo,detailsC , detailsC.products[0]?.productPrice,prodDetailsInfo.id,prodDetailsInfo.benefitId)"/>
+                                               <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == false"  type="checkbox" name="radio" id="{{prodDetailsInfo.id}}"
+                                                class="benifitclassCheck{{prodDetailsInfo.benefitId}}"
+                                                (click)="addBenifitToTotal($event,
+                                                prodDetailsInfo,
+                                                detailsC ,
+                                                 detailsC.products[0]?.productPrice,
+                                                 prodDetailsInfo.id,
+                                                 prodDetailsInfo.benefitId)" />
+
+                                             
+                                                <span class="right-mark"></span>
+                                            </label>
+                                            
+                                            <div *ngIf="prodDetailsInfo.benefitPrice > 0" class="currency">
+                                                {{prodDetailsInfo.benefitPrice}}
+                                                <span>
+                                                    {{'reyalSauodiL' | translate}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="detailsC.products[0].productBenefits?.length > 4" class="desktop-show">
+                                        <a class="show-more pointer"
+                                            *ngIf="showMoreBenfits[detailsC.products[0].id]  == true && hideMoreBenfits[detailsC.products[0].id] == false"
+                                            (click)="openBenfits(detailsC.products[0].id)">{{'hideMoreBenfits'|translate}}</a>
+                                        <a class="show-more pointer"
+                                            *ngIf="hideMoreBenfits[detailsC.products[0].id] == true && showMoreBenfits[detailsC.products[0].id] == false"
+                                            (click)="hideBenfits(detailsC.products[0].id)">{{'showMoreBenfits'|translate}}</a>
+                                    </div>
+
+                                    <div *ngIf="detailsC.products[0].productBenefits?.length > 4" class="mobile-show">
+                                        <!-- <a class="show-more pointer"
+                                            *ngIf="showMoreBenfits[detailsC.products[0].id]  == true && hideMoreBenfits[detailsC.products[0].id] == false"
+                                            (click)="openBenfits(detailsC.products[0].id)">{{'hideMoreBenfits'|translate}}</a>
+                                        <a class="show-more pointer"
+                                            *ngIf="hideMoreBenfits[detailsC.products[0].id] == true && showMoreBenfits[detailsC.products[0].id] == false"
+                                            (click)="hideBenfits(detailsC.products[0].id)">{{'showMoreBenfits'|translate}}</a> -->
+                                        <div class="down-arrow">
+                                            <a class="show-more pointer"
+                                                *ngIf="showMoreBenfits[detailsC.products[0].id]  == true && hideMoreBenfits[detailsC.products[0].id] == false"
+                                                (click)="openBenfits(detailsC.products[0].id)"><i
+                                                    class="icon-down-circle-arrow"></i></a>
+                                            <a class="show-more pointer"
+                                                *ngIf="hideMoreBenfits[detailsC.products[0].id] == true && showMoreBenfits[detailsC.products[0].id] == false"
+                                                (click)="hideBenfits(detailsC.products[0].id)"><i
+                                                    class="icon-down-circle-arrow"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12 p-last desktop-show">
+                                    <form [formGroup]="formdata">
+                                        <div class="row special-flex">
+                                            <div class="plast-wrapper col-lg-12 col-xs-12 ">
+                                                <div class="form-padding">
+                                                    <div *ngFor="let prodPrice of detailsC.products[0]?.priceDetails"
+                                                        class="flex-parent item-data">
+                                                        <div *ngIf="myLanguageCus == 'English'" class="title">
+                                                            {{prodPrice.priceType.englishDescription}}</div>
+
+                                                        <div *ngIf="myLanguageCus == 'Arabic'" class="title">
+                                                            {{prodPrice.priceType.arabicDescription}}</div>
+
+                                                        <div class="currency">
+                                                            <strong>{{prodPrice.priceValue | number : '1.2-2'}} 
+                                                                <span>{{'reyalSauodiL' | translate}}</span>
+                                                            </strong>
+                                                        </div>
+                                                    </div>
+                                
+                                                 
+                                                    <div class="flex-parent item-data total-money">
+                                                        <div class="title">{{'totalPrice' | translate}}</div>
+                                                        <div class="currency">
+                                                            {{detailsC.products[0]?.productPrice}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="buy-btn">
+                                                    <div class="privacy-text">
+                                                        <a *ngIf="myLanguageCus == 'Arabic'"
+                                                            href="{{detailsC.products[0].termsFilePathAr}}"
+                                                            target="_blank">الشروط والأحكام</a>
+                                                        <a *ngIf="myLanguageCus == 'English'"
+                                                            href="{{detailsC.products[0].termsFilePathEn}}"
+                                                            target="_blank">
+                                                            Terms & Conditions</a>
+                                                    </div>
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[0].id, detailsC.products[0].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[0].id]"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12 p-last mobile-show">
+                                    <form [formGroup]="formdata">
+                                        <div class="row special-flex">
+                                            <div class="plast-wrapper col-lg-8 col-xs-12">
+                                                <div class="flex-parent item-data total-money mobile-total-cal">
+                                                    <div class="col-xs-4 cancel-padding"> 
+                                                    </div>
+                                                    <div class="col-xs-4 privacy-text">
+                                                        <a *ngIf="myLanguageCus == 'Arabic'"
+                                                            href="{{detailsC.products[0].termsFilePathAr}}"
+                                                            target="_blank">الشروط والأحكام</a>
+                                                        <a *ngIf="myLanguageCus == 'English'"
+                                                            href="{{detailsC.products[0].termsFilePathEn}}"
+                                                            target="_blank">
+                                                            Terms & Conditions</a>
+                                                    </div>
+                                                    <div class="col-xs-4 total-wrapper">
+                                                        <div class="title">{{'totalPrice' | translate}}</div>
+                                                        <div class="currency">
+                                                            {{detailsC.products[0]?.productPrice}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             
+                                                <div class="buy-btn">
+                                                 
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[0].id, detailsC.products[0].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[0].id]"></i></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-xs-12 mobile-show pos-abs-btn ">
+                                                <div class="buy-btn ">
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[0].id, detailsC.products[0].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[0].id]"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div *ngIf="detailsC.products[1]?.insuranceTypeCode == 7">
+                        <div class="item-wrapper">
+                            <div class="row">
+                                <div class="col-lg-9 custom-float-right col-xs-12">
+                                    <div class="bcare-line">
+                                        <!-- <div class="left-side">
+                                            <div class="blue-month">الشهر الأزرق</div>
+                                            <div class="yellow-text">خدمة المساعدة على الطريق من بي كير مجانًا
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="right-side">
+                                            <div class="price"> <span class="number">200</span><span
+                                                    class="money">ريال</span>
+                                            </div>
+                                            <img src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png"
+                                                width="75">
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-12"></div>
+                            </div>
+                            <div class="row">
+                                <div class="insuranse-type">
+                                    <span class="show-Type-insurance pink">{{'SanadPlus'|translate}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="item">
+                           
+
+                                <div class="col-lg-2 col-sm-2 col-xs-12 desktop-view">
+                                    <div class="p-head">
+                                        <div class="wrapper">
+                                            <div class="insured-logo">
+                                                <img
+                                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                            </div>
+                                        </div>
+                                        <div class="speed-loader">
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==1">
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==2">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==3">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==4">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <!-- <div class="bcare-stars" *ngIf="detailsC.autoLeasingBulkSelectedBenfits.length < 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>  -->
+
+                                            <!-- <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                </div>
+                                                <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="intermediate">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div>
+                                                <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade > 2">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div>
+                                                <div class="bcare-balls"
+                                                    *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==null">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div> -->
+                                            <!-- <div class="bcare-stars">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div> -->
+                                            <div class="speed-text">ســـرعـــة الـــربـــط </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-xs-12 mobile-view">
+                                 
+                                    <div class="p-head">
+                                        <div class="wrapper">
+                                            <div class="insured-logo">
+                                                <img
+                                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                            </div>
+                                        </div>
+                                        <div class="speed-loader">
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==1">
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==2">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==3">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==4">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[1]?.CompanyGrade ==0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                        </div>
+                                          <div class="mobile-insurance">
+                                            <div class="show-insurance">
+                                                <span class="show-Type-insurance pink">{{'SanadPlus'|translate}}</span>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                <div *ngIf="detailsC.products[1].productBenefits.length == 0"
+                                    class="col-lg-6 col-sm-6 col-xs-12 p-middle">
+                                    <div class="additiontal-title">{{'noBenefits'|translate}}</div>
+                                </div>
+                                <div *ngIf="detailsC.products[1].productBenefits.length != 0"
+                                    class="col-lg-6 col-sm-6  col-xs-12 p-middle">
+                                    <div class="additiontal-title">{{'AdditionalBenefits'|translate}}</div>
+                                    <div class="product-benefits addClass{{detailsC.products[1].id}}">
+                                        <div *ngFor="let prodDetailsInfo of detailsC.products[1].productBenefits"
+                                            class="flex-parent item-price">
+                                            <label class="custom-checkbox">
+                                                <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'Arabic'"
+                                                    class="label-name">{{prodDetailsInfo.benefit.arabicDescription}}</label>
+                                                <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'English'"
+                                                    class="label-name">{{prodDetailsInfo.benefit.englishDescription}}</label>
+                                                <span class="txt-sm txt-brand sm-pad" *ngIf="prodDetailsInfo.isReadOnly == true">{{'included'|translate}}</span>
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == true && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                                disabled />
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                                (click)="addBenifitToTotalTawSandPlus($event,prodDetailsInfo,detailsC , detailsC.products[1]?.productPrice,prodDetailsInfo.id,prodDetailsInfo.benefitId)"/>
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == false"  type="checkbox" name="radio" id="{{prodDetailsInfo.id}}"
+                                                class="benifitclassCheck{{prodDetailsInfo.benefitId}}"
+                                                (click)="addBenifitToTotalTawSandPlus($event,prodDetailsInfo,detailsC , detailsC.products[1]?.productPrice,prodDetailsInfo.id,prodDetailsInfo.benefitId)" />
+                                                <span class="right-mark"></span>
+                                            </label>
+                                           
+                                            <div *ngIf="prodDetailsInfo.benefitPrice > 0" class="currency">
+                                                {{prodDetailsInfo.benefitPrice}}
+                                                <span>
+                                                    {{'reyalSauodiL' | translate}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="detailsC.products[1].productBenefits.length > 4">
+                                        <a class="show-more pointer"
+                                            *ngIf="showMoreBenfits[detailsC.products[1].id]  == true && hideMoreBenfits[detailsC.products[1].id] == false"
+                                            (click)="openBenfits(detailsC.products[1].id)">{{'hideMoreBenfits'|translate}}</a>
+                                        <a class="show-more pointer"
+                                            *ngIf="hideMoreBenfits[detailsC.products[1].id] == true && showMoreBenfits[detailsC.products[1].id] == false"
+                                            (click)="hideBenfits(detailsC.products[1].id)">{{'showMoreBenfits'|translate}}</a>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12 p-last desktop-show">
+                                    <form [formGroup]="formdata">
+                                        <div class="row special-flex">
+                                            <div class="plast-wrapper col-lg-12 col-xs-12">
+                                                <div class="form-padding">
+                                                    <div *ngFor="let prodPrice of detailsC.products[1]?.priceDetails"
+                                                    class="flex-parent item-data">
+                                                    <div *ngIf="myLanguageCus == 'English'" class="title">
+                                                        {{prodPrice.priceType.englishDescription}}</div>
+
+                                                    <div *ngIf="myLanguageCus == 'Arabic'" class="title">
+                                                        {{prodPrice.priceType.arabicDescription}}</div>
+
+                                                    <div class="currency">
+                                                        <strong>{{prodPrice.priceValue | number : '1.2-2'}} 
+                                                            <span>{{'reyalSauodiL' | translate}}</span>
+                                                        </strong>
+                                                    </div>
+                                                    </div>
+                                                    <div class="flex-parent item-data total-money">
+                                                        <div class="title">{{'totalPrice' | translate}}</div>
+                                                        <div class="currency">
+                                                            {{detailsC.products[1]?.productPrice}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             
+                                                <div class="buy-btn">
+
+                                                    <div class="privacy-text">
+                                                        <a *ngIf="myLanguageCus == 'Arabic'"
+                                                            href="{{detailsC.products[1].termsFilePathAr}}"
+                                                            target="_blank">الشروط والأحكام</a>
+                                                        <a *ngIf="myLanguageCus == 'English'"
+                                                            href="{{detailsC.products[1].termsFilePathEn}}" target="_blank">
+                                                            Terms & Conditions</a>
+                                                    </div>
+                                                    <button class="buy-now" type="button"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[1].id, detailsC.products[1].productBenefits)">
+                                                        {{'buyNow'|translate}}<i class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[1].id]"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12 p-last mobile-show">
+                                    <form [formGroup]="formdata">
+                                        <div class="row special-flex">
+                                            <div class="plast-wrapper col-lg-8 col-xs-12">
+                                                <div class="flex-parent item-data total-money mobile-total-cal">
+                                                    <div class="col-xs-4 cancel-padding">
+                                                    </div>
+                                                    <div class="col-xs-4 privacy-text">
+                                                        <a *ngIf="myLanguageCus == 'Arabic'"
+                                                            href="{{detailsC.products[1].termsFilePathAr}}"
+                                                            target="_blank">الشروط والأحكام</a>
+                                                        <a *ngIf="myLanguageCus == 'English'"
+                                                            href="{{detailsC.products[1].termsFilePathEn}}"
+                                                            target="_blank">
+                                                            Terms & Conditions</a>
+                                                    </div>
+                                                    <div class="col-xs-4 total-wrapper">
+                                                        <div class="title">{{'totalPrice' | translate}}</div>
+                                                        <div class="currency">
+                                                            {{detailsC.products[1]?.productPrice}}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                                <div class="buy-btn">
+                                                 
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[1].id, detailsC.products[1].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[1].id]"></i></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-xs-12 mobile-show pos-abs-btn ">
+                                                <div class="buy-btn ">
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[1].id, detailsC.products[1].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[1].id]"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="detailsC.products[2]?.insuranceTypeCode == 2">
+                        <div class="item-wrapper">
+                            <div class="row">
+                                <div class="col-lg-9 custom-float-right col-xs-12 mt-10">
+                                    <div class="bcare-line">
+                                        <!-- <div class="left-side">
+                                            <div class="blue-month">الشهر الأزرق</div>
+                                            <div class="yellow-text">خدمة المساعدة على الطريق من بي كير مجانًا
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="right-side">
+                                            <div class="price"> <span class="number">200</span><span
+                                                    class="money">ريال</span>
+                                            </div>
+                                            <img src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png"
+                                                width="75">
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-12"></div>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="insuranse-type">
+                                    <span class="show-Type-insurance blue"
+                                        *ngIf="detailsC.deductibleValue == null || detailsC.deductibleValue == 0">{{'TPL'|translate}}</span>
+                                    <span class="show-Type-insurance green"
+                                        *ngIf="detailsC.deductibleValue != null">{{'comperhnsiveInsurance'|translate}}</span>
+                                </div>
+                            </div>-->
+
+                            <div class="row">
+                                <div class="insuranse-type">
+                                    <span class="show-Type-insurance green">{{'comperhnsiveInsurance'|translate}}</span>    
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-lg-2 col-sm-2 col-xs-12 desktop-view">
+                                    <div class="p-head">
+                                        <div class="wrapper">
+                                            <div class="insured-logo">
+                                                <img
+                                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                            </div>
+                                        </div>
+                                        <div class="speed-loader">
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==1">
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==2">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==3">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==4">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <!-- <div class="bcare-stars" *ngIf="detailsC.autoLeasingBulkSelectedBenfits.length < 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>  -->
+
+                                            <!-- <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==1">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                </div>
+                                                <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==2">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="speed">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="intermediate">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div>
+                                                <div class="bcare-balls" *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade > 2">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div>
+                                                <div class="bcare-balls"
+                                                    *ngIf="detailsC.autoLeasingBulkSelectedBenfits[0]?.CompanyGrade ==null">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                    <img src="../../../assets/imgs/bcaretab.png" class="slow">
+                                                </div> -->
+                                            <!-- <div class="bcare-stars">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div> -->
+                                            <div class="speed-text">ســـرعـــة الـــربـــط </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-xs-12 mobile-view">
+                                    <div class="p-head">
+                                        <div class="wrapper">
+                                            <div class="insured-logo">
+                                                <img
+                                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{detailsC.insurancecompanyKey}}.png" />
+                                            </div>
+                                        </div>
+                                        <div class="speed-loader">
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==1">
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==2">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==3">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-blue-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==4">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="detailsC.autoLeasingBulkSelectedBenfits[2]?.CompanyGrade ==0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                            <div class="bcare-stars"
+                                                *ngIf="testVar =='NoGrade' && detailsC.autoLeasingBulkSelectedBenfits.length == 0">
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                                <i class="icon-yellow-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mobile-insurance">
+                                            <div class="show-insurance">
+                                                <span class="show-Type-insurance green">{{'comperhnsiveInsurance'|translate}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="detailsC.products[2].productBenefits?.length == 0"
+                                    class="col-lg-6 col-sm-6 col-xs-12 p-middle">
+                                    <div class="additiontal-title">{{'noBenefits'|translate}}</div>
+                                </div>
+                                <div *ngIf="detailsC.products[2].productBenefits?.length != 0"
+                                    class="col-lg-6 col-sm-6  col-xs-12 p-middle">
+                                    <div class="additiontal-title">{{'AdditionalBenefits'|translate}}</div>
+                                    <div class="product-benefits addClass{{detailsC.products[2].id}}">
+                                        <div *ngFor="let prodDetailsInfo of detailsC.products[2].productBenefits"
+                                            class="flex-parent item-price">
+                                            <label class="custom-checkbox">
+                                                <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'Arabic'"
+                                                    class="label-name">{{prodDetailsInfo.benefit.arabicDescription}}</label>
+                                                <label for="{{prodDetailsInfo.id}}" *ngIf="myLanguageCus == 'English'"
+                                                    class="label-name">{{prodDetailsInfo.benefit.englishDescription}}</label>
+                                                <span class="txt-sm txt-brand sm-pad" *ngIf="prodDetailsInfo.isReadOnly == true">{{'included'|translate}}</span>
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == true && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                                    disabled />
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == true" type="checkbox" name="radio" id="{{prodDetailsInfo.id}}" checked
+                                                (click)="addBenifitToTotalTawComperhnsive($event,prodDetailsInfo,detailsC , detailsC.products[2]?.productPrice,prodDetailsInfo.id,prodDetailsInfo.benefitId)"/>
+                                                <input *ngIf="prodDetailsInfo.isReadOnly == false && prodDetailsInfo.isSelected == false"  type="checkbox" name="radio" id="{{prodDetailsInfo.id}}"
+                                                    class="benifitclassCheck{{prodDetailsInfo.benefitId}}"
+                                                    (click)="addBenifitToTotalTawComperhnsive($event,prodDetailsInfo,detailsC , detailsC.products[2]?.productPrice,prodDetailsInfo.id,prodDetailsInfo.benefitId)" />
+                                                <span class="right-mark"></span>
+                                            </label>
+                                            
+
+                                            <div *ngIf="prodDetailsInfo.benefitPrice  > 0" class="currency">
+                                                {{prodDetailsInfo.benefitPrice}}
+                                                <span>
+                                                    {{'reyalSauodiL' | translate}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="detailsC.products[2].productBenefits?.length > 4" class="desktop-show">
+                                        <a class="show-more pointer"
+                                            *ngIf="showMoreBenfits[detailsC.products[2].id]  == true && hideMoreBenfits[detailsC.products[2].id] == false"
+                                            (click)="openBenfits(detailsC.products[2].id)">{{'hideMoreBenfits'|translate}}</a>
+                                        <a class="show-more pointer"
+                                            *ngIf="hideMoreBenfits[detailsC.products[2].id] == true && showMoreBenfits[detailsC.products[2].id] == false"
+                                            (click)="hideBenfits(detailsC.products[2].id)">{{'showMoreBenfits'|translate}}</a>
+                                    </div>
+
+                                    <div *ngIf="detailsC.products[2].productBenefits?.length > 4" class="mobile-show">
+                                        <!-- <a class="show-more pointer"
+                                            *ngIf="showMoreBenfits[detailsC.products[2].id]  == true && hideMoreBenfits[detailsC.products[2].id] == false"
+                                            (click)="openBenfits(detailsC.products[2].id)">{{'hideMoreBenfits'|translate}}</a>
+                                        <a class="show-more pointer"
+                                            *ngIf="hideMoreBenfits[detailsC.products[2].id] == true && showMoreBenfits[detailsC.products[2].id] == false"
+                                            (click)="hideBenfits(detailsC.products[2].id)">{{'showMoreBenfits'|translate}}</a> -->
+                                        <div class="down-arrow">
+                                            <a class="show-more pointer"
+                                                *ngIf="showMoreBenfits[detailsC.products[2].id]  == true && hideMoreBenfits[detailsC.products[2].id] == false"
+                                                (click)="openBenfits(detailsC.products[2].id)"><i
+                                                    class="icon-down-circle-arrow"></i></a>
+                                            <a class="show-more pointer"
+                                                *ngIf="hideMoreBenfits[detailsC.products[2].id] == true && showMoreBenfits[detailsC.products[2].id] == false"
+                                                (click)="hideBenfits(detailsC.products[2].id)"><i
+                                                    class="icon-down-circle-arrow"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12 p-last desktop-show">
+                                    <form [formGroup]="formdata">
+                                        <div class="row special-flex">
+                                            <div class="plast-wrapper col-lg-12 col-xs-12 ">
+                                                <div class="form-padding">
+                                                    <div *ngFor="let prodPrice of detailsC.products[2]?.priceDetails"
+                                                        class="flex-parent item-data">
+                                                        <div *ngIf="myLanguageCus == 'English'" class="title">
+                                                            {{prodPrice.priceType.englishDescription}}</div>
+
+                                                        <div *ngIf="myLanguageCus == 'Arabic'" class="title">
+                                                            {{prodPrice.priceType.arabicDescription}}</div>
+
+                                                        <div class="currency">
+                                                            <strong>{{prodPrice.priceValue | number : '1.2-2'}}
+                                                                <span>{{'reyalSauodiL' | translate}}</span>
+                                                            </strong>
+                                                        </div>
+                                                    </div>
+                                
+                                                    <div *ngIf="detailsC.products[2]?.deductableValue != null"  class="flex-parent item-data">
+                                                        <label class="label-Screen2">
+                                                            مبلغ التحمل
+                                                        </label>
+
+                                                        <ng-select *ngIf="myLanguageCus == 'Arabic'"
+                                                            formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                            class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                            [items]="detailsC.deductibleValuesList"
+                                                            (keypress)="allowOnlyNumbers($event)"
+                                                            bindValue="detailsC.deductibleValuesList[i]"
+                                                            (change)="changeDeductablesTaw(detailsC,$event)">
+                                                        </ng-select>
+
+                                                        <ng-select *ngIf="myLanguageCus == 'English'"
+                                                            formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                            class="form-control col-3 quotation-select selectOptionStyle selectOptionStyledoDimmed  input-width"
+                                                            [items]="detailsC.deductibleValuesList"
+                                                            (keypress)="allowOnlyNumbers($event)"
+                                                            bindValue="detailsC.deductibleValuesList[i]"
+                                                            (change)="changeDeductablesTaw(detailsC,$event)">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    <div class="flex-parent item-data total-money">
+                                                        <div class="title">{{'totalPrice' | translate}}</div>
+                                                        <div class="currency">
+                                                            {{detailsC.products[2]?.productPrice}}
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="vehicelLimt" *ngIf="detailsC.products[2]?.vehicleLimitValue != null">
+                                                    <div class="blue">
+                                                        <span class="pad-vehicle-limit">{{'vehicalValue'|translate}}</span>
+                                                        <span class="pad-vehicle-limit">{{detailsC.products[2]?.vehicleLimitValue}}</span>
+                                                        <span class="pad-vehicle-limit">{{'rial'|translate}}</span>
+                                                    </div>
+                                                </div> 
+                                                <div class="buy-btn">
+                                                    <div class="privacy-text">
+                                                        <a *ngIf="myLanguageCus == 'Arabic'"
+                                                            href="{{detailsC.products[2].termsFilePathAr}}"
+                                                            target="_blank">الشروط والأحكام</a>
+                                                        <a *ngIf="myLanguageCus == 'English'"
+                                                            href="{{detailsC.products[2].termsFilePathEn}}"
+                                                            target="_blank">
+                                                            Terms & Conditions</a>
+                                                    </div>
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[2].id, detailsC.products[2].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[2].id]"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12 p-last mobile-show">
+                                    <form [formGroup]="formdata">
+                                        <div class="row special-flex">
+                                            <div class="plast-wrapper col-lg-8 col-xs-12">
+                                                <div class="flex-parent item-data total-money mobile-total-cal">
+                                                    <div class="col-xs-4 cancel-padding">        
+                                                        <div *ngIf="detailsC.products[2]?.deductableValue != null"
+                                                            class="flex-parent item-data col-xs-4 center-input cancel-padding">
+                                                            <label class="label-Screen2">
+                                                                مبلغ التحمل
+                                                            </label>
+
+                                                            <ng-select *ngIf="myLanguageCus == 'Arabic'"
+                                                                formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                                class="form-control quotation-select col-3 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                                                [items]="detailsC.deductibleValuesList"
+                                                                (keypress)="allowOnlyNumbers($event)"
+                                                                bindValue="detailsC.deductibleValuesList[i]"
+                                                                (change)="changeDeductablesTaw(detailsC,$event)">
+                                                            </ng-select>
+
+                                                            <ng-select *ngIf="myLanguageCus == 'English'"
+                                                                formControlName="deductables{{detailsC.insurancecompanyid}}"
+                                                                class="form-control col-3 quotation-select selectOptionStyle selectOptionStyledoDimmed  input-width"
+                                                                [items]="detailsC.deductibleValuesList"
+                                                                (keypress)="allowOnlyNumbers($event)"
+                                                                bindValue="detailsC.deductibleValuesList[i]"
+                                                                (change)="changeDeductablesTaw(detailsC,$event)">
+                                                            </ng-select>
+                                                        </div> 
+                                                    </div>
+                                                    <div class="col-xs-4 privacy-text">
+                                                        <a *ngIf="myLanguageCus == 'Arabic'"
+                                                            href="{{detailsC.products[2].termsFilePathAr}}"
+                                                            target="_blank">الشروط والأحكام</a>
+                                                        <a *ngIf="myLanguageCus == 'English'"
+                                                            href="{{detailsC.products[2].termsFilePathEn}}"
+                                                            target="_blank">
+                                                            Terms & Conditions</a>
+                                                    </div>
+                                                    <div class="col-xs-4 total-wrapper">
+                                                        <div class="title">{{'totalPrice' | translate}}</div>
+                                                        <div class="currency">
+                                                            {{detailsC.products[2]?.productPrice}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="vehicelLimt" *ngIf="detailsC.products[2]?.vehicleLimitValue != null">
+                                                    <div class="blue">
+                                                        <span class="pad-vehicle-limit">{{'vehicalValue'|translate}}</span>
+                                                        <span class="pad-vehicle-limit">{{detailsC.products[2]?.vehicleLimitValue}}</span>
+                                                        <span class="pad-vehicle-limit">{{'rial'|translate}}</span>
+                                                    </div>
+                                                </div> 
+                                                <div class="buy-btn ">
+                                                 
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[2].id, detailsC.products[2].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[2].id]"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-xs-12 mobile-show pos-abs-btn ">
+                                                <div class="buy-btn ">
+                                                    <button class="buy-now" type="button" [disabled]="buyNwActive"
+                                                        (click)="buyNowCheckOut(detailsC.referenceId,detailsC.products[2].id, detailsC.products[2].productBenefits)">
+                                                        {{'buyNow'|translate}}<i
+                                                            class="fa fa-spinner fa-spin custom-loader"
+                                                            *ngIf="loading[detailsC.products[2].id]"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%; text-align: center;" *ngIf="showLoadingSmall">
+    <!-- <div class="loaderSmall"></div> -->
+    <div class="lds-default">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<div class="show-in-mobile">
+    <div class="modal fade" id="myModalLoginInMobile" tabindex="-1" role="dialog"
+        [ngStyle]="{'display': openPpUpInMobile ? 'block' : 'none', 'opacity': 1}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <a class="close custom-float-right closeLogin" (click)="closeLoginPopup()">x</a>
+                <div class="container height-login">
+                    <div class="row">
+                        <div class="col-xs-12" *ngIf="showLogin">
+                            <app-login [openPpUpInMobile]="openPpUpInMobile"></app-login>
+                        </div>
+                        <div class="col-xs-12" *ngIf="showReg">
+                            <app-register [openPpUpInMobile]="openPpUpInMobile"></app-register>
+                        </div>
+                        <div class="col-xs-12  grey-border" [ngClass]="(showLogin)?'ltr':'rtl'">
+                            <div class="switched-form">
+                                <div class="blue-box ">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 pad-top">
+                                            <div class="white-label txt" *ngIf="checkLoginLabel">
+                                                {{'haveAccount'|translate}}
+                                            </div>
+                                            <div class="white-label txt" *ngIf="checkRegLabel">
+                                                {{'donthaveAccount'|translate}}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 label-center">
+                                            <div class="col-lg-6 col-xs-7 padding-none">
+                                                <div class="white-label txt-login padding-none" *ngIf="checkLoginLabel">
+                                                    {{'loginToAccount'|translate}}
+                                                </div>
+                                                <div class="white-label txt-login padding-none" *ngIf="checkRegLabel">
+                                                    {{'registerNewAccount'|translate}}
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-xs-5 padding-none">
+                                                <a href="javascript:void(0)" class="orange-label txt-link padding-none"
+                                                    (click)="checkLogin()"
+                                                    *ngIf="checkLoginLabel">{{'login'|translate}}</a>
+                                                <a href="javascript:void(0)" class="orange-label txt-link padding-none"
+                                                    (click)="checkReg()"
+                                                    *ngIf="checkRegLabel">{{'newUser'|translate}}</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 height-flower">
+                                    <div class="flower-bg"></div>
+                                    <a routerLink='/'>
+                                        <img src="../../../../assets/imgs/bcare-logo.svg" alt="bcare" height="72"
+                                            class="custom-float-right logo-size">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div calss="show-in-web">
+
+    <div class="modal fade" id="myModalLoginInWeb" tabindex="-1" role="dialog"
+        [ngStyle]="{'display': openPpUpInweb ? 'block' : 'none', 'opacity': 1}">
+        <div class="modal-dialog loginWeb" role="document">
+            <div class="modal-content">
+                <a class="close custom-float-right closeLogin" (click)="closeLoginPopupInWeb()">
+                    <span class="closeicon">x</span></a>
+                <div class="container">
+                    <div class="row custom-flex">
+
+                        <div class="col-lg-6" *ngIf="showLogin">
+                            <app-login [openPpUpInweb]="openPpUpInweb"></app-login>
+                        </div>
+                        <div class="col-lg-6 grey-border" [ngClass]="(showLogin)?'ltr':'rtl'">
+                            <div class="switched-form">
+                                <div class="blue-box">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="white-label" *ngIf="checkLoginLabel">
+                                                {{'haveAccount'|translate}}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 dis-inline-flex">
+                                            <div class="white-label" *ngIf="checkLoginLabel">
+                                                {{'loginToAccount'|translate}}
+                                            </div>
+                                            <div class="white-label" *ngIf="checkRegLabel">
+                                                {{'donthaveAccount'|translate}}
+                                            </div>
+                                            <a href="javascript:void(0)" class="orange-label pad-link"
+                                                (click)="checkLogin()" *ngIf="checkLoginLabel">{{'login'|translate}}</a>
+
+                                            <a href="javascript:void(0)" class="orange-label pad-link"
+                                                (click)="checkReg()" *ngIf="checkRegLabel">{{'newUser'|translate}}</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flower-bg"></div>
+
+                                <a routerLink='/'>
+                                    <img src="../../../../assets/imgs/bcare-logo.svg" alt="bcare" height="72"
+                                        class="custom-float-right logo-size">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" *ngIf="showReg">
+                            <app-register [openPpUpInweb]="openPpUpInweb"></app-register>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal fade" id="myModalForgetPassWeb" tabindex="-1" role="dialog"
+                    [ngStyle]="{'display': forgetPassOpenPopup ? 'block' : 'none', 'opacity': 1}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">{{'resetPassword' | translate}}</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    (click)="closePopup()">
+                                    <span aria-hidden="true" class="closeicon">&times;</span>
+                                </button>
+                            </div>
+                            <form class="padding-form">
+                                <div [hidden]="!showForgetPassErr">
+                                    <div class="serverErrValidation">
+                                        <div>
+                                            <i class="icon far fa-times-circle"></i>
+                                            <div class="attrDis xs-mar bx-right">{{serverForgetPassError}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="pad-popup">
+                                        <div class="row">
+                                            <div class="input-wrapper col-lg-12 col-md-12 col-xs-12">
+                                                <input type="text" class="custom-input login-font resetEmail"
+                                                    [(ngModel)]="resetEmail" [ngModelOptions]="{standalone: true}"
+                                                    placeholder="{{'loginEmail'|translate}}" autofocus="" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 custom-float-right">
+                                                <button type="submit" class="btn btn-primary resetPass-btn"
+                                                    data-dismiss="modal"
+                                                    (click)="resetPassword(resetEmail)">{{'sendLink'|translate}}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loader-quotations *ngIf="showLoading"> </app-loader-quotations>

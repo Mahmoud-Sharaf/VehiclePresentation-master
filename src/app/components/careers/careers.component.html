@@ -1,0 +1,152 @@
+<app-header class="main-header"></app-header>
+<div class="container">
+    <div class="row serverErrValidation" [hidden]="!showErrDesc">
+        <div class="col-lg-12">
+            {{servererror}}
+        </div>
+    </div>
+    <div class="terq-bg">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="careers-form">
+                    <div class="center-title">
+                        <div class="title"><span>{{'employment' | translate}}</span> <img
+                                src="../../../assets/imgs/careersLogo.png"></div>
+                    </div>
+                    <div class="subtitle">
+                        <div class="wrapper">
+                            <span class="font-weight">{{'welcomeEmploymentMsg' | translate}}</span>
+                            <span class="font-bold">{{'bcare'| translate}}</span>
+                            <img src="../../../assets/imgs/yellowDash.png" alt="underline">
+                        </div>
+                    </div>
+                    <form autocomplete="off" [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)"
+                        class="careers-us-form">
+                        <div class="col-lg-6 col-xs-12 mb-25 custom-float-left">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'fullName' | translate}}</mat-label> -->
+                            <!-- matInput -->
+                            <input type="text" class="form-control" placeholder="{{'fullName' | translate}}"
+                                formControlName="fullName">
+                            <!-- </mat-form-field> -->
+                            <div *ngIf="submitted && formdata.controls['fullName'].errors">
+                                <span *ngIf="formdata.controls['fullName'].errors.required"
+                                    class="validateFire2">{{'fullNameRequired'
+                                    | translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 mb-25 custom-float-left">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'loginEmail' | translate}}</mat-label> -->
+                            <input type="text" class="form-control" placeholder="{{'loginEmail' | translate}}"
+                                formControlName="email">
+                            <!-- </mat-form-field> -->
+                            <div *ngIf="submitted && formdata.controls['email'].errors">
+                                <span *ngIf="formdata.controls['email'].errors.required"
+                                    class="validateFire2">{{'emailRequired'
+                                    | translate}}
+                                </span>
+                                <span *ngIf="formdata.controls['email'].errors.pattern"
+                                    class="validateFire2">{{'emailValidation' |
+                                    translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 mb-25 custom-float-left">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'phone' | translate}}</mat-label> -->
+                            <input type="tel" class="form-control" placeholder="{{'phone' | translate}}"
+                                formControlName="phone" (keypress)="alllowOnlyNumbers($event)">
+                            <!-- </mat-form-field> -->
+                            <div *ngIf="submitted && formdata.controls['phone'].errors">
+                                <span *ngIf="formdata.controls['phone'].errors.required"
+                                    class="validateFire2">{{'phoneRequired'| translate}}</span>
+                                <span *ngIf="formdata.controls['phone'].errors.pattern"
+                                    class="validateFire2">{{'phoneValidation'| translate}}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 mb-25 custom-float-left">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'birthDate' | translate}}</mat-label> -->
+                            <input type="text" class="form-control" placeholder="{{'birthDate' | translate}}"
+                                formControlName="birthDate">
+                            <!-- </mat-form-field> -->
+                            <div *ngIf="submitted && formdata.controls['birthDate'].errors">
+                                <span *ngIf="formdata.controls['birthDate'].errors.required"
+                                    class="validateFire2">{{'birthdateRequired'
+                                    | translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 mb-25 custom-float-left">
+                            <ng-select *ngIf="myLanguageCus == 'Arabic'"
+                                placeholder="{{'city' | translate}}"
+                                formControlName="city" (change)="changeCity($event.code, $event.arabicDescription)"
+                                class="full-width careers form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width"
+                                [items]="allCities" (keypress)="allowOnlyChar($event)" bindLabel="arabicDescription"
+                                bindValue="code">
+                            </ng-select>
+
+                            <ng-select  *ngIf="myLanguageCus == 'English'"
+                                placeholder="{{'city' | translate}}"
+                                formControlName="city" (change)="changeCity($event.code, $event.englishDescription)"
+                                class="full-width careers form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width "
+                                [items]="allCities" (keypress)="allowOnlyChar($event)" bindLabel="englishDescription"
+                                bindValue="code">
+                            </ng-select>
+                            <div *ngIf="submitted && formdata.controls['city'].errors">
+                                <span *ngIf="formdata.controls['city'].errors.required"
+                                    class="validateFire2">{{'cityRequired'
+                                    | translate}}
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 col-xs-12 mb-25 custom-float-left">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'jobTitle' | translate}}</mat-label> -->
+                            <input type="text" class="form-control" placeholder="{{'jobTitle' | translate}}"
+                                formControlName="jobTitle">
+                            <!-- </mat-form-field> -->
+                            <div *ngIf="submitted && formdata.controls['jobTitle'].errors">
+                                <span *ngIf="formdata.controls['jobTitle'].errors.required"
+                                    class="validateFire2">{{'jobTitleRequired'
+                                    | translate}}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12 col-xs-12 mb-25 custom-float-left ">
+                            <label for="file" class="form-control attachment">
+                            <i class="fa fa-paperclip " aria-hidden="true"></i>
+                            <span>{{"attachments" | translate}}</span>
+                        </label>
+                            <input type="file" name="file" id="file" (change)="handleInputChange($event)"
+                            formControlName="attachments"
+                            style="display: none;">
+                            <div *ngIf="submitted && formdata.controls['attachments'].errors">
+                                <span *ngIf="formdata.controls['attachments'].errors.required"
+                                    class="validateFire2">{{'attachmentsRequired'| translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 mb-25">
+                            <label class="form-title">{{'whyJoinBCare' | translate}}</label>
+                            <textarea id="exampleFormControlTextarea1" rows="10"
+                                formControlName="employmentMsg"></textarea>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 custom-float-right">
+                            <button class="primary-btn custom-float-right send-Btn" type="submit">
+                                {{'send' | translate}}<i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
+
+                        </div>
+                        <div class="col-lg-6 col-xs-12 custom-float-left">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,313 @@
+<div class="custom-main-container"></div>
+<div class="container">
+    <div class="custom-filter-wrapper">
+        <div class="row">
+            <div class="custom-filter col-lg-12 custom-float-left col-xs-12">
+                <h2 class="filter-title align-left">
+                    <span class="custom-float-left">Vehicle Insurance</span>
+                    <span class="custom-float-left subtitle">TPL / Comprehensive</span>
+                </h2>
+            </div>
+            <div class="clear-fix"></div>
+
+            <div class="col-lg-12 col-xs-12">
+                <div class="filter-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-input-wrapper custom-float-left">
+                            <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> قيمة المركبة</mat-label>
+                                <input matInput class="form-control" placeholder="Register1" id="nationalId" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="clear-fix"></div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12 custom-input-wrapper">
+                            <a href="javascript:void(0)" class="customAddDriveBtn" (click)="changeToAddDriver()">
+                                <span class="icon-wrapper">
+                                    <i class="custom-icon iconsBGClass border-radius-btn custom-icon-blue"
+                                        [ngClass]="addingDriverChecker ? 'orange-bg' : ''"></i>
+                                </span>
+                                <span class="text">اضافه سائق</span>
+                            </a>
+                            <a href="javascript:void(0)" class="customAddDriveBtn" (click)="changeToOtherDriver()">
+                                <span class="icon-wrapper">
+                                    <i class="custom-icon iconsBGClass border-radius-btn custom-icon-blue"
+                                        [ngClass]="otherDriverChecker ? 'orange-bg' : ''"></i>
+                                </span>
+                                <span class="text">معلومات إخري</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row other-info" *ngIf="otherDriverChecker">
+                        <div class="col-lg-12">
+                            <div class="customContainerTabs">
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                    <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16 سنة</label>
+                                    <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                        class="form-control">
+                                    </ng-select>
+                                </div>
+
+                                <div class="col-lg-12 col-xs-12">
+                                    <h3 _ngcontent-c7="" class="custom-blue-label">
+                                        Vehicle owner Has Violations?
+                                    </h3>
+                                    <input type="checkbox" class="switchIco" id="ee" />
+                                    <label class="lbl_Checkbox" for="ee">
+                                        <span class="stat true txt-brand custom-float-right">YES</span>
+                                        <span class="stat false txt-gray custom-float-right">NO</span>
+                                    </label>
+                                    <div class="checkbox-wrapper">
+                                        <label class="subCheckbox"><input type="checkbox"
+                                                class="ng-valid ng-dirty ng-touched" />
+                                            Speed Ticket
+                                        </label>
+                                        <label class="subCheckbox"><input type="checkbox"
+                                                class="ng-valid ng-dirty ng-touched" />
+                                            Speed Ticket
+                                        </label>
+                                        <label class="subCheckbox"><input type="checkbox"
+                                                class="ng-valid ng-dirty ng-touched" />
+                                            Speed Ticket
+                                        </label>
+                                        <label class="subCheckbox"><input type="checkbox"
+                                                class="ng-valid ng-dirty ng-touched" />
+                                            Speed Ticket
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xs-12">
+                                    <h3 _ngcontent-c7="" class="custom-blue-label">
+                                        Vehicle owner Has Violations?
+                                    </h3>
+                                    <input type="checkbox" class="switchIco" id="ee" />
+                                    <label class="lbl_Checkbox" for="ee">
+                                        <span class="stat true txt-brand custom-float-right">YES</span>
+                                        <span class="stat false txt-gray custom-float-right">NO</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-12 col-xs-12">
+                                    <h3 _ngcontent-c7="" class="custom-blue-label">
+                                        Vehicle owner Has Violations?
+                                    </h3>
+                                    <input type="checkbox" class="switchIco" id="ee" />
+                                    <label class="lbl_Checkbox" for="ee">
+                                        <span class="stat true txt-brand custom-float-right">YES</span>
+                                        <span class="stat false txt-gray custom-float-right">NO</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-12 col-xs-12">
+                                    <h3 _ngcontent-c7="" class="custom-blue-label">
+                                        Vehicle owner Has Violations?
+                                    </h3>
+                                    <input type="checkbox" class="switchIco" id="ee" />
+                                    <label class="lbl_Checkbox" for="ee">
+                                        <span class="stat true txt-brand custom-float-right">YES</span>
+                                        <span class="stat false txt-gray custom-float-right">NO</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear-fix"></div>
+                    <div class="row adding-driver" *ngIf="addingDriverChecker">
+                        <div class="col-lg-12 col-xs-12">
+                            <div class="customContainerTabs driver-grid">
+                                <label class="custom-blue-label" translate="">Drivers Data</label>
+                                <div class="table-responsive">
+                                    <table class="table table-striped additionaDriverGrid">
+                                        <thead class="additionaDriverGridHead">
+                                            <tr>
+                                                <th class="txt-sm additionaDriverGridTH">
+                                                    Driver national ID/Iqama number
+                                                </th>
+                                                <th class="txt-sm additionaDriverGridTH">Birth Date</th>
+                                                <th class="txt-sm additionaDriverGridTH">
+                                                    Driving Percentage
+                                                </th>
+                                                <th class="txt-sm additionaDriverGridTH controlWidth">
+                                                    Control
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody _ngcontent-c7="">
+                                            <!---->
+                                            <!---->
+                                            <tr>
+                                                <td class="additionaDriverGridTD">
+                                                    <span> Not Exist </span>
+                                                </td>
+                                                <td class="additionaDriverGridTD">
+                                                    <span> Not Exist </span>
+                                                </td>
+                                                <td class="additionaDriverGridTD">
+                                                    <span> Not Exist </span>
+                                                </td>
+                                                <td class="additionaDriverGridTD">
+                                                    <span> Not Exist </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-xs-12">
+                                        <input type="checkbox" class="switchIco" id="ee" />
+                                        <label class="lbl_Checkbox" for="ee">
+                                            <span class="stat true txt-brand custom-float-right">YES</span>
+                                            <span class="stat false txt-gray custom-float-right">NO</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row adding-driver">
+                                <div class="col-lg-12">
+                                    <div class="customContainerTabs">
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-xs-12 custom-float-left">
+                                            <label _ngcontent-c7="" class="input-label">عدد الأبناء دون عمر 16
+                                                سنة</label>
+                                            <ng-select [items]="hijriMonthsAr" bindLabel="value" bindValue="id"
+                                                class="form-control">
+                                            </ng-select>
+                                        </div>
+
+                                        <div class="col-lg-12 col-xs-12">
+                                            <h3 _ngcontent-c7="" class="custom-blue-label">
+                                                Vehicle owner Has Violations?
+                                            </h3>
+                                            <input type="checkbox" class="switchIco" id="ee" />
+                                            <label class="lbl_Checkbox" for="ee">
+                                                <span class="stat true txt-brand custom-float-right">YES</span>
+                                                <span class="stat false txt-gray custom-float-right">NO</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 col-xs-12">
+                                            <h3 _ngcontent-c7="" class="custom-blue-label">
+                                                Vehicle owner Has Violations?
+                                            </h3>
+                                            <input type="checkbox" class="switchIco" id="ee" />
+                                            <label class="lbl_Checkbox" for="ee">
+                                                <span class="stat true txt-brand custom-float-right">YES</span>
+                                                <span class="stat false txt-gray custom-float-right">NO</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 col-xs-12">
+                                            <h3 _ngcontent-c7="" class="custom-blue-label">
+                                                Vehicle owner Has Violations?
+                                            </h3>
+                                            <input type="checkbox" class="switchIco" id="ee" />
+                                            <label class="lbl_Checkbox" for="ee">
+                                                <span class="stat true txt-brand custom-float-right">YES</span>
+                                                <span class="stat false txt-gray custom-float-right">NO</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 col-xs-12">
+                                            <h3 _ngcontent-c7="" class="custom-blue-label">
+                                                Vehicle owner Has Violations?
+                                            </h3>
+                                            <input type="checkbox" class="switchIco" id="ee" />
+                                            <label class="lbl_Checkbox" for="ee">
+                                                <span class="stat true txt-brand custom-float-right">YES</span>
+                                                <span class="stat false txt-gray custom-float-right">NO</span>
+                                            </label>
+                                        </div>
+                                        <div class="btn-wrapper col-lg-12 col-xs-12">
+                                            <button class="primary-btn">Add</button>
+                                            <button class="secondry-btn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination-btns col-xs-12 col-lg-12">
+                        <button class="primary-btn custom-float-left">Next</button>
+                        <button class="primary-btn custom-float-right">Previous</button>
+                    </div>
+                    <div class="clear-fix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

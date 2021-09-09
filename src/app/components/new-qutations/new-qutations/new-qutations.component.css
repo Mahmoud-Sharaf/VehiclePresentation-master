@@ -1,0 +1,885 @@
+/* Radio Button */
+.custom-radio {
+    font-size: 0.9rem;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  
+  
+  
+  /* Hide the browser's default radio button */
+  .custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .custom-check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .custom-radio:hover input ~ .custom-check {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .custom-radio input:checked ~ .custom-check {
+    background-color: #e2e2e2;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .custom-check:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .custom-radio input:checked ~ .custom-check:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .custom-radio .custom-check:after {
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #156495;
+  }
+  /******* radio end ***************/
+  .item-data {
+    padding: 5px 0;
+  
+    color: #156495;
+    font-size: 1.0625rem;
+  }
+  .quotation-white-wrapper .item {
+    width: 100%;
+    background: #f6f7f7;
+    /* border-radius: 25px; */
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .quotation-white-wrapper .item:last-child {
+    margin-bottom: 0;
+  }
+  .custom-radio .label-name {
+    font-size: 0.9rem !important;
+    font-weight: 100;
+  }
+  .empty-message {
+    color: #156495;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  /* .buy-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+  } */
+  .custom-loader {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .buy-now {
+    color: #fff;
+    background: #fba72f;
+    padding: 0px 1.25rem;
+    font-size: 0.8rem;
+    margin-top: 0px;
+    height: 50px;
+    border-radius: 10px !important;
+    box-shadow: 4px 9px 7px 0px #80808057;
+    transition: 0.3s;
+    outline: none;
+    width: 35%;
+  }
+  .buy-now:hover {
+    background: #ffb64d;
+  }
+  /********* Car Filter *************/
+  .insurance-type {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  /* .car-filter {
+    margin-top: 30px;
+  }
+  .insurance-type label:nth-of-type(2) {
+    margin: 0 15px;
+  }
+  .car-filter .custom-check {
+    background: #fff;
+  }
+  .car-filter .custom-radio:hover input ~ .custom-check,
+  .car-filter .custom-radio input:checked ~ .custom-check {
+    background-color: #fff;
+  }
+  .car-filter .title {
+    font-size: 1.0625rem;
+    margin-bottom: 15px;
+  } */
+  
+  .custom-main-container {
+    height: 30rem;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .close {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #146394;
+    position: inherit;
+    top: -78px;
+    opacity: 1;
+    color: white;
+    font-size: 40px;
+  }
+  .closeicon {
+    font-size: 40px;
+    margin-top: -10px;
+    color: white;
+  }
+  
+  @media (min-width: 768px) {
+    .modal-dialog {
+      width: 1246px !important;
+    }
+    /* login/ registration pop up in web  */
+  
+   .orange-radio .radio-holder input:checked ~ .checkmark:after {
+      background: orange !important;
+    }
+    .flexMot {
+      background: purple;
+    }
+    .blue-box {
+      background: #146394;
+      position: relative;
+      z-index: 9;
+      height: 200px;
+      padding: 107px 40px;
+      top: 30px;
+    }
+    .white-label {
+      color: #fff;
+      font-size: 25px;
+    }
+    .orange-label {
+      color: #f9a52d;
+      font-size: 25px;
+      text-decoration: none;
+      border-bottom: 2px solid white;
+    }
+    .flower-bg {
+      background: url("../../../../assets/imgs/flower-bg.svg");
+      width: 60%;
+      height: 100%;
+      background-size: 100% 100%;
+      top: 81%;
+      position: absolute;
+      right: 30%;
+    }
+    .switched-form {
+      position: relative;
+      width: 559px;
+    }
+    .grey-border {
+      position: relative;
+      top: 60px;
+    }
+    .grey-border:after {
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      content: "";
+      background: #cdcdd1;
+      top: 0;
+      height: 80%;
+    }
+    .custom-flex {
+      display: flex;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+  
+    .modal-content {
+      border-radius: 35px;
+    }
+  
+    .logo-size {
+      width: 150px;
+      height: 150px;
+      top: 160px;
+      position: relative;
+    }
+  
+  
+    .pad-link {
+      padding: 0px 10px;
+    }
+  
+    /* .switched-form
+  {
+    right:23px;
+  } */
+  
+    /* .closeLogin {
+    position: absolute;
+    top: -110px;
+    left: 0px;
+    width: 78px !important;
+    height: 78px;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px !important;
+    background: #146394 !important;
+    color: white;
+    opacity: 1 !important;
+    font-weight: 400 !important;
+  } */
+  
+    /*.modal-content
+  {
+     top:480px!important; 
+  }*/
+  
+    /* end pop up */
+  }
+  
+  @media (max-width: 1200px) {
+    .p-middle {
+      border-left: 0;
+      border-right: 0;
+      border-top: 1px solid #dcdcdc;
+      border-bottom: 1px solid #dcdcdc;
+    }
+  
+    .p-head {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .insured-logo img {
+      display: inline-block;
+      max-width: 8rem;
+    }
+    .p-head {
+      display: flex;
+    }
+    .additional-info {
+      margin-top: 30px;
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 769px) {
+    .car-details {
+      text-align: center;
+    }
+    .insurance-type:first-child {
+      margin-bottom: 20px;
+    }
+    .p-middle {
+      border-left: 0;
+      border-right: 0;
+      border-top: 1px solid #dcdcdc;
+      border-bottom: 1px solid #dcdcdc;
+    }
+  }
+  @media (max-width: 414px) {
+    /* .p-head {
+      justify-content: center;
+    } */
+    .additional-info {
+      margin-top: 30px;
+      width: 100%;
+    }
+    .insurance-type label:nth-of-type(2) {
+      margin: 0;
+    }
+  }
+  .additional-info .text-center a {
+    display: inline-block;
+  }
+  /**************** car filter *************/
+  .insurance-cat .title {
+    font-size: 1.25rem;
+    color: #156494;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  .cat-types li a::after {
+    position: absolute;
+    top: -2px;
+    z-index: 1;
+    content: url("../../../../assets/imgs/grey-boxshadow.png");
+  }
+  
+  .cat-types li a {
+    display: flex;
+    text-decoration: none;
+    padding: 0.625rem 1.875rem 0.625rem 3.125rem;
+    border-top: 1px solid #d4eef5;
+    position: relative;
+  }
+  .cat-types li a.active {
+    background: #d4eef5;
+    /* margin-bottom: 7px; */
+  }
+  .cat-types li a span {
+    font-size: 1.4rem;
+    margin: 0 15px;
+    align-items: center;
+    display: flex;
+    color: #156695;
+  }
+  .car-filter {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .car-filter:after {
+    border-bottom: 2px solid #d4eef5;
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    height: 2px;
+    content: "";
+    left: 0;
+  }
+  .main-items li:last-child:after {
+    display: none !important;
+  }
+  .cat-types {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  .cat-types li:last-child a::after {
+    display: none;
+  }
+  .cat-types img {
+    width: 50px;
+    height: 47px;
+  }
+  /**************/
+  .fixing-places {
+    background: #e8e7e7;
+    border-radius: 7px;
+    display: flex;
+    padding: 0 0;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    width: 90%;
+  }
+  .fixing-places .title {
+    background: #156496;
+    padding: 0 30px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.375rem;
+  }
+  
+  .filter-flex {
+    align-items: center;
+    padding: 0 15px;
+  }
+  .blue-filter {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -4px;
+    width: 100%;
+  }
+  /* .blue-filter .price-filter,.blue-filter .blue-burger {background: #156496;padding: 10px 30px;border-radius: 15px;color: #fff;} */
+  .blue-filter .price-filter {
+    position: relative;
+    display: flex;
+  }
+  .blue-filter .price-filter > a {
+    font-size: 1.25rem;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+    background: #156496;
+    padding: 1px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .blue-filter .price-filter .filter-avg {
+    color: #fff;
+    display: flex;
+  }
+  .blue-filter .price-filter a:hover {
+    color: #f9a62c;
+  }
+  .blue-filter .blue-burger {
+    background: #156496;
+  }
+  .blue-filter .price-filter .dropdown {
+    position: absolute;
+    z-index: 99999;
+    background: #156496;
+    width: 100%;
+    left: 0;
+    top: 110%;
+    list-style: none;
+    padding: 0;
+    border-radius: 15px;
+  }
+  .blue-filter .price-filter .dropdown a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .blue-filter .price-filter .dropdown li {
+    padding: 7px 0;
+    background: #156494;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+  }
+  
+  /* .blue-filter .price-filter .dropdown li:hover{
+      background:#fff;color:#156494} */
+  
+  .blue-filter .price-filter .dropdown li img {
+    margin: 0 5px;
+  }
+  
+  /* .blue-filter .blue-burger{padding:5px 10px} */
+  .blue-burger span {
+    background: #fff;
+    width: 30px;
+    height: 3px;
+    display: block;
+    margin: 6px;
+  }
+  .blue-filter .blue-burger span:nth-of-type(2) {
+    position: relative;
+    left: 3px;
+  }
+  .blue-filter .price-filter .dropdown {
+    display: none;
+  }
+  .blue-filter .price-filter .dropdown.active {
+    display: block;
+  }
+  /***************************/
+  /**** custom checkbox *******/
+  /* The container */
+  .custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 0.9rem !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-width: 79%;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .right-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .custom-checkbox:hover input ~ .right-mark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  /* .custom-checkbox input:checked ~ .right-mark {
+    background-color: #2196F3;
+  } */
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .right-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .custom-checkbox input:checked ~ .right-mark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .custom-checkbox .right-mark:after {
+    left: 7px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #fba72f;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .filter-avg {
+    padding: 3px 25px !important;
+    margin: 0 5px;
+  }
+  .car-details button {
+    width: 100%;
+    font-size: 1.25rem;
+  }
+  label {
+    font-weight: normal !important;
+  }
+  /****** general ************/
+  .desktop-view {
+    display: block;
+  }
+  .mobile-view {
+    display: none;
+    background: #fff;
+  }
+  .bcare-balls .speed,
+  .bcare-balls .intermediate,
+  .bcare-balls .slow {
+    width: 35px;
+    height: 35px;
+  }
+  .speed-loader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .hasDiscountOffer {
+    border: 3px solid gold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .hasDiscountOffer:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 15px;
+    border-width: 16px;
+    border-color: gold gold transparent;
+    z-index: 3;
+    border-style: solid;
+  }
+  
+  .show-in-mobile {
+    display: none;
+  }
+  .show-in-web {
+    display: block;
+  }
+  
+  @media (max-width: 480px) {
+    .quotation .ng-select
+    {
+      border-radius: 5px !important;
+    }
+    .privacy-text {
+      width: 140px;
+    }
+    .show-in-web {
+      display: none;
+    }
+    .desktop-view {
+      display: none;
+    }
+    .mobile-view {
+      display: block;
+      padding: 0;
+    }
+    .bcare-balls .speed,
+    .bcare-balls .intermediate,
+    .bcare-balls .slow {
+      width: 17px;
+      height: 17px;
+    }
+    .speed-text {
+      margin: 0px 5px 8px;
+    }
+    .show-Type-insurance {
+      font-size: 1.063rem;
+      text-align: center;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+    }
+    .bcare-balls {
+      align-items: center;
+    }
+    .show-more {
+      background: transparent;
+      height: auto;
+      line-height: unset;
+    }
+    .show-more:after {
+      position: absolute;
+      background: #fff;
+      height: 4px;
+      width: 100%;
+      content: "";
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      z-index: -1;
+    }
+    .show-more {
+      position: relative;
+      top: 14px;
+      font-size: 24px;
+      z-index: 1;
+    }
+    .p-middle {
+      border: none !important;
+      padding: 20px 5px 0;
+    }
+  
+    .privacy-text {
+      padding: 0 5px;
+    }
+    .total-money .title {
+      color: #156494 !important;
+    }
+    .total-wrapper {
+      background: #fff;
+      padding: 2px 12px;
+      text-align: center;
+      border-radius: 5px;
+      flex-direction: column;
+      margin:0px 5px;
+    }
+    .p-last {
+      padding: 30px 10px 0;
+    }
+    .quotation-white-wrapper .item {
+      margin-bottom: 50px !important;
+    }
+    .quotation .p-last .buy-btn {
+      position: absolute;
+      left: 4px;
+      right: auto;
+      top: 100%;
+    }
+    .quotation .buy-btn .buy-now {
+      border-radius: 0 0 15px 15px !important;
+      width: 110px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .show-more .icon-down-circle-arrow:before {
+      color: #fba72f;
+    }
+  
+    .close-btn {
+      padding: 5px;
+    }
+  
+    /* login media query */
+  
+    .show-in-mobile {
+      display: block;
+    }
+  
+    .main-navigation {
+      height: calc(100% - 50px) !important;
+    }
+    .loginLabel {
+      font-size: 12px !important;
+    }
+  
+    .modal-content {
+      top: 155px !important;
+      padding-top: 25px !important;
+      border-radius: 35px !important;
+      height: auto !important;
+      /* overflow-y: scroll!important; */
+    }
+  
+    .flower-bg {
+      background: url("../../../../assets/imgs/flower-bg.svg");
+      background-size: 100% 100%;
+      left: auto;
+      top: -55px;
+      position: absolute !important;
+      width: 160px;
+      left: auto;
+      height: 120px;
+    }
+  
+    .blue-box {
+      background: #146394 !important;
+      border-radius: 0px 0px 25px 25px !important;
+      color: white;
+      height: 80px;
+      z-index: 9 !important;
+      position: relative !important;
+    }
+  
+    .white-label {
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .txt {
+      font-size: 15px;
+    }
+    .orange-label {
+      color: #f9a52d;
+      font-size: 12px;
+      text-decoration: none;
+      border-bottom: 2px solid white;
+    }
+  
+    .pad-top {
+      padding-top: 20px;
+    }
+  
+    .logo-size {
+      width: 70px;
+      height: 50px;
+    }
+  
+    .closeLogin {
+      margin-top: -55px !important;
+      background: #2a7da0 !important;
+      color: white;
+      height: 30px !important;
+      width: 30px !important;
+      border-radius: 25px !important;
+      opacity: 1 !important;
+      text-align: center !important;
+      font-size: 25px !important;
+      font-weight: 400 !important;
+    }
+  
+    .label-center {
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .txt-link {
+      font-size: 14px;
+    }
+  
+    .height-flower {
+      height: 80px;
+    }
+    .mobile-show.pos-abs-btn {
+      position: absolute;
+      top: 100%;
+    }
+  
+    /****** UAT *******/
+    .center-input.cancel-padding {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 414px) {
+    .mobile-total-calc,
+    .total-wrapper {
+      font-size: 8px;
+    }
+  }
+  .bcare-stars {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+  }
+  .mt-10 {
+    margin-top: 10px;
+  }
+  .p-last {
+    padding: 0 0;
+  }
+  
+  .vehicelLimt
+  {
+    border-top: 1px solid #dfefee;
+    -webkit-box-align: center;
+    align-items: center;
+    color:#146394;
+    padding:15px;
+    font-size:1.0625rem;
+  }
+  .vehicelLimt .blue{
+    padding: 8px 0px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .pad-vehicle-limit
+  {
+    padding:0px 5px;
+  }
+  
+  .orange-radio .checkmark:after
+  {
+    left:7px!important;
+  }
+  
+  .orange-radio #rememberMe .checkmark:after
+  {
+    left:5px!important;
+  }
+  
+  
+  

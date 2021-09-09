@@ -1,0 +1,25 @@
+.terq-bg {
+  background: #f2f9f9;
+}
+.terms {
+  padding: 50px 1.875rem;
+}
+.terms .title {
+  font-size: 1.25rem;
+  color: #146394;
+  margin-bottom: 3.125rem;
+  font-weight: bold;
+}
+.terms .description {
+  color: #606060;
+  font-size: 1.25rem;
+  margin-bottom: 3.125rem;
+}
+.notice {
+  color: #606060;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.notice span {
+  color: #146394;
+}

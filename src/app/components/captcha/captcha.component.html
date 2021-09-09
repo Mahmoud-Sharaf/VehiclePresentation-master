@@ -1,0 +1,26 @@
+<div class="mobile-center">
+    <form [formGroup]="CaptchaForm" class="mySCaptcha col-lg-12 paddingZero" autocomplete="off">
+
+
+        <div class="col-lg-5 col-md-5 col-xs-5 paddingZero">
+
+
+            <img [src]="captchaImgPath" class="captchImg">
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-xs-2 recallCaptchaCls paddingZero" (click)="getCaptchaIMG()"><i
+                class="icon-refresh"></i></div>
+
+
+
+        <div class="col-lg-6 col-md-6 col-xs-5 paddingZero">
+            <mat-form-field appearance="standard">
+                <mat-label class="owner-matLabel" style="font-size: 15px;"> {{'captchaInput' | translate}}</mat-label>
+            <input matInput type="tel" size="4" maxlength="4"
+                (keypress)="alllowOnlyNumbers($event)" required id="yourFirstCaptchaUserInput" class="form-control"
+                formControlName="captcha" (change)="captchTXTSav(($event))" placeholder="{{'captchaInput' | translate}}">
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<!-- <div class="expiredMsg" *ngIf="visability">{{'expiredMsg'|translate}}</div> -->

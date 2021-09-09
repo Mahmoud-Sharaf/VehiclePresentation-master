@@ -1,0 +1,204 @@
+.mat-form-field-invalid .mat-input-element,
+.mat-warn .mat-input-element {
+  caret-color: #146394;
+}
+.testMatInput {
+  width: 100%;
+}
+.mat-form-field-appearance-standard .mat-form-field-ripple {
+  display: none;
+}
+.gridDivAdditionalDrive .primary-btn {
+  margin: 0 10px;
+}
+.gridDivAdditionalDrive button {
+  border-radius: 8px;
+}
+
+/* .input-readonly:read-only {
+  background-color: gainsboro;
+}  */
+
+/******* orange radio *************/
+.orange-radio .radio-holder input:checked ~ .checkmark:after {
+  background: orange !important;
+}
+.orange-radio .checkmark:after {
+  background: #eaeaea;
+}
+.orange-radio .checkmark {
+  position: absolute;
+  top: 65%;
+  /* right: 10px; */
+  height: 16px;
+  width: 16px;
+  background-color: #eaeaea;
+  border-radius: 50%;
+  margin-top: -10px;
+  border: none;
+}
+.orange-radio .checkmark:after {
+  top: 3px;
+  /* left: 2.5px; */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+@media (max-width: 1366px) {
+  .blue-tabs .tab {
+    width: calc(96% / 3);
+    font-size: 1rem !important;
+    font-weight: 600;
+    background: #fff;
+    color: #146394;
+  }
+  .blue-tabs .tab.active {
+    background: #146394;
+    color: #fff;
+  }
+  .blue-tabs .tab a {
+    font-size: 1.0625rem !important;
+  }
+}
+.mb-23 {
+  margin-bottom: 1.4375rem;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #146394 !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #146394 !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #146394 !important;
+}
+.blue-tabs .tab {
+  background: #fff;
+  color: #146394;
+}
+.blue-tabs .tab.active {
+  background: #146394;
+  color: #fff;
+}
+
+.driverRepeatedId-validation {
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: red;
+}
+@media (min-width: 992px) {
+  .padding-7 {
+    padding: 0 7px;
+  }
+  .custom-margin {
+    margin-right: -6px;
+    margin-left: -6px;
+  }
+}
+.form-control {
+  border-radius: 8px !important;
+  font-size: 1.25rem;
+  background: #fff;
+  text-align: center;
+}
+.col-padding-6 {
+  padding: 0 6px;
+}
+.first-tab,
+.second-tab {
+  justify-content: center;
+}
+.third-tab {
+  justify-content: flex-end;
+}
+.custom-width-tabs {
+  width: 350px !important;
+}
+.blue-tab-body.second-tab .custom-width-tabs {
+  padding: 0 3px;
+}
+.blue-tab-body.first-tab .radio-holder {
+  font-size: 1.438rem;
+  font-weight: normal;
+  /* padding-right: 48px; */
+}
+.blue-tab-body.first-tab .orange-radio .checkmark {
+  height: 25px;
+  width: 25px;
+  top: 50%;
+}
+/* .blue-tab-body.first-tab .orange-radio   .checkmark:after {
+  height: 25px;
+  width: 25px;
+  top: 50%;
+} */
+.blue-tab-body.first-tab .orange-radio .checkmark:after {
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  left:11px!important;
+}
+.full-width-body {
+  margin: 10px -15px;
+  background: #fff;
+}
+.full-width-body .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+.add-license
+{
+  background: orange;
+  color: white;
+  height: 45px;
+  outline: none;
+}
+.mar-top-btn
+{
+  margin-top: 15px;
+}
+
+.mar-auto
+{
+  margin:auto;
+}
+
+
+
+@media (max-width: 1200px) and (min-width: 600px) {
+  .blue-tabs .tab {
+    font-size: 0.8rem !important;
+    width: calc(97% / 3);
+  }
+  .first-tab {
+    flex-direction: column;
+  }
+}
+.m-15 {
+  margin-top: 15px;
+}
+
+.driverID {
+  position: relative;
+  /* top: 9px; */
+}
+
+read-only {
+  background-color: gainsboro;
+} 
+
+@media (max-width: 414px) {
+  .blue-tab-body.first-tab .radio-holder {
+    font-size: 0.9rem !important;
+  }
+}
+

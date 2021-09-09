@@ -1,0 +1,168 @@
+.ticket i {
+  /* font-size: 2rem;
+  background: transparent;
+  padding: 20px; */
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 24px;
+}
+.ticket {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid #146394; */
+  border-radius: 6px;
+  background: #fff;
+}
+
+.icon-wrapper {
+  display: flex;
+  width: 127px;
+  height: 39px;
+}
+/************************************/
+.ticket .icon-wrapper {
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  display: flex;
+  align-items: center;
+}
+.text .title {
+  background: #f2f9f9;
+  padding: 5px 0;
+  /* margin-left: 15px; */
+  border-radius: 5px;
+  color: #727373;
+  width: 137px;
+  text-align: center;
+  font-size: 1.0625rem;
+}
+.text .desc {
+  color: #727373;
+  font-size: 1.0625rem;
+}
+.ticket .text-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.primary-btn {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 270px;
+  border-radius: 10px;
+  font-size: 1.0625rem;
+}
+
+.upload-ticket {
+  text-align: center;
+  padding: 20px;
+}
+
+.validateFire {
+  font-size: 13px;
+  color: red;
+}
+#uploadTicket[disabled] {
+  background-color: #798b9b;
+  color: white;
+}
+
+#uploadTicket {
+  background-color: orange;
+  color: white;
+}
+
+.multipleAttchmentFile {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.flex-mobile-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+/********** regression ********/
+.ticket {
+  position: relative;
+  margin-top: 30px;
+  padding: 15px 0;
+}
+.icon-wrapper {
+  bottom: 100%;
+  position: absolute;
+}
+.ticket .text {
+  margin-right: 0;
+  margin-left: 0;
+}
+.flex-mobile-wrapper {
+  width: 100%;
+}
+.cancel-padding {
+  padding: 0;
+}
+/* .custom-wrapper[_ngcontent-jub-c2] {
+  padding: 90px 30px 0 45px;
+} */
+.vertical-top {
+  align-self: flex-start;
+}
+.car-name {
+  color: #727373;
+  font-size: 1.0625rem;
+}
+@media (max-width: 480px) {
+  /* .add-ticket {
+    width: 100%;
+    font-size: 20px;
+  }
+  .text .title {
+    padding: 0 5px 0;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 0px !important;
+    color: #727373;
+  }
+
+  .text {
+    display: -webkit-box;
+    padding: 0px 0;
+  }
+  .ticket .text {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .desc {
+    font-weight: 600;
+    font-size: 9px;
+    padding: 0px 5px;
+    color: #146394;
+  }
+
+  .icon-wrapper {
+    width: 47px !important;
+    height: 53px !important;
+  }
+  .icon-ticket {
+    font-size: 1.5rem !important;
+    padding: 10px !important;
+  }
+  .text.title {
+    padding: 2px 5px 5px;
+    margin: 0 5px !important;
+  }
+  .text-wrapper {
+    width: 50%;
+    padding: 3px 5px;
+  } */
+  .cancel-padding {
+    padding: 0 15px;
+  }
+}
+.add-ticket {
+  height: 44px;
+}

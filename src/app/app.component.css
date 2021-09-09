@@ -1,0 +1,7 @@
+.slick-track{
+    float: left !important;
+  }
+
+  [dir='rtl'] .slick-slide{
+    float: left  !important;
+  }

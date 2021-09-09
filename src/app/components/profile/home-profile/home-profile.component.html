@@ -1,0 +1,242 @@
+<div class="container">
+    <div class="row">
+        <app-header class="main-header"></app-header>
+    </div>
+</div>
+
+<div [ngSwitch]="viewMode" class="show-in-mobile">
+    <!-- <div class=" custom-float-left profile-menu">
+        <a class="menu-profile-btn">
+                <span class="dash"></span>
+                <span class="dash"></span>
+                <span class="dash"></span>
+         </a>
+        <nav id="nav-profile">
+            <div class="nav-sections">
+                <div class="close-profile-btn">
+                    <a href="javascript:void(0)"> <i class="fa fa-times"></i></a>
+                </div>
+                <ul class="main-navigation">
+                    <li class="item" [class.active]="viewMode== 'statistics'" (click)="viewMode = 'statistics'">
+                        <a href="javascript:void(0)">
+                            <i class="icon-arrow-chart"></i>
+                            <span>{{'statistics' | translate}}</span>
+                        </a>
+                    </li>
+                    <li class="item" [class.active]="viewMode== 'polices'" (click)="viewMode ='polices'"><a
+                            href="javascript:void(0)">
+                            <i class="icon-policy-icon"></i>
+                            <span>{{'polices' | translate}}</span>
+                        </a></li>
+                    <li class="item" [class.active]="viewMode== 'vehicles'" (click)="viewMode = 'vehicles'"><a
+                            href="javascript:void(0)">
+                            <i class="icon-car"></i>
+                            <span>{{'vehicles' | translate}}</span>
+                        </a></li>
+
+                    <li class="item" [class.active]="viewMode== 'bills'" (click)="viewMode ='bills'"><a
+                            href="javascript:void(0)">
+                            <i class="icon-payslip"></i>
+                            <span>{{'bills' | translate}}</span>
+                        </a></li>
+                    <li class="item" [class.active]="viewMode== 'sadad-bills'"
+                        (click)="viewMode ='sadad-bills'"><a href="javascript:void(0)">
+                            <i class="icon-payslip"></i>
+                            <span>{{'sadadBills' | translate}}</span>
+                        </a></li>
+                    <li class="item" [class.active]="viewMode== 'notifications'"
+                        (click)="viewMode = 'notifications'"><a href="javascript:void(0)">
+                            <i class="icon-alert"></i>
+                            <span>{{'notifications' | translate}}</span>
+
+                        </a></li>
+                    <li class="item" [class.active]="viewMode== 'technicalSupport'" (click)="viewMode = 'technicalSupport'"><a
+                            href="javascript:void(0)">
+                            <i class="icon-ticket"></i>
+                            <span>{{'technicalSupport' | translate}}</span>
+                        </a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </div> -->
+    <!-- <div class="col-md-10 col-sm-9 col-xs-12 custom-float-right">
+
+        <div class="custom-wrapper" [ngSwitch]="viewMode">
+            <app-statistics *ngSwitchCase="'statistics'"></app-statistics>
+            <app-policies *ngSwitchCase="'polices'"></app-policies>
+            <app-vehicles *ngSwitchCase="'vehicles'"></app-vehicles>
+            <app-sadad-bills *ngSwitchCase="'sadad-bills'"></app-sadad-bills>
+            <app-notifications *ngSwitchCase="'notifications'"></app-notifications>
+            <app-tickets *ngSwitchCase="'technicalSupport'"></app-tickets>
+            <app-bills *ngSwitchCase="'bills'"></app-bills>
+            <div *ngSwitchDefault>Not Found</div>
+        </div>
+    </div> -->
+    <div *ngSwitchCase="'statistics'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="icon-arrow-chart"></i>
+                    {{'statistics' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'polices'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="icon-policy-icon"></i>
+                    {{'polices' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'vehicles'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="icon-car"></i>
+                    {{'vehicles' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'sadad-bills'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="icon-payslip"></i>
+                    {{'sadadBills' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'national-address'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="fa fa-map-marker"></i>
+                    {{"nationalAddress" | translate}}</h2>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'notifications'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="icon-alert"></i>
+                    {{'notifications' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'technicalSupport'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"> <i class="icon-ticket"></i>
+                    {{'technicalSupport' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'bills'" class="container">
+        <div class="row">
+            <div class="title">
+                <h2 class="title-page"><i class="icon-payslip"></i>
+                    {{'bills' | translate}}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mobile-no-container">
+    <div class="terq-bg">
+        <div class="row change-cols custom-flex-row">
+            <div class="col-md-3 col-sm-3 col-xs-12 custom-float-left profile-menu custom-width-col">
+                <a class="menu-profile-btn show-in-mobile">
+                    <span class="dash-profile"></span>
+                    <span class="dash-profile"></span>
+                    <span class="dash-profile"></span>
+                </a>
+                <nav id="nav-profile">
+                    <div class="nav-sections">
+
+                        <ul class="main-navigation">
+                            <li class="item" [class.active]="viewMode== 'statistics'" (click)="viewMode = 'statistics'">
+                                <a href="javascript:void(0)">
+                                    <i class="icon-arrow-chart mobile-float-left"></i>
+                                    <span>{{'statistics' | translate}}</span>
+                                </a>
+                            </li>
+                            <li class="item" [class.active]="viewMode== 'polices'" (click)="viewMode ='polices'"><a
+                                    href="javascript:void(0)">
+                                    <i class="icon-policy-icon mobile-float-left"></i>
+                                    <span>{{'polices' | translate}}</span>
+                                </a></li>
+                            <li class="item" [class.active]="viewMode== 'vehicles'" (click)="viewMode = 'vehicles'"><a
+                                    href="javascript:void(0)">
+                                    <i class="icon-car mobile-float-left"></i>
+                                    <span>{{'vehicles' | translate}}</span>
+                                </a></li>
+
+                            <li class="item" [class.active]="viewMode== 'bills'" (click)="viewMode ='bills'"><a
+                                    href="javascript:void(0)">
+                                    <i class="icon-payslip mobile-float-left"></i>
+                                    <span>{{'bills' | translate}}</span>
+                                </a></li>
+                            <li class="item" [class.active]="viewMode== 'sadad-bills'"
+                                (click)="viewMode ='sadad-bills'"><a href="javascript:void(0)">
+                                    <i class="icon-payslip mobile-float-left"></i>
+                                    <span>{{'sadadBills' | translate}}</span>
+                                </a></li>
+                            <li class="item" [class.active]="viewMode== 'national-address'"
+                                (click)="viewMode = 'national-address'"><a href="javascript:void(0)">
+                                    <i class="fa fa-map-marker mobile-float-left"></i>
+                                    <span>{{"nationalAddress" | translate}}</span>
+
+                                </a></li>
+                            <li class="item" [class.active]="viewMode== 'notifications'"
+                                (click)="viewMode = 'notifications'"><a href="javascript:void(0)">
+                                    <i class="icon-alert mobile-float-left"></i>
+                                    <span>{{'notifications' | translate}}</span>
+
+                                </a></li>
+
+                            <li class="item" [class.active]="viewMode== 'technicalSupport'"
+                                (click)="viewMode = 'technicalSupport'"><a href="javascript:void(0)">
+                                    <i class="icon-ticket mobile-float-left"></i>
+                                    <span>{{'technicalSupport' | translate}}</span>
+                                </a></li>
+                        </ul>
+                        <!-- <ul class="social-media">
+                            <li>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                        </ul> -->
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12 custom-float-right paddingZero cust-col-77">
+
+                <div class="custom-wrapper" [ngSwitch]="viewMode">
+                    <app-statistics *ngSwitchCase="'statistics'"></app-statistics>
+                    <app-policies *ngSwitchCase="'polices'"></app-policies>
+                    <app-vehicles *ngSwitchCase="'vehicles'"></app-vehicles>
+                    <app-sadad-bills *ngSwitchCase="'sadad-bills'"></app-sadad-bills>
+                    <app-notifications *ngSwitchCase="'notifications'"></app-notifications>
+                    <app-tickets *ngSwitchCase="'technicalSupport'"></app-tickets>
+                    <app-national-address *ngSwitchCase="'national-address'"></app-national-address>
+                    <app-bills *ngSwitchCase="'bills'"></app-bills>
+                    <div *ngSwitchDefault>Not Found</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

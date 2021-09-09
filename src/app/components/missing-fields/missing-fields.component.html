@@ -1,0 +1,127 @@
+<app-header class="main-header"></app-header>
+
+<app-main-pg-header></app-main-pg-header>
+<div class="main-bannerInsured">
+    <div class="container insuredComponent">
+        <div class="row heightINMobile mrg-form">
+            <div class="col-lg-12  contentSection ">
+                <section class="sectionPadding bg">
+                    <div class="formHomePage" style="min-height: 361px;">
+                        <div *ngIf="showErrDescInitInq">
+                            <div class="serverErrValidation">
+                                <div>
+                                    <i class="icon far fa-times-circle"></i>
+                                    <div class="attrDis  xs-mar bx-right">{{servererror}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <form autocomplete="off" [formGroup]="formdata" class="custom-form">
+                            <h3 class="titleCompletePage">  {{"missingFields" | translate}} </h3>
+                            <div class="row">
+                                <div class="form-group input-group-lg col-lg-12 col-md-12 col-xs-12 bx-right">
+                                        <span *ngFor="let item of missingFields">
+                                        <span *ngIf="item.controlType == 'dropdown' && item.key != 'VehicleMaker'" class="col-lg-6 col-md-6 col-xs-12 custom-float-left">
+                                            <div class="validation">
+                                                <label class="label-style  label-validation">
+                                                    <span class="blue-color" *ngIf="item.label == 'VehicleMakerCode'">
+                                                        {{"makeVehicle" | translate}}
+                                                    </span>
+
+                                                    <span class="blue-color" *ngIf="item.label == 'VehicleModel'">
+                                                        {{"ModelVehicle" | translate}}
+                                                    </span>
+
+                                                    <span class="blue-color" *ngIf="item.label == 'VehicleBodyCode'">
+                                                        {{"VehicleBodyCode" | translate}}
+                                                    </span>
+
+                                                    <span class="blue-color" *ngIf="item.label == 'VehiclePlateTypeCode'">
+                                                        {{"VehiclePlateTypeCode" | translate}}
+                                                    </span>  
+                                                    
+                                                    <span class="blue-color" *ngIf="item.label == 'VehicleLoad'">
+                                                        {{"VehicleLoad" | translate}}
+                                                    </span>
+
+
+                                                    <span class="blue-color" *ngIf="item.label != 'VehicleMakerCode' &&
+                                                                 item.label != 'VehicleModel' &&
+                                                                 item.label != 'VehicleBodyCode' &&
+                                                                 item.label != 'VehiclePlateTypeCode'&&
+                                                                 item.label != 'VehicleLoad'">
+                                                        {{item.label}}
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <ng-select 
+                                                class="form-control input-element customCalendarStyle"
+                                                [items]="item.options" style="width: 100%;"
+                                                formControlName="{{item.key}}" bindLabel="name" bindValue="id"
+                                                (change)="makeDDlChange($event,item.key)">
+                                            </ng-select>
+                                        </span>
+
+
+
+
+                                        <span *ngIf="item.controlType == 'textbox' " class="col-lg-2 col-md-2 col-xs-12 custom-float-left">
+                                            <div class="">
+                                                <label class="label-style  label-validation"
+                                                    style="visibility: hidden;">
+                                                    {{item.label}}
+                                                </label>
+                                                <mat-form-field appearance="standard" class="testMatInput">
+                                                    <mat-label>
+                                                        {{item.label}}
+                                                    </mat-label>
+                                                    <input matInput type="tel" (keypress)="restrictNumeric($event)"
+                                                        class="form-control" placeholder="{{item.label}}"
+                                                        formControlName="{{item.key}}"
+                                                        onkeypress="if(this.value.length==10) return false;">
+                                                </mat-form-field>
+                                            </div>
+                                        </span>
+
+
+                                        <span *ngIf="item.controlType == 'datePicker'" class="col-lg-2 col-md-2 col-xs-12 custom-float-left">
+                                            <div class="validation">
+                                                <label class="label-style  label-validation">
+                                                    {{item.label}}
+                                                </label>
+                                            </div>
+                                            <mat-form-field class="example-full-width input-width">
+                                                <input id="policystartDatex" (keypress)="restrictNumeric($event)"
+                                                    matInput class="form-control startDateS"
+                                                    formControlName="{{item.key}}" [matDatepicker]="picker1"
+                                                    (focus)="_openCalendarPolicyStartDt(picker1)"
+                                                    (click)="_openCalendarPolicyStartDt(picker1)"
+                                                    #policyStartDateToFocus>
+                                                <mat-datepicker-toggle mat-calendar-body-today-disabled matSuffix
+                                                    [for]="picker1">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker1="matDatepicker"
+                                                    (closed)="_closeCalendarPolicyStartDt($event)">
+                                                </mat-datepicker>
+                                            </mat-form-field>
+                                        </span>
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button id="btnSubmit"
+                                    class="custom-float-right btn submit-continue bg-brand-hvr l-shadow buttonShowQuotsinResponsiv"
+                                    type="button"  (click)="onClickSubmit()"  [disabled]="!this.formdata.valid"> {{'submit' |translate}}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-logo-slider></app-logo-slider>
+
+<app-loader *ngIf="showLoading"> </app-loader>

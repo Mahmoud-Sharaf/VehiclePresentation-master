@@ -1,0 +1,269 @@
+.main-banner {
+  background: url("../../../assets/imgs/carbg2.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 950px;
+  position: relative;
+}
+.homepageTitle {
+  position: absolute;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.homepageTitle h1 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 3.75rem;
+}
+.yellow-dash {
+  width: 25%;
+}
+/************* bcare-info *******************/
+.bcare-info {
+  padding: 3.75rem 0 8.75rem;
+  color: #146394;
+}
+.bcare-info .title {
+  display: flex;
+  justify-content: center;
+  font-size: 3.275rem;
+  font-weight: bold;
+  margin-bottom: 55px;
+}
+.bcare-info .info .item {
+  text-align: center;
+}
+.bcare-info .info .item .main-title {
+  margin: 1.25rem auto;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  padding: 1.5625rem 0;
+  font-size: 3.438rem;
+  font-weight: bold;
+  width: 85%;
+}
+.bcare-info .info .item .main-title.pink {
+  border-color: #df3a94;
+}
+.bcare-info .info .item .main-title.terqoise {
+  border-color: #50c7ed;
+}
+.bcare-info .info .item .main-title.purple {
+  border-color: #7059a5;
+}
+.bcare-info .info .item .sub-title {
+  font-size: 2.813rem;
+}
+.bcare-info .info .item .img-wrapper {
+  position: relative;
+  height: 85px;
+}
+.bcare-info .info .item s.img-wrapper img {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+}
+.custom-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-data {
+  position: absolute;
+  z-index: 9;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+}
+.transparent-header {
+  position: relative;
+}
+.mobile {
+  display: block;
+}
+
+/************** why *********************/
+
+.whyImg img {
+  width: 75px;
+  height: 85px;
+}
+.why .item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.whyTitle {
+  font-size: 1.5625rem;
+  color: #000;
+  position: relative;
+  /* z-index: 99; */
+  margin-bottom: 2.813rem;
+}
+.whyTitle:after {
+  position: absolute;
+  content: "";
+  background: #156595;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  /* right: 60%; */
+  top: -20px;
+  z-index: 0;
+  opacity: 0.1;
+}
+.whyDescription {
+  width: 343px;
+  font-size: 1.0625rem;
+  color: #000;
+  border: 1px solid;
+  border-radius: 90px;
+  padding: 20px 35px;
+  text-align: center;
+  background: #f2f7f9;
+  height: 140px;
+  display: flex;
+  align-items: center;
+}
+.whyDescription.blue {
+  box-shadow: 5px 10px #146394;
+  border-color: #146394;
+}
+.whyDescription.orange {
+  box-shadow: 5px 10px #f9a62f;
+  border-color: #f9a62f;
+}
+.whyDescription.purple {
+  box-shadow: 5px 10px #7059a5;
+  border-color: #7059a5;
+}
+.whyDescription.green {
+  box-shadow: 5px 10px #00a669;
+  border-color: #00a669;
+}
+.whySubTitle {
+  font-size: 1.063rem;
+  color: #000;
+  margin-bottom: 28px;
+}
+.whyMainTitle {
+  font-size: 2.77rem;
+  color: #000;
+  margin-bottom: 28px;
+}
+.whyHeader {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1500px) {
+  .bcare-info .info .item .main-title {
+    font-size: 2.6rem;
+  }
+  .bcare-info .info .item .sub-title {
+    font-size: 1.8rem;
+  }
+  .bcare-info .title {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 480px) {
+  .bcare-info .info .item .main-title {
+    font-size: 1.385rem;
+  }
+  .bcare-info .info .item .sub-title {
+    font-size: 1.154rem;
+  }
+  .bcare-info .title {
+    font-size: 1.846rem;
+  }
+  .bcare-info .info div .item img {
+    width: 40px;
+    height: 60px;
+  }
+  .bcare-info .info .item .img-wrapper {
+    height: 58px;
+  }
+
+  .bcare-info .info div:last-child .item img {
+    width: 70px;
+    height: 40px;
+  }
+  .bcare-info .info .item {
+    width: 100%;
+  }
+  .bcare-info {
+    padding: 0;
+  }
+  .main-banner {
+    min-height: 290px !important;
+  }
+  .whyTitle:after {
+    display: none !important;
+  }
+}
+
+.desktop {
+  display: block;
+}
+.mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /*********** home page **********/
+  .bottomHeader,
+  .colored-bg {
+    display: none;
+  }
+
+  .homepageTitle {
+    width: 60%;
+    text-align: center;
+  }
+  .main-banner {
+    min-height: 440px;
+  }
+}
+/* @media (max-width: 992px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+} */
+@media (max-width: 1500px) {
+  .bcare-info .info .item {
+    width: 90%;
+  }
+}
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  display: none !important;
+}
+@media (max-width: 1200px) and (min-width: 992px) {
+  .homepageTitle h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 992px) and (min-width: 320px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}
+@media (max-width: 414px) {
+  body .whyTitle {
+    font-size: 14px !important;
+  }
+}

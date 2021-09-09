@@ -1,0 +1,29 @@
+<app-header class="main-header"></app-header>
+
+<div class="custom-white-wrapper custom-wrapper-spaces profile-statistics">
+  <div class="row">
+    <div class="col-md-6" style="    border: 1px solid #156495;"  *ngFor="let promo of promotionPrograms ;let i = index ">
+      <div (click)="showJoinMode(promo.Id,i)">
+        <div class="col-md-12 col-xs-12  custom-float-left">
+            <div class="input-wrapper">
+            {{promo.Description}}
+            </div>
+        </div>
+        <div class="col-md-12 col-xs-12  custom-float-left">
+            <div class="input-wrapper">
+                {{promo.Name}}   
+            </div>
+        </div>
+        <div class="displayNon col-md-2 custom-float-left" #boxes>
+            <div class="col-xs-12 col-md-4 custom-float-left">
+                <input type="text" class=""   [(ngModel)]="WorkPlace"
+                [ngModelOptions]="{standalone: true}"  placeholder="{{'enterWorkPlace' | translate}}">
+            </div>
+            {{responseMessages}}
+            <button class="primary-btn" (click)="joinToPromo(promo.Id)" >Join</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

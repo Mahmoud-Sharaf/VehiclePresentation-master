@@ -1,0 +1,118 @@
+.terq-bg {
+  background: #f2f9f9;
+}
+.contact-form {
+  background: #fff;
+  margin: 6rem auto 75px;
+  width: 95%;
+  position: relative;
+  border-radius: 75px;
+}
+.contact-form .center-title {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  top: -78px;
+}
+.contact-form .title {
+  background: #d4eef5;
+  width: 40%;
+  border-radius: 90px 90px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  position: relative;
+}
+.contact-form .title img {
+  width: auto;
+  height: 100px;
+  position: absolute;
+  bottom: -15px;
+}
+.contact-form .title span {
+  padding: 1.0625rem 0;
+  color: #146394;
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+.contactus-form {
+  overflow: hidden;
+  padding: 3.125rem 8.75rem;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+.mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 0 !important;
+}
+textarea {
+  resize: none;
+  border: 2px solid #14639459 !important;
+  width: 100%;
+  border-radius: 10px;
+}
+textarea:focus {
+  border: 2px solid #14639459 !important;
+}
+.form-control {
+  border: 2px solid #14639459 !important;
+  height: 46px;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 0 30px;
+}
+/***** regression ********/
+/* ::-webkit-input-placeholder {
+  padding: 30px;
+}
+
+:-ms-input-placeholder {
+  padding: 30px;
+}
+
+::placeholder {
+  padding: 30px;
+} */
+::placeholder {
+  color: #727373 !important;
+}
+
+/*** regression **/
+body .form-control::placeholder {
+  color: #727373 !important;
+}
+.pad-20 {
+  padding: 0 20px;
+}
+.mb-35 {
+  margin-bottom: 35px;
+}
+.captcha-row {
+  display: flex;
+  justify-content: space-between;
+}
+.big-buttons {
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+}
+.big-buttons::after {
+  display: none;
+}
+.big-buttons button {
+  border-radius: 10px !important;
+}
+#exampleFormControlTextarea1 {
+  font-size: 20px;
+  padding: 30px;
+  color: #727373;
+  outline: none;
+}
+
+.serverDes {
+  text-align: center;
+  padding-top: 10px;
+}

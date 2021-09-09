@@ -1,0 +1,126 @@
+.terq-bg {
+  background: #f2f9f9;
+}
+.careers-form {
+  background: #fff;
+  margin: 2rem auto 2rem;
+  width: 96%;
+  position: relative;
+  border-radius: 0 0 113px 113px;
+}
+.careers-form .center-title {
+  display: flex;
+  justify-content: center;
+}
+.careers-form .center-title img {
+  position: absolute;
+  top: -30px;
+  height: 215px;
+}
+
+.careers-form .center-title {
+  background: #d4eef5;
+  position: relative;
+  padding: 20px 0;
+}
+
+.careers-form .subtitle {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 30px;
+  color: #146394;
+  font-size: 1.938rem;
+}
+.careers-form .subtitle .wrapper {
+  position: relative;
+}
+.careers-form .subtitle .wrapper img {
+  position: absolute;
+  width: 15%;
+  top: 50px;
+}
+
+.careers-form .center-title span {
+  color: #146394;
+  font-size: 2rem;
+}
+
+.careers-form .center-title span {
+  color: #146394;
+  font-size: 2rem;
+}
+
+.careers-us-form {
+  overflow: hidden;
+  padding: 40px 100px;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+.mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 0 !important;
+}
+textarea {
+  resize: none;
+  border: 2px solid #14639459 !important;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  padding: 30px;
+  color: #727373;
+}
+
+textarea:focus {
+  border: 2px solid #14639459 !important;
+  outline: none;
+}
+
+.form-control {
+  border: 2px solid #14639459 !important;
+  height: 46px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 0 30px;
+  color: #727373 !important;
+}
+.form-title {
+  color: #146394;
+  font-size: 1.5rem;
+}
+
+::placeholder {
+  color: #727373 !important;
+}
+
+
+.send-Btn {
+  min-width: 285px;
+  font-size: 1.25rem;
+  height: 40px;
+  border-radius: 10px !important;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-weight {
+  font-weight: 500 !important;
+}
+
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+.attachment{
+  line-height: 45px;
+  font-weight: 400;
+}
+
+.fa-paperclip
+{
+  float: left;                      
+  margin-top: 15px;
+  color: orange;
+}

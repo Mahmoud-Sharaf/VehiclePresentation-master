@@ -1,0 +1,212 @@
+.terq-bg {
+  background: #f2f9f9;
+  padding: 7rem 4rem 0;
+}
+.content-wrapper {
+  position: relative;
+}
+.white-wrapper {
+  background: #fff;
+  border-radius: 60px;
+  position: relative;
+}
+.flowers-bg {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* .white-wrapper .title{
+    background-image: url('../../../assets/imgs/bluebg-title.png');
+    background-repeat: no-repeat;
+} */
+.img-parent {
+  width: 415px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px;
+}
+.img-parent .title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #146394;
+  font-size: 2rem;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  padding-top: 6rem;
+}
+.image {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/*******/
+.item-wrapper {
+  margin-top: 20px;
+  position: relative;
+}
+.item-wrapper:after {
+  position: absolute;
+  left: 50%;
+  background: #fff;
+  height: 100%;
+  top: 0;
+  width: 2px;
+  content: "";
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 43px;
+  padding: 15px;
+  align-items: center;
+}
+.data {
+  background: #f2f9f9;
+  position: relative;
+  padding: 10px 15px;
+}
+.data::after {
+  position: absolute;
+  background: #146394;
+  width: 2px;
+  height: 100%;
+  content: "";
+  top: 0;
+}
+.data div {
+  margin-bottom: 10px;
+  color: #727373;
+  font-size: 1.0625rem;
+}
+.data span {
+  color: #146394;
+  font-size: 1.2rem;
+}
+
+/***************************/
+.oneflower-bg {
+  position: absolute;
+  top: -100px;
+  right: 10%;
+}
+.credit-card img {
+  width: 300px;
+}
+.second-header .white-wrapper {
+  padding: 2rem;
+}
+.custom-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.parent-img {
+  position: relative;
+}
+.parent-img .title {
+  right: 30%;
+  position: absolute;
+  top: 20px;
+  color: #146394;
+  font-size: 2rem;
+}
+.second-header .header {
+  color: #146394;
+  font-size: 2rem;
+}
+.items .item .logo img {
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+}
+.items .item {
+  margin-bottom: 25px;
+}
+@media (max-width: 1366px) {
+  .parent-img img {
+    transform: scale(0.8);
+  }
+  .credit-card img {
+    width: 200px;
+  }
+  /* .item-wrapper:after {
+    display: none;
+    } */
+  .second-header .white-wrapper {
+    padding: 1.0625rem;
+  }
+}
+/******* regression *******/
+.debit-card {
+  width: 275px;
+  height: 175px;
+  border-radius: 15px;
+  background: url("../../../assets/imgs/credit-card-bg.svg") no-repeat center
+    center;
+  background-size: 184%;
+}
+.debit-card .mainHeader img {
+  width: 52px;
+}
+.debit-card .mainHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
+  padding: 15px 20px;
+  background: #c9ac00;
+  border-radius: 15px 15px 0 0;
+}
+.debit-card .mainHeader {
+  color: #fff;
+  flex-direction: row-reverse;
+}
+.mainBody {
+  color: #fff;
+  padding: 0 20px;
+}
+.mainBody .wooref-name {
+  font-size: 43px;
+  display: flex;
+}
+.numbers {
+  display: flex;
+  justify-content: flex-end;
+}
+.expiredDate {
+  font-size: 11px;
+  display: flex;
+  justify-content: flex-end;
+}
+.expirdDateName {
+  width: 20px;
+  font-size: 7px;
+  display: flex;
+}
+.expirdDateNumber {
+  margin: 0 5px;
+}
+.investigate {
+  font-size: 8.5px;
+  display: flex;
+}
+.mainBody {
+  position: relative;
+  z-index: 1;
+}
+.mainBody:before {
+  position: absolute;
+  content: url("../../../assets/imgs/side-flower.png");
+  right: 0;
+  width: 25%;
+  z-index: -1;
+}

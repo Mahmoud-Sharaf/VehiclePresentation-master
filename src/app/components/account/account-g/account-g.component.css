@@ -1,0 +1,49 @@
+/* .blue-box {
+  background: #146394;
+  position: relative;
+  z-index: 9;
+  height: 200px;
+  padding: 107px 40px;
+  top: 30px;
+}
+.white-label {
+  color: #fff;
+  font-size:25px;
+}
+.orange-label {
+  color: orange;
+  font-size:25px;
+}
+.flower-bg {
+  background: url("../../../../assets/imgs/flower-bg.svg");
+  width: 40%;
+  height: 100%;
+  background-size: 100% 100%;
+  top: 67%;
+  position: absolute;
+  left: 30%;
+}
+.switched-form {
+  position: relative;
+}
+.grey-border {
+  position: relative;
+}
+.grey-border:after {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  content: "";
+  background: #cdcdd1;
+  top: 0;
+  height: 100%;
+}
+.custom-flex {
+  display: flex;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+} */

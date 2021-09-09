@@ -1,0 +1,81 @@
+<app-header class="main-header"></app-header>
+<div class="container">
+    <div class="terq-bg">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-form">
+                    <div class="center-title">
+                        <div class="title"><span>{{'contactus' | translate}}</span> <img
+                                src="../../../assets/imgs/sendus.png"></div>
+                    </div>
+                    <div class="row  serverError" [hidden]="!showDescription">
+                        <div class="serverDes">{{serverError}}</div>
+                    </div>
+                    <form autocomplete="off" [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)"
+                        class="contactus-form">
+                        <div class="col-lg-6 col-xs-6 mb-35 custom-float-left pad-20">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput"> -->
+                            <!-- <mat-label> {{'fullName' | translate}}</mat-label> -->
+                            <input matInput type="text" class="form-control" placeholder="{{'fullName' | translate}}"
+                                formControlName="fullName" style="color: #727373;">
+                            <!-- </mat-form-field> -->
+                        </div>
+                        <div class="col-lg-6 col-xs-6 mb-35 custom-float-left pad-20">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput"> -->
+                            <!-- <mat-label> {{'loginEmail' | translate}}</mat-label> -->
+                            <input matInput type="text" class="form-control" placeholder="{{'loginEmail' | translate}}"
+                                formControlName="email" style="color: #727373;">
+                            <!-- </mat-form-field> -->
+
+                            <div *ngIf="submitted && formdata.controls['email'].errors">
+                                <span *ngIf="formdata.controls['email'].errors.required" class="validateFire2">{{'emailRequired'
+                                    | translate}}
+                                </span>
+                                <span *ngIf="formdata.controls['email'].errors.pattern" class="validateFire2">{{'emailValidation' |
+                                    translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-6 mb-35 custom-float-left pad-20">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'phone' | translate}}</mat-label> -->
+                            <input matInput type="tel" class="form-control" placeholder="{{'phone' | translate}}"
+                                formControlName="phone" (keypress)="alllowOnlyNumbers($event)" style="color: #727373;">
+                            <!-- </mat-form-field> -->
+                            <div  *ngIf="submitted && formdata.controls['phone'].errors">
+                                <span *ngIf="formdata.controls['phone'].errors.pattern"
+                                    class="validateFire2">{{'phoneValidation'| translate}}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-6 mb-35 custom-float-left pad-20">
+                            <!-- <mat-form-field appearance="standard" class="testMatInput">
+                                <mat-label> {{'address' | translate}}</mat-label> -->
+                            <input matInput type="text" class="form-control" placeholder="{{'address' | translate}}"
+                                formControlName="address" style="color: #727373;">
+                            <!-- </mat-form-field> -->
+                        </div>
+                        <div class="col-lg-12 col-xs-12 mb-25 pad-20">
+                            <textarea id="exampleFormControlTextarea1" rows="10" formControlName="message"
+                                style="color: #727373 !important;"></textarea>
+                                <div *ngIf="submitted && formdata.controls['message'].errors">
+                                    <span *ngIf="formdata.controls['message'].errors.required" class="validateFire2">
+                                        {{'messageRequired' | translate}}
+                                    </span>
+                                </div> 
+                        </div>
+                        
+                        <div class="col-lg-12 col-xs-12 custom-float-right captcha-row pad-20">
+                            <app-captcha  [CaptchaForm]="CaptchaForm"  class="custom-myCaptcha"></app-captcha>
+                            <div *ngIf="cpatchaMandatory" class="validateFire2"> {{'captchaCodeMandatory' |
+                                translate}}</div>
+                            <div class="big-buttons">
+                                <button class="primary-btn custom-float-right" id="send-btn" type="submit">
+                                    {{'send' | translate}} <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

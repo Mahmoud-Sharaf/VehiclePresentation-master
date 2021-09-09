@@ -1,0 +1,48 @@
+<app-header class="main-header"></app-header>
+<div class="container" style="min-height: 600px;">
+   <div class="arabic-bill">
+       <div class="head">
+           <div class="title">
+            {{'sadadPaymentText1'|translate}}
+           </div>
+           <div class="title">
+            {{'sadadPaymentText2'|translate}}{{CompanyName}}  
+            {{'amount'|translate}}    {{'is'|translate}}   {{InvoiceNo}}
+           </div>
+       </div>
+       <table class="custom-table">
+           <tr>
+               <td>
+                  {{'numSadad'|translate}}
+               </td>
+               <td>
+                  {{InvoiceNo}}
+               </td>
+           </tr>
+           <tr>
+               <td>
+                  {{'sadadCost'|translate}}
+               </td>
+               <td>
+                 {{PremiumAmount}}
+               </td>
+           </tr>
+           <tr>
+               <td>
+                  {{'paymentEndDate'|translate}}
+               </td>
+               <td>
+                   {{BillDueDate}}
+               </td>
+           </tr>
+       </table>
+       <div class="grey-title">{{'sadadPaymentSteps'|translate}}</div>
+       <ul class="custom-ul">
+           <li class="cusLI">{{'step1'|translate}}</li>
+           <li  class="cusLI">{{'step2'|translate}}</li>
+           <li  class="cusLI">{{'step3'|translate}}</li>
+           <li  class="cusLI">{{'step4'|translate}}</li>
+           <li  class="cusLI">{{'step5'|translate}}</li>
+       </ul>
+   </div>
+</div>

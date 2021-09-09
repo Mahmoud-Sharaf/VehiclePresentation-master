@@ -1,0 +1,105 @@
+.mySCaptcha {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recallCaptchaCls {
+  cursor: pointer;
+}
+
+.captchImg {
+  height: 44px;
+  width: auto;
+  /* max-width: 90px !important; */
+  width: 100%;
+}
+
+.paddingZero {
+  padding: 5px 0px !important;
+}
+
+.col-lg-2.col-mg-2.col-xs-2.recallCaptchaCls.paddingZero {
+  text-align: center;
+}
+.paddingZero .form-control {
+  height: 44px !important;
+}
+.expiredMsg {
+  font-size: 12px;
+  color: red;
+  top: -17px;
+  position: relative;
+}
+.mySCaptcha {
+  position: relative;
+  z-index: 1;
+  /* top: -25px; */
+  top: -10px;
+}
+
+input#yourFirstCaptchaUserInput {
+  padding: 6px;
+  text-align: center;
+  color: #146394;
+  font-size: 15px !important;
+}
+
+.recallCaptchaCls i {
+  color: #146394;
+}
+
+.animated::before {
+  display: inline-block;
+  zoom: 1.5 !important;
+  vertical-align: top !important;
+  color: red !important;
+  display: inline-block !important;
+  animation-name: pulse;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  display: inline-block;
+  display: inline-block;
+  animation-iteration-count: infinite;
+}
+
+.shakeImage {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}

@@ -1,0 +1,228 @@
+<div class="filter">
+    <div class="row display-flex mb-40">
+        <div class="col-md-3 col-xs-12">
+            <button (click)="OpenAddTicketPopup()" class="btn primary-btn add-ticket">
+                {{'addTicket'|translate}}
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-xs-12 mb-40" *ngFor="let ticket of UserTickets">
+        <div class="ticket row" [ngClass]="ticket.ticketStatusId == 3 ? 'pink': ticket.ticketStatusId == 1 ? 'green' : 'white'">
+            <div class=" icon-wrapper">
+                <i class="icon-ticket"></i>
+            </div>
+            <div class="flex-mobile-wrapper ">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <div class="title">{{'ticketNo'|translate}}</div>
+                            <div class="desc">{{ticket.ticketId}}#</div>
+                        </div>
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <div class="title">{{'requestStatus'|translate}}</div>
+                            <div class="desc">{{ticket.statusName}}</div>
+                        </div>
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <div class="title">{{'notes'|translate}}</div>
+                            <div class="desc">{{ticket.userNotes}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4 cancel-padding">
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <div class="title">{{'policyNo'|translate}}</div>
+                            <div class="desc">{{ticket.policyNo}}</div>
+                        </div>
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <div class="title">{{'details'|translate}}</div>
+                            <div class="desc">{{ticket.adminReply}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clol-xs-12 col-lg-4 cancel-padding ">
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <div class="title vertical-top">{{'vehicle'|translate}}</div>
+                            <div class="car-numbers">
+                                <div class="car-plate" *ngIf="ticket.vehiclePlate != null">
+                                    <span class="arabic-character">{{ticket.vehiclePlate.CarPlateTextAr}}</span>
+                                    <span class="arabic-number">{{ticket.vehiclePlate.CarPlateNumberAr}}</span>
+                                    <span class="english-number">{{ticket.vehiclePlate.CarPlateNumberEn}}</span>
+                                    <span class="english-character">{{ticket.vehiclePlate.CarPlateTextEn}}</span>
+                                </div>
+                                <div class="car-name"><span class="small-pad">{{ticket.vehicleName}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="col-lg-10 col-xs-12 mb-40">
+        <div class="ticket pink">
+            <div class="icon-wrapper">
+                <i class="icon-ticket"></i>
+            </div>
+            <div class="text-wrapper">
+                <div class="text rmb-15 rmt-15">
+                    <div class="title">رقم الوثيقة</div>
+                    <div class="desc">#0154</div>
+                </div>
+                <div class="text rmb-15">
+                    <div class="title">المركبة</div>
+                    <div class="desc">#0154</div>
+                </div>
+                <div class="text rmb-15">
+                    <div class="car-numbers">
+                        <div class="car-plate">
+                            <span class="arabic-character"></span>
+                            <span class="arabic-number"></span>
+                            <span class="english-number"></span>
+                            <span class="english-character"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-10 col-xs-12 mb-40">
+        <div class="ticket terq">
+            <div class="icon-wrapper">
+                <i class="icon-ticket"></i>
+            </div>
+            <div class="text-wrapper">
+                <div class="text">
+                    <div class="title">حالة الطلب</div>
+                    <div class="desc">#0154</div>
+                </div>
+            </div>
+            <div class="text-wrapper">
+                <div class="text">
+                    <div class="title">التفاصيل</div>
+                    <div class="desc">#0154</div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': openPpUp ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{'newTicket' | translate}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+                    <span aria-hidden="true" class="closeicon">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="uploadNewTicket" (ngSubmit)="uploadTicket(uploadNewTicket.value)">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="dis-flex col-lg-12  col-md-12 col-xs-12">
+                            <label class="label-Screen">
+                                {{'ticketType'|translate}}
+                            </label>
+                            <ng-select [items]="tickets" (change)="changeTicket()" bindLabel="ticketTypeName"
+                                bindValue="typeId" placeholder="{{'chooseTicketType'|translate}}"
+                                class="form-control col-10" formControlName="ticketType" required>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12" *ngIf="ticketType == 1 || ticketType == 2 
+                || ticketType == 3 || ticketType == 4 || ticketType == 5 ">
+                            <label class="label-Screen">{{'SequenceCustomerNumber'|translate}}</label>
+                            <input type="text" formControlName="sequenceCustomerNo" class="form-control col-10"
+                                required (keypress)="allowOnlyNumbers($event)">
+
+                            <div *ngIf="submitted && uploadNewTicket.controls['sequenceCustomerNo'].errors">
+                                <span *ngIf="uploadNewTicket.controls['sequenceCustomerNo'].errors.required"
+                                    class="validateFire">{{'sequenceCustomerNumberRequired' | translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12" *ngIf="ticketType == 6">
+                            <label class="label-Screen">{{'id'|translate}} </label>
+                            <input type="text" formControlName="nationalId" class="form-control col-10" required
+                            (keypress)="allowOnlyNumbers($event)" onkeypress="if(this.value.length==10) return false;">
+                            
+                            <div *ngIf="submitted && uploadNewTicket.controls['nationalId'].errors">
+                                <span *ngIf="uploadNewTicket.controls['nationalId'].errors.required"
+                                    class="validateFire">{{'nationalIdRequired' | translate}}</span>
+                                <span *ngIf="uploadNewTicket.controls['nationalId'].errors.mainLength"
+                                    class="validateFire">{{'invalidNationalId' | translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12" *ngIf="ticketType == 2 || ticketType == 4 
+                  || ticketType == 5 || ticketType == 6">
+                            <label class="label-Screen">{{'notes'|translate}} </label>
+                            <input type="text" formControlName="notes" class="form-control col-10" required>
+
+                            <div *ngIf="submitted && uploadNewTicket.controls['notes'].errors">
+                                <span *ngIf="uploadNewTicket.controls['notes'].errors.required"
+                                    class="validateFire">{{'notesRequired' | translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12 multipleAttchmentFile" *ngIf="ticketType == 5">
+                            <label class="label-Screen">
+                                {{'attachments'|translate}} </label>
+                            <button class=" addAttchClass" type="button" (click)="AddAttachment()">
+                                {{'addAttachment'|translate}}
+                            </button>
+
+                            <div id="AttachmentsDiv" *ngIf="showFile == true">
+                                <div class="attchContainer">
+                                    <label for="file">{{'attachmentName'|translate}}:</label>
+                                    <input type="file" accept="application/vnd.ms-excel ,.xlsx, .xls, .csv" id="file"
+                                        (change)="onFileChange($event)" id="attachment"
+                                        formControlName="attachmentName" multiple>
+                                </div>
+                            </div>
+
+                            <div *ngIf="submitted && uploadNewTicket.controls['attachmentName'].errors">
+                                <span *ngIf="uploadNewTicket.controls['attachmentName'].errors.required"
+                                    class="validateFire">{{'attachmentNameRequired' | translate}}</span>
+                            </div>
+
+                            <div *ngIf="submitted && attachmentRequired">
+                                <span class="validateFire">TTT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 upload-ticket">
+                            <button type="submit" class="btn" data-dismiss="modal" id="uploadTicket"
+                                [disabled]="!this.uploadNewTicket.valid">
+                                {{'uploadTicket'|translate}}<i class="fa fa-spinner fa-spin custom-loader"
+                                    *ngIf="loading"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <app-loader *ngIf="showLoading"> </app-loader> -->

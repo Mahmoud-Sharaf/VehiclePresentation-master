@@ -1,0 +1,134 @@
+<app-header class="main-header"></app-header>
+<div class="container">
+    <div class="row serverErrValidation" [hidden]="!showErrDesc">
+        <div class="col-lg-12">
+            {{servererror}}
+        </div>
+    </div>
+    <div class="terq-bg">
+        <div class="row" style="display: none;">
+            <div class="col-lg-12 col-xs-12">
+                <div class="content-wrapper">
+                    <div class="flowers-bg"><img src="../../../assets/imgs/flowersBg.png"></div>
+                    <div class="white-wrapper">
+                        <div class="image">
+                            <div class="img-parent">
+                                <img src="../../../assets/imgs/bluebg-title.png">
+                                <div class="title">{{'wooref' | translate}}</div>
+                            </div>
+                        </div>
+                        <div class="row form">
+                            <div class="col-lg-6 col-xs-12">
+                                <div class="row ">
+                                    <div class="col-lg-12 col-xs-12 mb-15 custom-float-left">
+                                        <mat-form-field appearance="standard" class="testMatInput">
+                                            <mat-label> {{'nationalId' | translate}}</mat-label>
+                                            <input matInput type="tel" class="form-control"
+                                                placeholder="{{'nationalId' | translate}}"
+                                                onkeypress="if(this.value.length==10) return false;"
+                                                (keypress)="alllowOnlyNumbers($event)" required 
+                                                [ngModelOptions]="{standalone: true}" [(ngModel)]="nationalId">
+
+                                            <div class="row serverResponse" [hidden]="!showNationalIdError">
+                                                <span class="validateFire">{{'invalidNationalId' | translate}}</span>
+                                            </div>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-xs-12 custom-float-left">
+                                        <div class="caption">
+                                            <app-captcha [CaptchaForm]="CaptchaForm"></app-captcha>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-xs-12 custom-float-right">
+                                        <button class="primary-btn btn custom-float-right send-Btn" type="submit" (click)="searchProgramByNIN()">
+                                            {{'send' | translate}}<i class="fa fa-spinner fa-spin custom-loader" *ngIf="loading"></i></button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="content-wrapper second-header">
+                    <div class="oneflower-bg"><img src="../../../assets/imgs/oneflower.png"></div>
+                    <div class="white-wrapper">
+
+                        <div class="row custom-flex"  id="pdfTable" #pdfTable>
+                            <div class="col-lg-4 col-lg-12 custom-float-left">
+                                <div class="title-img">
+                                    <div class="parent-img">
+                                        <img src="../../../assets/imgs/bluebg-title.png">
+                                        <div class="title">{{'wooref' | translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-lg-12 custom-float-left">
+                                <div class="header">
+                                    {{'allowDiscount' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-lg-12 custom-float-left">
+                                <!-- <div class="credit-card">
+                                    <img src="../../../assets/imgs/bcare-credit.png">
+                                </div> -->
+                                <div class="debit-card">
+                                    <div class="mainHeader">
+                                        <img src="../../../assets/imgs/white-logo.svg" class="white-logo">
+                                        <div class="title">بي كير</div>
+                                    </div>
+                                    <div class="mainBody">
+                                        <div class="wooref-name">وريف</div>
+                                        <div class="numbers"><span>0 0 0 0 0 0 0 0 0 </span></div>
+                                        <div class="expiredDate">
+                                            <div class="expirdDateNumber">
+                                                07-11-2021
+                                            </div>
+                                            <div class="expirdDateName">
+                                                Express Card
+                                            </div>
+
+                                        </div>
+                                        <div class="investigate">
+                                            للتحقق يرجى زيارة
+                                        </div>
+                                        <div class="investigate">
+                                            https://bcare.com.sa/wareef
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div> <button  (click)="downloadAsPDF()">Export To PDF</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item-wrapper">
+            <div class="row items">
+                <div class="col-lg-6 col-xs-12 item">
+                    <div class="card">
+                        <div class="data">
+                            <div class="discount"><span>45%</span> خصم على التظليل والحماية
+                            </div>
+                            <div class="percentage"><span>55%</span> خصم علـى بـاقي الـخدمات
+                            </div>
+                            <div class="date"> حتى 4/7/2021</div>
+                        </div>
+                        <div class="logo"> <img src="../../../assets/imgs/woofee/daily.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

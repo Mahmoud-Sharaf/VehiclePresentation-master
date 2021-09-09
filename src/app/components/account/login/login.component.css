@@ -1,0 +1,182 @@
+.hide-in-mobile
+{
+  display:block;
+  text-align: center;
+}
+
+.show-in-mobile
+{
+  display:none;
+}
+
+
+.checkmark {
+  border: 2px solid orange;
+  top: 18px !important;
+  background-color: white;
+  position: absolute;
+  height: 14px;
+  width: 16px;
+  border-radius:3px;
+  margin-top:0px!important;
+}
+
+
+.orange-radio .checkmark:after {
+  top: 0.6px;
+  width: 9px;
+  height: 9px;
+  left:5px!important;
+}
+
+
+
+.loginBtn
+{
+  font-size:24px;
+}
+.reg-form .custom-input::placeholder
+{
+  color:#606060!important;
+}
+.modal-body  .input-wrapper
+{
+  padding: 18px;
+  border: 1px solid #146394;
+  border-radius: 40px;
+  border-radius: 11px;
+  height: 45px;
+  padding:6px;
+}
+
+.resetEmail
+{
+  border: none;
+  outline: orange;
+  padding: 0 15px;
+  width: 100%;
+  font-size: 20px; 
+  -webkit-box-align: center;
+  align-items: center;
+}
+.pad-popup
+{
+  padding:0px 15px;
+}
+
+.resetPass-btn
+{
+  margin: 30px 0px 0px;
+}
+.checkbox-width
+{
+  width: 5%!important;
+}
+
+.login-font::placeholder
+{
+  color:#606060!important;
+}
+
+.modal-title
+{
+color:#606060!important;
+}
+
+.login-font
+{
+  color:#606060!important;
+  font-weight: normal;
+  text-decoration: none!important;
+  padding:0px 5px;
+}
+
+@media (min-width: 768px) {
+
+  .login-font
+  {
+    font-size:20px!important;
+  }
+
+.login
+{
+  padding:60px 30px;
+}
+}
+
+
+@media (max-width: 480px) {
+  .remember
+  {
+    height: 0;
+  }
+  .checkmark
+  {
+    top:-5px!important;
+  }
+  .mb-20
+  {
+    margin-bottom:20px;
+  }
+  
+    .login-font
+    {
+      font-size:16px!important;
+    }
+    .hide-in-mobile
+    {
+      display:none;
+    }
+
+    .show-in-mobile
+    {
+      display:block;
+    }
+
+    .modal-content
+    {
+      border-radius: 40px;
+    }
+    .reg-form .title
+    {
+      font-size:20px;
+      margin-bottom:20px!important;
+    }
+    .reg-form .custom-input::placeholder
+    {
+      font-size:16px!important;
+      color:#606060!important;
+      padding:0px!important;
+    }
+
+  .reg-form {
+    border-radius: 25px 25px 0px 0px;
+    padding:30px 0px!important;
+  }
+
+  .title-center
+  {
+    text-align: center;
+  }
+
+  .reg-form .input-wrapper {
+    padding: 8px;
+    height: 38px;
+  }
+  .reg-form .custom-icon {
+    font-size: 13px!important;
+    width: 35px!important;
+    margin-top: 3px!important;
+  }
+
+
+  .reg-form .primary-btn
+  {
+    min-height: 28px!important;
+    font-size: 17.5px!important;
+    height: 28px!important;
+    line-height: 10px!important;
+  }
+
+
+}

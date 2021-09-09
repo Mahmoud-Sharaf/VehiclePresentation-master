@@ -1,0 +1,595 @@
+<app-header class="main-header" [screenTitleAr]="screenTitleAr" [screenTitleEn]="screenTitleEn"></app-header>
+<div class="checkout">
+    <div class="pattern right"></div>
+    <div class="pattern left"></div>
+    <div class="container">
+        <div class="checkout-page filter-body">
+            <form [formGroup]="formdata" (ngSubmit)="payNow(formdata.value)" class="row">
+                <div class="col-lg-8 col-xs-12 custom-float-left">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="terq-bg">
+                                <div class="car-brand">
+                                    <img src="https://www.bcare.com.sa/resources/imgs/CarLogos/{{vehicleIMG}}.svg"
+                                        class="fixedImgWidth" alt="car brand" title="car brand" />
+
+                                </div>
+                                <div class="custom-car-desc">
+                                    <h2 class="title">{{"vehicleDescription"|translate}}
+                                    </h2>
+                                    <div class="data">{{vehicleDesc}}{{vehicleModelYear}}{{vehicleModel}}</div>
+                                </div>
+                                <div class="car-plate" *ngIf="VehicleIdType == 1">
+                                    <span class="arabic-character">{{CarPlateTextAr}}</span>
+                                    <span class="arabic-number">{{carPlateAR}}</span>
+                                    <span class="english-number">{{carPlateEN}}</span>
+                                    <span class="english-character">{{CarPlateTextEn}}</span>
+                                </div>
+                                <div class="customCard" *ngIf="VehicleIdType == 2">
+                                    <span
+                                        class="txt-sm  txt-mgray dis-block xs-mar-bot">{{'customCard'|translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="newContainercheckout desktop-show">
+                        <div class="row">
+                            <div class="col-lg-4 custom-float-left col-sm-6 col-xs-4">
+                                <div class="custom-checkout">
+                                    <h2 class="title">{{"insuredName"|translate}}</h2>
+                                    <div class="data" *ngIf="myLanguageCus == 'Arabic'">{{insuredNameAr}}</div>
+                                    <div class="data" *ngIf="myLanguageCus == 'English'">{{insuredNameAr}}</div>
+                                </div>
+                                <div class="custom-checkout">
+                                    <h2 class="title">{{"policyStartDate"|translate}}</h2>
+                                    <div class="data">{{PolicyEffectiveDate}}</div>
+                                </div>
+                                <!-- <div class="custom-checkout">
+                                <h2 class="title">{{"datePrintPolicy"|translate}}</h2>
+                                <div class="data">{{PolicyEndDate}}</div>
+                            </div> -->
+
+                                <!-- <div class="custom-checkout">
+                                    <h2 class="title">تاريخ طباعة الوثيقة </h2>
+                                    <div class="data">2020/01/01</div>
+                                </div> -->
+                                
+                            </div>
+                            <div class="col-lg-4 custom-float-left col-sm-6 col-xs-4 grey-border">
+                                <div class="custom-checkout">
+                                    <h2 class="title">{{"userNationalIdCheckOut"|translate}}</h2>
+                                    <div class="data">{{insuredNationalID}}</div>
+                                </div>
+
+                                <div class="custom-checkout">
+                                    <h2 class="title">{{"policyEndDate"|translate}}</h2>
+                                    <div class="data">{{PolicyEndDate}}</div>
+                                </div>
+                            
+                            </div>
+                            <div class="col-lg-4 custom-float-left col-sm-6 col-xs-4">
+                                <div class="custom-checkout">
+                                    <h2 class="title">{{"SequenceCustomerNumber"|translate}}</h2>
+                                    <div class="data">{{SequenceNumber}}</div>
+                                </div>
+                              
+                                <div class="custom-checkout" *ngIf="AdditionalDriverAr != null || AdditionalDriverEn != null ">
+                                    <h2 class="title">{{"addDriver"|translate}}</h2>
+                                    <div class="data"  *ngIf="myLanguageCus == 'Arabic'">{{AdditionalDriverAr}}</div>
+                                    <div class="data"  *ngIf="myLanguageCus == 'English'">{{AdditionalDriverEn}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="newContainercheckout mobile-show">
+                        <div class="row">
+                            <div class="col-lg-4 custom-float-left col-sm-6 col-xs-6 grey-border">
+                                <div class="custom-checkout">
+                                    <h2 class="title b-r-r">{{"insuredName"|translate}}</h2>
+                                    <div class="data" *ngIf="myLanguageCus == 'Arabic'">{{insuredNameAr}}</div>
+                                    <div class="data" *ngIf="myLanguageCus == 'English'">{{insuredNameAr}}</div>
+                                </div>
+                                <div class="custom-checkout">
+                                    <h2 class="title">{{"policyStartDate"|translate}}</h2>
+                                    <div class="data">{{PolicyEffectiveDate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 custom-float-left col-sm-6 col-xs-6">
+                                <div class="custom-checkout">
+                                    <h2 class="title b-r-l">{{"userNationalIdCheckOut"|translate}}</h2>
+                                    <div class="data">{{insuredNationalID}}</div>
+                                </div>
+                                <div class="custom-checkout">
+                                    <h2 class="title b-r-l">{{"policyEndDate"|translate}}</h2>
+                                    <div class="data">{{PolicyEndDate}}</div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 custom-float-left col-sm-6 col-xs-6">
+                             <div class="custom-checkout">
+                                <h2 class="title">{{"SequenceCustomerNumber"|translate}}</h2>
+                                <div class="data">{{SequenceNumber}}</div>
+                             </div>
+                          
+                             <div class="custom-checkout" *ngIf="AdditionalDriverAr != null || AdditionalDriverEn != null ">
+                                <h2 class="title">{{"addDriver"|translate}}</h2>
+                                <div class="data"  *ngIf="myLanguageCus == 'Arabic'">{{AdditionalDriverAr}}</div>
+                                <div class="data"  *ngIf="myLanguageCus == 'English'">{{AdditionalDriverEn}}</div>
+                             </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="custom-checkout-form">
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-12">
+                                <div class="form-wrap">
+                                    <label>{{"insuredEmail"|translate}}</label>
+                                    <div class="adjust-icon">
+                                        <input class="dir-left txt-align-left full-width form-control" type="email"
+                                            [ngClass]="{ '': submitted && formdata.controls['email'].errors}"
+                                            formControlName="email" id="cehckoutEmail" (change)="emailChange()" />
+                                        <a *ngIf="showEmailIfNotEditable == true" (click)="emailInputEditable($event)"
+                                            class="edit-btn" title="edit"><i
+                                                class="fa fa-edit orange-seprator-left"></i></a>
+                                    </div>
+                                </div>
+                                <div *ngIf="submitted && formdata.controls['email'].errors">
+                                    <span *ngIf="formdata.controls['email'].errors.required "
+                                        class="validateFire">{{'emailRequired' | translate}}</span>
+                                    <span *ngIf="formdata.controls['email'].errors.pattern"
+                                        class="validateFire">{{'emailValidation' | translate}}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xs-12">
+                                <div class="form-wrap">
+                                    <label>{{"insuredMobile"|translate}}</label>
+                                    <div class="adjust-icon">
+                                        <input class="dir-left txt-align-left full-width form-control"
+                                            [ngClass]="{ '': submitted && formdata.controls['phone'].errors}" type="tel"
+                                            formControlName="phone" (keypress)="allowOnlyNumbers($event)"
+                                            onkeypress="if(this.value.length  == 12) return false;" id="phone"
+                                            (change)="phoneChange()" />
+                                        <a *ngIf="showPhoneIfNotEditable == true" class="edit-btn" title="edit"
+                                            (click)="phoneInputEditable($event)"><i
+                                                class="fa fa-edit orange-seprator-left"></i></a>
+                                    </div>
+                                </div>
+                                <div *ngIf="submitted && formdata.controls['phone'].errors">
+                                    <span *ngIf="formdata.controls['phone'].errors.required "
+                                        class="validateFire">{{'phoneRequired' | translate}}</span>
+                                    <!-- <span *ngIf="formdata.controls['phone'].errors.PhoneNumberLength"
+                                    class="validateFire">{{'phoneLengthNum'| translate}}</span> -->
+                                    <span *ngIf="formdata.controls['phone'].errors.pattern"
+                                        class="validateFire">{{'phoneValidation'| translate}}</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-xs-12">
+                                <div class="form-wrap">
+                                    <label>{{"iban"|translate}}</label>
+                                    <div class="adjust-icon">
+                                        <input
+                                            class="dir-left iban txt-align-left full-width form-control terq-form-control"
+                                            type="tel" [ngClass]="{ '': submitted && formdata.controls['IBAN'].errors}"
+                                            formControlName="IBAN" (keypress)="allowOnlyNumbers($event)"
+                                            (keyup)="ibanChange()" />
+                                        <!-- maxlength="27" minlength="27" -->
+                                        <span class="iban_span"><span class=" right-orange-seperator">SA-</span></span>
+                                    </div>
+                                </div>
+                                <div *ngIf="submitted && formdata.controls['IBAN'].errors">
+                                    <span *ngIf="formdata.controls['IBAN'].errors.required "
+                                        class="validateFire">{{'IBANRequired' | translate}}</span>
+                                    <span *ngIf="formdata.controls['IBAN'].errors.IbanNumberLength"
+                                        class="validateFire">{{'minInsuredIBANRequired' | translate}}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xs-12">
+                                <div class="form-wrap">
+                                    <label>{{"bankName"|translate}}</label>
+                                    <div class="adjust-icon">
+                                        <input class="custom-align-left full-width form-control bankName" type="text"
+                                            formControlName="bankName" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="ProductInsuranceTypeCode == 2">
+                            <div *ngIf="PurchaseByMobile == false && ProductInsuranceTypeCode == 2"
+                                class="custom-car-uploader">
+                                <div class="row">
+                                    <div class="col-lg-12 col-xs-12">
+                                        <h2 class="question-title">
+                                            {{'vehicleImage'|translate}}
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="row custom-flex car-color-wrapper">
+                                    <div class="item custom-float-left">
+                                        <label class="fileupload input--file">
+                                            <div class="img-wrapper">
+                                                <img *ngIf="imageFrontUrl == undefined"
+                                                    src="../../../assets/imgs/frontCar1.png" class="imgCheckOutCar"
+                                                    alt="car image" title="Car" />
+                                                <img *ngIf="imageFrontUrl" [src]="imageFrontUrl"
+                                                    class="preview-upload-img">
+                                            </div>
+                                            <span class="car-title">{{'frontImage'|translate}}</span>
+                                            <input #ImageFront type="file" class="input__field" accept="image/*"
+                                                name="ImageFront" id="ImageFront" required="" target="car-upload-front"
+                                                aria-required="true" (change)="handleImageFront($event.target.files)" />
+
+                                        </label>
+                                    </div>
+                                    <div class="item custom-float-left">
+                                        <label class="fileupload input--file">
+                                            <div class="img-wrapper">
+                                                <img *ngIf="imageRightUrl == undefined"
+                                                    src="../../../assets/imgs/rightCar.png" class="imgCheckOutCar"
+                                                    alt="Car Image" title="Car" />
+                                                <img *ngIf="imageRightUrl" [src]="imageRightUrl"
+                                                    class="preview-upload-img">
+                                            </div>
+                                            <span class="car-title">{{'rightImage'|translate}}</span>
+                                            <input #ImageRight type="file" class="input__field" accept="image/*"
+                                                name="ImageRight" id="ImageRight" required="" target="car-upload-right"
+                                                aria-required="true"
+                                                (change)="handleIImageRight($event.target.files)" />
+                                        </label>
+                                    </div>
+                                    <div class="item custom-float-left">
+                                        <label class="fileupload input--file">
+                                            <div class="img-wrapper">
+                                                <img *ngIf="imageLeftUrl == undefined"
+                                                    src="../../../assets/imgs/leftCar.png" class="imgCheckOutCar"
+                                                    alt="car image" title="Car" />
+                                                <img *ngIf="imageLeftUrl" [src]="imageLeftUrl"
+                                                    class="preview-upload-img">
+                                            </div>
+                                            <span class="car-title">{{'leftImage'|translate}}</span>
+                                            <input #ImageLeft type="file" class="input__field" accept="image/*"
+                                                name="ImageLeft" id="ImageLeft" required="" target="car-upload-left"
+                                                aria-required="true" (change)="handleIImageLeft($event.target.files)" />
+                                        </label>
+                                    </div>
+                                    <div class="item custom-float-left">
+                                        <label class="fileupload input--file">
+                                            <div class="img-wrapper">
+                                                <img *ngIf="imageBackUrl == undefined"
+                                                    src="../../../assets/imgs/backCar.png" class="imgCheckOutCar"
+                                                    alt="car image" title="Car" />
+                                                <img *ngIf="imageBackUrl" [src]="imageBackUrl"
+                                                    class="preview-upload-img">
+                                            </div>
+                                            <span class="car-title">{{'backImage'|translate}}</span>
+                                            <input #ImageBack type="file" class="input__field" accept="image/*"
+                                                name="ImageBack" id="ImageBack" required="" target="car-upload-back"
+                                                aria-required="true" (change)="handleIImageBack($event.target.files)" />
+                                        </label>
+                                    </div>
+                                    <div class="item custom-float-left">
+                                        <label class="fileupload input--file">
+                                            <div class="img-wrapper">
+                                                <img *ngIf="imageChasisUrl == undefined"
+                                                    src="../../../assets/imgs/upCar.png" class="imgCheckOutCar"
+                                                    alt="car image" title="Car" />
+                                                <img *ngIf="imageChasisUrl" [src]="imageChasisUrl"
+                                                    class="preview-upload-img">
+                                            </div>
+                                            <span class="car-title">{{'chasisImage'|translate}}</span>
+                                            <input #ImageChasis type="file" class="input__field" accept="image/*"
+                                                name="ImageChasis" id="ImageChasis" required=""
+                                                target="car-upload-chasis" aria-required="true"
+                                                (change)="handleIImageChasis($event.target.files)" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div *ngIf="PurchaseByMobile == true">
+                                <div class="row">
+                                    <div class="col-lg-12 col-xs-12">
+                                        <h2 class="question-title">
+                                            {{'uploadImageByMobile'|translate}}
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="row store-app-android">
+                                    <div class="col-xs-6 col-md-4 col-lg-3 sm-mar">
+                                        <a href="https://play.google.com/store/apps/details?id=com.app.bcare">
+                                            <img src="https://bcare.com.sa/resources/imgs/android_moblie_app.png"
+                                                target="_blank"></a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4 col-lg-3 sm-mar">
+                                        <a
+                                            href="https://apps.apple.com/us/app/bcare-%D8%A8%D9%8A-%D9%83%D9%8A%D8%B1/id1490248033?ls=1">
+                                            <img src="https://bcare.com.sa/resources/imgs/ios_moblie_app.png"
+                                                target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- sidebar -->
+                <div class="col-lg-4 col-xs-12 custom-float-left">
+                    <div class="sidebar-wrapper">
+                        <div class="terq-bg">
+                            <div class="img-cutter">
+                                <div class="custom-car-title">
+                                    <h2 *ngIf="ProductInsuranceTypeCode == 2"
+                                        class="txt-md txt-black no-mar sm-mar bx-right f_width dis-block">
+                                        {{"comperhnsiveInsurance" | translate}}
+                                    </h2>
+                                    <h2 *ngIf="ProductInsuranceTypeCode == 1"
+                                        class="txt-md txt-black no-mar sm-mar bx-right f_width dis-block">
+                                        {{"TPLInsurance" | translate}}
+                                    </h2>
+                                </div>
+                                <img
+                                    src="https://www.bcare.com.sa/resources/imgs/insurerlogos/{{InsuranceCompanyKey}}.png" />
+
+                            </div>
+                            <div class="body-sidebar"></div>
+                        </div>
+                        <div class="bg-img-terq">
+                            <div class="custom-row-title">
+                                <h3>{{"priceDetails"|translate}}</h3>
+                            </div>
+
+                            <div class="row-data">
+                                <div *ngFor="let prodDetail of PriceDetails">
+                                    <div class="dis-flex" *ngIf="prodDetail.PriceTypeCode != 8">
+                                        <div class="title" *ngIf="myLanguageCus == 'Arabic'">
+                                            <span>{{prodDetail.PriceNameAr}}</span>
+                                        </div>
+                                        <div class="title" *ngIf="myLanguageCus == 'English'">
+                                            <span>{{prodDetail.PriceNameEn}}</span>
+                                        </div>
+                                        <div><span>{{prodDetail.PriceValue}}</span><span
+                                                class="currency">{{"currency"|translate}}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-data" *ngIf="Benefits?.length != 0">
+                                <div *ngFor="let benefitDetail of Benefits">
+                                    <div class="dis-flex">
+                                        <div class="title" *ngIf="myLanguageCus == 'Arabic'">
+                                            <span>{{benefitDetail.BenefitNameAr}}</span>
+                                        </div>
+                                        <div class="title" *ngIf="myLanguageCus == 'English'">
+                                            <span>{{benefitDetail.BenefitNameEn}}</span>
+                                        </div>
+                                        <div><span>{{benefitDetail.BenefitPrice}}</span><span
+                                                class="currency">{{"currency"|translate}}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-data">
+                                <div class="dis-flex">
+                                    <div class="title">{{"SubTotal"|translate}}</div>
+                                    <div><span>{{subTotal}}</span> <span>{{"currency"|translate}}</span></div>
+                                </div>
+                                <div class="dis-flex" *ngIf="productPriceTypeCode == 8">
+                                    <div class="title" *ngIf="myLanguageCus == 'Arabic'">
+                                        <span>{{taxNameAr}} 5%</span>
+                                    </div>
+                                    <div class="title mb-25" *ngIf="myLanguageCus == 'English'">
+                                        <span>{{taxNameEn}} 5%</span>
+                                    </div>
+                                    <div><span>{{tax}}</span> <span class="currency">{{"currency"|translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-data total-price dis-flex">
+                                <div class="big-title blue-title">{{"totalPrice"|translate}}</div>
+                                <div class="align-right">
+                                    <span>{{PaymentAmountVal}}</span> <span
+                                        class="currency">{{"currency"|translate}}</span>
+                                </div>
+                                <div class="taxes">
+                                    <div class="custom-float-right grey-color small-txt"
+                                        *ngIf="ProductInsuranceTypeCode == 2">
+                                        {{"comperhnsiveCommision"|translate}}
+                                    </div>
+                                    <div class="custom-float-right grey-color small-txt"
+                                        *ngIf="ProductInsuranceTypeCode == 1">
+                                        {{"TPLCommision"|translate}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="row-data" *ngIf="ProductInsuranceTypeCode == 1">
+                            <div class="custom-success-msg">
+                                <div>{{'fullInsurance'|translate}}</div>
+                                <div class="big-title">{{lowestProduct}}</div>
+                            </div>
+                        </div>
+                        <!-- <button *ngIf="PurchaseByMobile == false" class="pay-btn" id="PaySubmit"
+                            disabled>{{'payNow'|translate}}
+                            <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                        </button> -->
+                    </div>
+                </div>
+                <div *ngIf="PurchaseByMobile == false && ProductInsuranceTypeCode == 1" class="col-lg-12">
+                    <div class="payment-wrapper">
+                        <div class="terms-wrapper">
+                            <div class="terms-conditions">
+                                <div class="form-check orange-radio terms-check ">
+                                    <label class="radio-holder " for="one">
+                                        <input type="checkbox" class="form-check-input"
+                                            onchange="document.getElementById('PaySubmit').disabled = !this.checked;"
+                                            id="one" />
+                                        <span class="checkmark terms-checkmark"></span>
+                                    </label>
+                                </div>
+                                <label class="conditions" for="one">
+                                    {{"checkoutTPLTerms1"|translate}}<a href="https://bcare.com.sa/Home/TermsCondition"
+                                        target="_blank" rel="noopener"> {{'checkoutTPLTerms2'|translate}}
+                                    </a>{{"checkoutTPLTerms1"|translate}}{{"checkoutTPLTerms3"|translate}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div *ngIf="PurchaseByMobile == false && ProductInsuranceTypeCode == 2" class="col-lg-12">
+                    <div class="payment-wrapper">
+                        <div class="terms-wrapper">
+                            <div class="terms-conditions">
+                                <div class="form-check orange-radio terms-check">
+                                    <label class="radio-holder " for="two">
+                                        <input type="checkbox" class="form-check-input termsCheckbox"
+                                            (click)="exampleCheck2($event)" id="two" />
+                                        <span class="checkmark terms-checkmark"></span>
+                                    </label>
+                                </div>
+                                <label class="conditions" for="two">
+                                    {{"checkoutComperhinsiveTerms"|translate}}
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="terms-wrapper">
+                            <div class="terms-conditions">
+                                <div class="form-check orange-radio terms-check">
+                                    <label class="radio-holder  " for="three">
+                                        <input type="checkbox" class="form-check-input termsCheckbox"
+                                            (click)="exampleCheck1($event)" id="three" />
+                                        <span class="checkmark terms-checkmark"></span>
+                                    </label>
+                                </div>
+                                <label class="conditions" for="three">
+                                    {{"checkoutTPLTerms1"|translate}}<a href="https://bcare.com.sa/Home/TermsCondition"
+                                        target="_blank" rel="noopener"> {{'checkoutTPLTerms2'|translate}}
+                                    </a>{{"checkoutTPLTerms1"|translate}}{{"checkoutTPLTerms3"|translate}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="PurchaseByMobile == false " class="col-lg-12">
+                    <div class="payment-wrapper">
+                        <h2 class="question-title payment-wrapper">
+                            <span class="icon"> <img src="../../../assets/imgs/money-icon.png"> </span>
+                            <span>{{'choosePayment'|translate}}</span>
+                        </h2>
+                        <div class="payment-methods">
+                            <div class="filter-flex" name="paymentHolder" *ngFor="let payMethod of paymentMethods">
+                                <div class="radio-container orange-radio payments">
+                                    <label class="radio-holder selectedCheckBox" for="payment{{payMethod.id}}">
+                                        <input type="radio" name="paymentHolder" id="payment{{payMethod.id}}"
+                                            (click)="selectPaymentMethod(payMethod.id, $event)">
+                                        <span class="checkmark vehicleType"></span>
+                                    </label>
+                                </div>
+                                <label class="paymethod-img" id="paymentImg{{payMethod.id}}"
+                                    for="payment{{payMethod.id}}">
+                                    <div class="img-wrap-white">
+                                        <img *ngIf="myLanguageCus == 'Arabic'" src="{{payMethod.LogoUrl}}"
+                                            alt="{{payMethod.ArabicDescription}}"
+                                            title="{{payMethod.ArabicDescription}}" name="{{payMethod.name}}" />
+                                        <img *ngIf="myLanguageCus == 'English'" src="{{payMethod.LogoUrl}}"
+                                            alt="{{payMethod.EnglishDescription}}"
+                                            title="{{payMethod.EnglishDescription}}" name="{{payMethod.name}}" />
+                                    </div>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-lg-12">
+                    <div class="custom-float-right">
+                        <button *ngIf="PurchaseByMobile == false" class="pay-btn" id="PaySubmit"
+                            disabled>{{'payNow'|translate}}
+                            <i class="fa fa-spinner fa-spin" *ngIf="loadingNext"></i>
+                        </button>
+                    </div>
+                    <div class="custom-float-left">
+                        <button class="pay-btn prev-btn" type="button" (click)="prevQuotation($event)">{{"previous"
+                            |translate}}
+                            <i class="fa fa-spinner fa-spin" *ngIf="loadingPrevious"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': openPpUp ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="dis-flex col-lg-12 col-md-12 col-xs-12">
+                            <p>{{sumitCheckoutServererror}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 custom-float-right">
+                            <button type="submit" class="btn yes-action txt-sm" data-dismiss="modal"
+                                (click)="closePopup()">{{'yes'|translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': openMobilePpUp ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="dis-flex col-lg-12 col-md-12 col-xs-12">
+                            <p>{{'verifyMobileNoMsg' | translate}}</p>
+                        </div>
+                        <div>
+                            <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="smsCode"
+                                class="form-control col-lg-6 col-md-6 col-xs-12" style="display: inline-block;" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div [hidden]="!showVerifyMobileNoError">
+                            <div class="serverErrValidation">
+                                <div class="attrDis xs-mar bx-right">{{mobileServererror}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 custom-float-left">
+                            <button type="submit" class="btn yes-action txt-sm" data-dismiss="modal"
+                                (click)="verifyMobileNo(smsCode)">
+                                <i class="fa fa-spinner fa-spin"
+                                    *ngIf="loadingVerfiy"></i>{{'verify'|translate}}</button>
+                        </div>
+                        <div class="col-12 custom-float-right">
+                            <button type="submit" class="btn yes-action txt-sm" data-dismiss="modal"
+                                (click)="resendCode()">{{'resend'|translate}}
+                                <i class="fa fa-spinner fa-spin" *ngIf="loadingResend"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<app-loader *ngIf="showLoading"> </app-loader>

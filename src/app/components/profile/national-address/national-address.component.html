@@ -1,0 +1,298 @@
+<div *ngIf="nationalAddressesCount > 0">
+    <div *ngFor="let nationalAddress of nationalAddresses">
+        <div class="col-12" >
+           <div class="national-address-title">
+               <span class="custom-float-left">عبدالله صالح محمد</span><span class="slash">|</span><span>01258787878</span>
+           </div>
+        </div>
+
+        <div class="custom-white-wrapper mb-25 sada-bill" > 
+            <div>
+                <div class="national-address-number">1</div>
+                <div class="row">
+                <div class="col-lg-4 col-xs-12 padding-none">
+                    <div class="flex-wrapper mb-15">
+                        <div class="custom-label">
+                            {{'buildingNo' | translate}}
+                        </div>
+                        <div class="custom-text">
+                    <input type="text" disabled id="buildingNo{{nationalAddress.Id}}"  class="full-width disAll inputEdit{{nationalAddress.Id}}" placeholder="{{nationalAddress.BuildingNumber}}" 
+                    value="{{nationalAddress.BuildingNumber}}"/>
+                        </div>
+                    </div>
+                    <div class="flex-wrapper ">
+                        <div class="custom-label city-width">
+                            {{'city' | translate}}
+                        </div>
+                        <div class="custom-text ng-select-width">
+                            <ng-select placeholder="{{'city' | translate}}" *ngIf="myLanguageCus == 'Arabic'"
+                            [(ngModel)]="city+nationalAddress.Id" [ngModelOptions]="{standalone: true}" (change)="changeCity($event.code, $event.arabicDescription,nationalAddress.Id)"
+                            class="full-width form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width
+                            " 
+                            [items]="allCities" (keypress)="allowOnlyChar($event)"
+                            bindLabel="arabicDescription" bindValue="code" >
+                        </ng-select>
+
+                        <ng-select placeholder="{{'city' | translate}}" *ngIf="myLanguageCus == 'English'"
+                        [(ngModel)]="city+nationalAddress.Id" [ngModelOptions]="{standalone: true}" (change)="changeCity($event.code, $event.englishDescription,nationalAddress.Id)"
+                            class="full-width form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width 
+                            " 
+                            [items]="allCities" (keypress)="allowOnlyChar($event)"
+                            bindLabel="englishDescription" bindValue="code">
+                        </ng-select>
+                        
+                        
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-xs-12 padding-none">
+                    <div class="flex-wrapper mb-15">
+                        <div class="custom-label">
+                            {{'streetName' | translate}}
+                        </div>
+                        <div class="custom-text">
+                            <input type="text"  id="streetName{{nationalAddress.Id}}" disabled  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                            placeholder="{{nationalAddress.Street}}" value="{{nationalAddress.Street}}"/>
+                            
+                        </div>
+                    </div>
+                    <div class="flex-wrapper">
+                        <div class="custom-label">
+                            {{'postalCode' | translate}}
+                        </div>
+                        <div class="custom-text">
+                            <input type="text" id="postalCode{{nationalAddress.Id}}" disabled  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                            placeholder="{{nationalAddress.PostCode}}" value="{{nationalAddress.PostCode}}"/>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12 padding-none">
+                    <div class="flex-wrapper mb-15">
+                        <div class="custom-label">
+                            {{'district' | translate}}
+                        </div>
+                        <div class="custom-text">
+                            
+                            <input type="text" disabled id="district{{nationalAddress.Id}}"  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                            placeholder="{{nationalAddress.District}}"  value="{{nationalAddress.District}}"/>
+                        </div>
+                    </div>
+                    <div class="flex-wrapper">
+                        <div class="custom-label">
+                            {{'additionalNo' | translate}}
+                        </div>
+                        <div class="custom-text">
+                            
+                            <input type="text" disabled  id="additionalNo{{nationalAddress.Id}}" class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                            placeholder="{{nationalAddress.AdditionalNumber}}"  value="{{nationalAddress.AdditionalNumber}}"/>
+                        </div>
+                    </div>
+                </div>
+            
+                </div>
+                <div class="border-bottom"></div>
+            </div>
+            <div>
+                <div class="national-address-number">2</div>
+                <div class="row">
+                    <div class="col-lg-4 col-xs-12 padding-none">
+                        <div class="flex-wrapper mb-15">
+                            <div class="custom-label">
+                                {{'buildingNo' | translate}}
+                            </div>
+                            <div class="custom-text">
+                        <input type="text" disabled id="buildingNo{{nationalAddress.Id}}"  class="full-width disAll inputEdit{{nationalAddress.Id}}" placeholder="{{nationalAddress.BuildingNumber}}" 
+                        value="{{nationalAddress.BuildingNumber}}"/>
+                            </div>
+                        </div>
+                        <div class="flex-wrapper ">
+                            <div class="custom-label city-width">
+                                {{'city' | translate}}
+                            </div>
+                            <div class="custom-text ng-select-width">
+                                <ng-select placeholder="{{'city' | translate}}" *ngIf="myLanguageCus == 'Arabic'"
+                                [(ngModel)]="city+nationalAddress.Id" [ngModelOptions]="{standalone: true}" (change)="changeCity($event.code, $event.arabicDescription,nationalAddress.Id)"
+                                class="full-width form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width
+                                " 
+                                [items]="allCities" (keypress)="allowOnlyChar($event)"
+                                bindLabel="arabicDescription" bindValue="code" >
+                            </ng-select>
+    
+                            <ng-select placeholder="{{'city' | translate}}" *ngIf="myLanguageCus == 'English'"
+                            [(ngModel)]="city+nationalAddress.Id" [ngModelOptions]="{standalone: true}" (change)="changeCity($event.code, $event.englishDescription,nationalAddress.Id)"
+                                class="full-width form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width 
+                                " 
+                                [items]="allCities" (keypress)="allowOnlyChar($event)"
+                                bindLabel="englishDescription" bindValue="code">
+                            </ng-select>
+                            
+                            
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="col-lg-4 col-xs-12 padding-none">
+                        <div class="flex-wrapper mb-15">
+                            <div class="custom-label">
+                                {{'streetName' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                <input type="text"  id="streetName{{nationalAddress.Id}}" disabled  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.Street}}" value="{{nationalAddress.Street}}"/>
+                                
+                            </div>
+                        </div>
+                        <div class="flex-wrapper">
+                            <div class="custom-label">
+                                {{'postalCode' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                <input type="text" id="postalCode{{nationalAddress.Id}}" disabled  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.PostCode}}" value="{{nationalAddress.PostCode}}"/>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12 padding-none">
+                        <div class="flex-wrapper mb-15">
+                            <div class="custom-label">
+                                {{'district' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                
+                                <input type="text" disabled id="district{{nationalAddress.Id}}"  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.District}}"  value="{{nationalAddress.District}}"/>
+                            </div>
+                        </div>
+                        <div class="flex-wrapper">
+                            <div class="custom-label">
+                                {{'additionalNo' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                
+                                <input type="text" disabled  id="additionalNo{{nationalAddress.Id}}" class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.AdditionalNumber}}"  value="{{nationalAddress.AdditionalNumber}}"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="border-bottom"></div>
+            </div>
+            <div>
+                <div class="national-address-number">3</div>
+                <div class="row">
+                    <div class="col-lg-4 col-xs-12 padding-none">
+                        <div class="flex-wrapper mb-15">
+                            <div class="custom-label">
+                                {{'buildingNo' | translate}}
+                            </div>
+                            <div class="custom-text">
+                        <input type="text" disabled id="buildingNo{{nationalAddress.Id}}"  class="full-width disAll inputEdit{{nationalAddress.Id}}" placeholder="{{nationalAddress.BuildingNumber}}" 
+                        value="{{nationalAddress.BuildingNumber}}"/>
+                            </div>
+                        </div>
+                        <div class="flex-wrapper ">
+                            <div class="custom-label city-width">
+                                {{'city' | translate}}
+                            </div>
+                            <div class="custom-text ng-select-width">
+                                <ng-select placeholder="{{'city' | translate}}" *ngIf="myLanguageCus == 'Arabic'"
+                                [(ngModel)]="city+nationalAddress.Id" [ngModelOptions]="{standalone: true}" (change)="changeCity($event.code, $event.arabicDescription,nationalAddress.Id)"
+                                class="full-width form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width
+                                " 
+                                [items]="allCities" (keypress)="allowOnlyChar($event)"
+                                bindLabel="arabicDescription" bindValue="code" >
+                            </ng-select>
+    
+                            <ng-select placeholder="{{'city' | translate}}" *ngIf="myLanguageCus == 'English'"
+                            [(ngModel)]="city+nationalAddress.Id" [ngModelOptions]="{standalone: true}" (change)="changeCity($event.code, $event.englishDescription,nationalAddress.Id)"
+                                class="full-width form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width 
+                                " 
+                                [items]="allCities" (keypress)="allowOnlyChar($event)"
+                                bindLabel="englishDescription" bindValue="code">
+                            </ng-select>
+                            
+                            
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="col-lg-4 col-xs-12 padding-none">
+                        <div class="flex-wrapper mb-15">
+                            <div class="custom-label">
+                                {{'streetName' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                <input type="text"  id="streetName{{nationalAddress.Id}}" disabled  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.Street}}" value="{{nationalAddress.Street}}"/>
+                                
+                            </div>
+                        </div>
+                        <div class="flex-wrapper">
+                            <div class="custom-label">
+                                {{'postalCode' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                <input type="text" id="postalCode{{nationalAddress.Id}}" disabled  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.PostCode}}" value="{{nationalAddress.PostCode}}"/>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12 padding-none">
+                        <div class="flex-wrapper mb-15">
+                            <div class="custom-label">
+                                {{'district' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                
+                                <input type="text" disabled id="district{{nationalAddress.Id}}"  class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.District}}"  value="{{nationalAddress.District}}"/>
+                            </div>
+                        </div>
+                        <div class="flex-wrapper">
+                            <div class="custom-label">
+                                {{'additionalNo' | translate}}
+                            </div>
+                            <div class="custom-text">
+                                
+                                <input type="text" disabled  id="additionalNo{{nationalAddress.Id}}" class="full-width disAll inputEdit{{nationalAddress.Id}}" 
+                                placeholder="{{nationalAddress.AdditionalNumber}}"  value="{{nationalAddress.AdditionalNumber}}"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+        
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="custom-float-right primary-btn" *ngIf="updateNationalAddress[nationalAddress.Id] == true" (click)="updateAddress(nationalAddress,nationalAddress.Id)">{{'update' | translate}}</button>
+            <button class="custom-float-right primary-btn" *ngIf="saveUpdationgAddress[nationalAddress.Id] == true" (click)="updateAddInteg()">{{'save' | translate}}</button>
+        </div>
+       
+    </div>
+ 
+ <!-- <div class="row txt-align-c" *ngIf="pagesCountMoreThanten">
+    <div>
+        <div slickContainer #slickController="slick" [slickConfig]="config">
+            <ng-container *ngIf="slickController.initialize">
+                <span slickItem *ngFor="let page of arrayNoOfPages" class="slick-style"
+                    (click)="recallGetNationalAddress(page)">{{page}}</span>
+            </ng-container>
+        </div>
+        <button (click)="slickController.next()">{{'next'|translate}}</button>
+        <button (click)="slickController.prev()">{{'previous'|translate}}</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="not-found-data" *ngIf="nationalAddressesCount == 0 ">
+    <span>{{'notFoundData'|translate}}</span>
+</div>
+
+<!-- <app-loader *ngIf="showLoading"> </app-loader> -->

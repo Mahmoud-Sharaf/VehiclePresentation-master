@@ -1,0 +1,87 @@
+.notification i {
+  font-size: 2rem;
+  background: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  margin: 40px 0 60px;
+}
+.notification .text {
+  padding: 0 3.75rem;
+  color: #727373;
+  margin-bottom: 40px;
+  font-size: 1.0625rem;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: .6px solid #146394;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 82%;
+}
+/************************************/
+.white {
+  background: #fff;
+}
+.white.notification i {
+  background: #f2f9f9;
+}
+.primary-btn {
+  height: 44px;
+  font-size: 1.0625rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/********** Regression *********/
+.notification {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+/* ------ Media Query ------*/
+
+@media (max-width: 600px) and (min-width: 320px) {
+  .notification i {
+    font-size: 22px;
+    padding: 12px;
+    font-weight: bold;
+  }
+
+  .text {
+    font-size: 13px;
+    padding: 0 25px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .special-col {
+    width: 100% !important;
+  }
+  .notification {
+    width: 100%;
+  }
+  .notification i {
+    margin: 20px 0;
+  }
+  .notification .text {
+    margin-bottom: 20px;
+  }
+}
+.special-col {
+  width: 30%;
+  margin-left: 20px;
+}

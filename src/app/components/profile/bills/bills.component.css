@@ -1,0 +1,249 @@
+.filter {
+  padding-bottom: 45px;
+  border-bottom: 5px solid #fff;
+  margin-bottom: 30px;
+}
+.flex-wrapper {
+  display: flex;
+  /* justify-content: space-between; */
+  color: #727373;
+  align-items: center;
+}
+.flex-wrapper .custom-label {
+  background: #f2f9f9;
+  width: 137px;
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  height:29px;
+  font-size: 17px;
+  text-align: center;
+}
+.flex-wrapper .custom-text {
+  font-size: 17px;
+  margin: 0 10px;
+}
+.custom-price-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* text-align: center; */
+}
+.download-btn-wrapper {
+  border: none !important;
+  color: #a7a8a8 !important;
+  text-decoration: none;
+  height:44px!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.download-btn-wrapper span {
+  font-size: 17px;
+}
+.btns-wrapper {
+  display: flex;
+}
+.price {
+  width: 100%;
+  display: flex;
+  color: #146394;
+  font-size: 25px;
+  /* justify-content: center; */
+}
+.cancel-padding {
+  padding: 0;
+}
+.download {
+  color: #727373;
+}
+.download .renewal {
+  font-size: 0.9rem;
+  padding-top: 15px;
+}
+
+.download-link a {
+  color: #727373;
+  font-size: 0.9rem;
+}
+.custom-white-wrapper {
+  padding: 20px 15px;
+  border-radius: 12px;
+}
+.bg-text {
+  text-align: center;
+  background-color: #f2f9f9;
+  padding: 7px 10px;
+  font-size: 17px;
+  color: #727373;
+  border-radius: 5px;
+}
+.custom-p5 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.custom-description {
+  font-size: 17px;
+  color: #727373;
+}
+.padding-50tb {
+  padding: 25px;
+}
+
+.padding-20tb
+{
+  padding:20px 0px;
+}
+.flex-row {
+  display: flex;
+}
+
+@media (max-width: 992px) {
+  .custom-flex-wrapper {
+    flex-wrap: wrap;
+  }
+  .custom-flex-wrapper div {
+    margin-bottom: 15px;
+  }
+}
+.custom-white-wrapper {
+  padding: 0 30px;
+}
+.primary-btn {
+  height: 44px;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  padding:0px;
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .custom-price-wrapper {
+    flex-direction: column;
+  }
+  .txt-align-center {
+    margin-bottom: 20px;
+  }
+  .filter,
+  .custom-white-wrapper {
+    padding: 20px 0px;
+    border-radius: 15px;
+    border: none;
+    background: white;
+  }
+
+  .search {
+    float: left;
+    border-radius: 10px;
+    min-width: 120px;
+    font-size: 17px;
+  }
+
+  ::placeholder {
+    font-size: 17px;
+    color: #727373 !important;
+    text-align: center;
+  }
+
+  .bills-border {
+    border: none;
+    position: relative;
+  }
+  .bills-border:before {
+    position: absolute;
+    content: "";
+    height: 80%;
+    background: #f2f9f9;
+    width: 1px;
+    top: 10%;
+  }
+  .flex-row {
+    display: block;
+  }
+
+  .padding-50tb {
+    padding: 0px;
+  }
+
+  .flex-wrapper .custom-label {
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    color: #146394;
+    text-align: center;
+    font-weight: bold;
+    border-radius: none;
+    padding: 5px 0px;
+  }
+
+  .custom-text,
+  .bg-text {
+    font-size: 19px !important;
+    color: #727373 !important;
+    text-align: center;
+  }
+
+
+  .flex-wrapper {
+    display: block;
+  }
+
+  .padding-none {
+    padding: 0px;
+  }
+
+  .bg-text {
+    background: white;
+    font-size: 19px;
+  }
+  .mb-15 .bg-text {
+    margin-bottom: 0px !important;
+  }
+  .custom-text {
+    margin-bottom: 0px !important;
+  }
+  .mar-bot {
+    margin-bottom: 10px;
+  }
+
+  .mar-top {
+    margin-top: 10px;
+  }
+  .txt-align-center {
+    text-align: center;
+    justify-content: center;
+    font-size: 31px;
+  }
+
+  .bills-border:after {
+    background-image: none;
+  }
+  .filter {
+    margin-bottom: 15px;
+  }
+  .mb-15 {
+    margin-bottom: 0;
+  }
+  .download-link {
+    font-size: 19px;
+  }
+
+  .custom-description div,
+  .custom-text,
+  .bg-text {
+    font-size: 19px !important;
+  }
+  .download-link img {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+  }
+}
+@media (min-width: 1365px) {
+  .custom-width-270 {
+    width: 300px !important;
+  }
+}

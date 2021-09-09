@@ -1,0 +1,179 @@
+/******** regression *************/
+.form-control {
+  border-radius: 8px;
+  font-size: 1.25rem;
+}
+.profile-statistics .input-wrapper input,
+.profile-statistics .input-wrapper span,
+.adj-spaces {
+  border-radius: 8px;
+}
+
+/************/
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper .input-btn {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: #f2f9f9;
+}
+.input-wrapper .input-btn i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.form-control {
+  border: 1px solid #146394 !important;
+  border-radius: 8px;
+}
+.custom-white-wrapper {
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 8px;
+}
+.custom-white-wrapper:last-child {
+  margin-bottom: 0;
+}
+/**************/
+.flex-input {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.flex-input .second-input {
+  width: 19%;
+  border: 1px solid #146394;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #727373;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+.flex-input .input-wrapper {
+  width: 65%;
+}
+.rmb-40 {
+  margin-bottom: 0;
+}
+
+body ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(148, 148, 148) !important;
+  opacity: 1; /* Firefox */
+}
+
+body :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(148, 148, 148) !important;
+}
+
+body ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgb(148, 148, 148) !important;
+}
+.adj-spaces {
+  display: flex;
+  align-items: center;
+  color: #727373;
+}
+.input-btn i {
+  color: #146394;
+}
+.profile-statistics i:before,
+.person-stat i::before {
+  color: #146394;
+  font-weight: 600;
+}
+.profile-statistics i:last-child::before,
+.person-stat i::before {
+  font-weight: 600;
+  font-size: 18px;
+}
+.profile-statistics a:hover {
+  text-decoration: none;
+}
+.primary-btn {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.0625rem;
+}
+
+.icon-microphone:last-child::before {
+  font-size: 22px !important;
+}
+
+.w-addIcon {
+  width: 15px;
+}
+
+.pad-bot {
+  padding-bottom: 10px;
+}
+
+.logo-quotation {
+  width: 170px;
+  height: 170px;
+}
+
+/* ------ Media Query ------*/
+
+@media (max-width: 600px) and (min-width: 320px) {
+  .custom-white-wrapper {
+    padding: 25px 15px;
+    border-radius: 15px;
+  }
+
+  .exit {
+    min-width: 20px;
+  }
+  .txt-md {
+    font-size: 14px;
+  }
+  ::placeholder,
+  .form-control,
+  .second-input {
+    color: #727373 !important;
+    border-radius: 8px;
+  }
+  .custom-wrapper-spaces .mb-40,
+  .custom-wrapper-spaces .rmb-40 {
+    margin-bottom: 10px !important;
+  }
+  .mb-40.custom-float-left {
+    margin-bottom: 30px !important;
+  }
+  .custom-white-wrapper {
+    margin-bottom: 15px;
+    border-radius: 8px !important;
+  }
+  .car-div {
+    margin-top: 15px;
+  }
+  .profile-statistics .input-wrapper input,
+  .profile-statistics .input-wrapper span,
+  .adj-spaces {
+    font-size: 17px;
+  }
+  .car-plate {
+    height: 46px;
+  }
+}
+@media (min-width: 1366px) {
+  .flex-input .input-wrapper {
+    width: 270px;
+  }
+  .flex-input .second-input {
+    width: 80px;
+  }
+  .col-md-6 {
+    width: 45% !important;
+  }
+}

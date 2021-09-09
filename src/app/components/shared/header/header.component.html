@@ -1,0 +1,353 @@
+<header>
+    <div class="container">
+        <div class="row custom-flex topHeader hide-in-mobile">
+            <div class="col-md-3 col-xs-3 custom-float-right  mobile-logo-center">
+                <a routerLink='/'>
+                    <img src="../../../../assets/imgs/bcare-logo.svg" alt="bcare" height="72"
+                        class="custom-float-right">
+                </a>
+            </div>
+            <div class="col-md-9 col-xs-9 custom-float-right">
+                <div class="header-topBar">
+
+                    <!-- <a *ngIf="displayUSer == false" title="User Login"
+                        (click)="openLoginPopupInWeb()">{{'login'|translate}}
+                    </a> -->
+                    <div class="btn-wrapper mobile-lang-right">
+                        <a class="lang arabicLang" (click)="changeLangage('Arabic')"
+                            *ngIf="langCheckerAr"><b>عربي</b></a>
+                        <a class="lang englishLang" (click)="changeLangage('English')"
+                            *ngIf="langCheckerEn"><b>EN</b></a>
+                        
+                            <a class="lang arabicLang" *ngIf="langCheckerAr" ><b>{{screenTitleEn}}</b></a>
+                            <a class="lang englishLang" *ngIf="langCheckerEn" ><b>{{screenTitleAr}}</b></a>
+
+                    </div>
+                    <div class="main-menu  mobile-nav-left">
+                        <a class="menu-btn">
+                            <span class="dash"></span>
+                            <span class="dash"></span>
+                            <span class="dash"></span>
+                        </a>
+                        <nav id="nav-home">
+                            <div class="nav-sections">
+                                <div class="close-btn">
+                                    <a href="javascript:void(0)"> <i class="fa fa-times"></i></a>
+                                </div>
+                                <ul class="main-navigation">
+                                    <li class="item active" (click)="goToHomePage()">
+                                        <a><i class="icon-lamp-icon"></i>
+                                            <span>{{'mainHome' | translate}}</span></a>
+                                    </li>
+                                    <li class="item" *ngIf="displayUSer == false" title="User Login"
+                                        (click)="openLoginPopupInWeb()">
+                                        <a><i class="icon-logout-icon"></i>
+                                            <span>{{'login'|translate}}</span></a>
+                                    </li>
+
+                                    <li class="item" (click)="goToTermsconditions()">
+                                        <a><i class="icon-policy-icon"></i>
+                                            <span>{{'termsandconditions' | translate}}</span></a>
+                                    </li>
+
+                                    <li class="item" (click)="goToPrivacyPolicy()">
+                                        <a><i class="icon-privacy-icon"></i>
+                                            <span>{{'privacypolicy' | translate}}</span></a>
+                                    </li>
+
+                                    <li class="item" (click)="goToAboutus()">
+                                        <a><i class="icon-contactus-icon"></i>
+                                            <span>{{'aboutus' | translate}}</span></a>
+                                    </li>
+
+                                    <li class="item" (click)="goToContactUs()">
+                                        <a><i class="icon-message-icon"></i>
+                                            <span>{{'contactus' | translate}}</span></a>
+                                    </li>
+
+                                    <li class="item" (click)="goTopPrintPolicy()">
+                                        <a><i class="icon-alert"></i>
+                                            <span>{{'printYourPolicy' | translate}}</span></a>
+                                    </li>
+
+                                    <li *ngIf="showProfileTab" class="item s" (click)="goTopersonalAcc()">
+                                        <a><i class="icon-user-icon"></i>
+                                            <span>{{'profile' | translate}}</span></a>
+                                    </li>
+
+                                    <li class="item" (click)="goToEmployment()">
+                                        <a><i class="icon-user-icon"></i>
+                                            <span>{{'employment' | translate}}</span></a>
+                                    </li>
+
+                                    <li *ngIf="showProfileTab" class="item" (click)='logOut()'>
+                                        <a><i class="icon-logout-icon"></i>
+                                            <span>{{'exit' | translate}}</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="social-media">
+                                    <li>
+                                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </nav>
+
+                    </div>
+
+                    <!-- <div *ngIf="displayUSer == true" class="desktop-login">
+                        <label id="loggedInUser">{{myLoogedUser}}</label>
+                        <a (click)="goTopersonalAcc()">
+                            <i class="fa fa-user"></i>
+                            {{'profile'|translate}}
+                        </a>-->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="show-in-mobile">
+
+            <div class="col-xs-3 btn-wrapper mobile-lang-right ">
+                <a class="lang arabicLang" (click)="changeLangage('Arabic')" *ngIf="langCheckerAr"><b>عربي</b></a>
+                <a class="lang englishLang" (click)="changeLangage('English')" *ngIf="langCheckerEn"><b>EN</b></a>
+
+                <!-- <a class="loginLabel" *ngIf="displayUSer == false" title="User Login"
+                    (click)="openLoginPopup()">{{'login'|translate}}
+                </a> -->
+            </div>
+            <div class="col-xs-6 mobile-logo-center top">
+                <a routerLink='/'>
+                    <img src="../../../../assets/imgs/bcare-logo.svg" alt="bcare" height="72"
+                        class="mobile-logo-center width-logo">
+                </a>
+            </div>
+            <div class="col-xs-3 mobile-nav-left top-nav">
+                <div class="main-menu mobile-nav-left">
+                    <a class="menu-btn">
+                        <span class="dash"></span>
+                        <span class="dash"></span>
+                        <span class="dash"></span>
+                    </a>
+                    <nav id="testID">
+                        <div class="nav-sections">
+                            <div class="close-btn">
+                                <a href="javascript:void(0)"> <i class="fa fa-times"></i></a>
+                            </div>
+                            <ul class="main-navigation">
+                                <li class="item active" (click)="goToHomePage()">
+                                    <a><i class="icon-lamp-icon"></i>
+                                        <span>{{'mainHome' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" *ngIf="displayUSer == false" title="User Login"
+                                    (click)="openLoginPopup()">
+                                    <a><i class="icon-logout-icon"></i>
+                                        <span>{{'login'|translate}}</span></a>
+                                </li>
+
+                                <li class="item" (click)="goToTermsconditions()">
+                                    <a><i class="icon-policy-icon"></i>
+                                        <span>{{'termsandconditions' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" (click)="goToPrivacyPolicy()">
+                                    <a><i class="icon-privacy-icon"></i>
+                                        <span>{{'privacypolicy' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" (click)="goToAboutus()">
+                                    <a><i class="icon-contactus-icon"></i>
+                                        <span>{{'aboutus' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" (click)="goToContactUs()">
+                                    <a><i class="icon-message-icon"></i>
+                                        <span>{{'contactus' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" (click)="goTopPrintPolicy()">
+                                    <a><i class="icon-alert"></i>
+                                        <span>{{'printYourPolicy' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" *ngIf="showProfileTab" (click)="goToProfile()">
+                                    <a><i class="icon-user-icon"></i>
+                                        <span>{{'profile' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" (click)="goToEmployment()">
+                                    <a><i class="icon-user-icon"></i>
+                                        <span>{{'employment' | translate}}</span></a>
+                                </li>
+
+                                <li class="item" *ngIf="showProfileTab" (click)='logOut()'>
+                                    <a><i class="icon-logout-icon"></i>
+                                        <span>{{'exit' | translate}}</span></a>
+                                </li>
+                            </ul>
+                            <ul class="social-media">
+                                <li>
+                                    <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<div class="modal fade" id="myModalLoginInWeb" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': openPpUpInweb ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog loginWeb" role="document">
+        <div class="modal-content">
+            <a class="close custom-float-right closeLogin" (click)="closeLoginPopupInWeb()">
+                <span class="closeicon">x</span></a>
+            <div class="container">
+                <div class="row custom-flex">
+
+                    <div class="col-lg-6" *ngIf="showLogin">
+                        <app-login [openPpUpInweb]="openPpUpInweb"></app-login>
+                    </div>
+                    <div class="col-lg-6 grey-border" [ngClass]="(showLogin)?'ltr':'rtl'">
+                        <div class="switched-form">
+                            <div class="blue-box">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="white-label" *ngIf="checkLoginLabel">
+                                            {{'haveAccount'|translate}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 dis-inline-flex">
+                                        <div class="white-label" *ngIf="checkLoginLabel">
+                                            {{'loginToAccount'|translate}}
+                                        </div>
+                                        <div class="white-label" *ngIf="checkRegLabel">
+                                            {{'donthaveAccount'|translate}}
+                                        </div>
+                                        <div class="pad-link-10">
+                                            <a href="javascript:void(0)" class="orange-label " (click)="checkLogin()"
+                                                *ngIf="checkLoginLabel">{{'login'|translate}}</a>
+                                        </div>
+                                        <div class="pad-link-5">
+                                            <a href="javascript:void(0)" class="orange-label " (click)="checkReg()"
+                                                *ngIf="checkRegLabel">{{'newUser'|translate}}</a>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flower-bg"></div>
+
+                            <a routerLink='/'>
+                                <img src="../../../../assets/imgs/bcare-logo.svg" alt="bcare" height="72"
+                                    class="logo-size">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" *ngIf="showReg">
+                        <app-register [openPpUpInweb]="openPpUpInweb"></app-register>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModalLoginInMobile" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': openPpUpInMobile ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <a class="close custom-float-right closeLoginInMobile" (click)="closeLoginPopup()">x</a>
+            <div class="container height-login">
+                <div class="row">
+                    <div class="col-xs-12" *ngIf="showLogin">
+                        <app-login [openPpUpInMobile]="openPpUpInMobile"></app-login>
+                    </div>
+                    <div class="col-xs-12" *ngIf="showReg">
+                        <app-register [openPpUpInMobile]="openPpUpInMobile"></app-register>
+                    </div>
+                    <div class="col-xs-12  grey-border" [ngClass]="(showLogin)?'ltr':'rtl'">
+                        <div class="switched-form">
+                            <div class="blue-box ">
+                                <div class="row">
+                                    <div class="col-lg-12 col-xs-12 pad-top">
+                                        <div class="white-label txt" *ngIf="checkLoginLabel">
+                                            {{'haveAccount'|translate}}
+                                        </div>
+                                        <div class="white-label txt" *ngIf="checkRegLabel">
+                                            {{'donthaveAccount'|translate}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 label-center">
+                                        <div class="col-lg-6 col-xs-7 padding-none">
+                                            <div class="white-label txt-login padding-none" *ngIf="checkLoginLabel">
+                                                {{'loginToAccount'|translate}}
+                                            </div>
+                                            <div class="white-label txt-login padding-none" *ngIf="checkRegLabel">
+                                                {{'registerNewAccount'|translate}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-xs-5 padding-none">
+                                            <a href="javascript:void(0)" class="orange-label txt-link padding-none"
+                                                (click)="checkLogin()" *ngIf="checkLoginLabel">{{'login'|translate}}</a>
+                                            <a href="javascript:void(0)" class="orange-label txt-link padding-none"
+                                                (click)="checkReg()" *ngIf="checkRegLabel">{{'newUser'|translate}}</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 height-flower">
+                                <div class="flower-bg"></div>
+                                <a routerLink='/'>
+                                    <img src="../../../../assets/imgs/bcare-logo.svg" alt="bcare" height="72"
+                                        class="custom-float-right logo-size">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

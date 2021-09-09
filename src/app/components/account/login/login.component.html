@@ -1,0 +1,131 @@
+<section class="login">
+    <div class="reg-form">
+        <div class="title hide-in-mobile">
+            {{'loginUser'|translate}}
+        </div>
+        <div class="title  title-center show-in-mobile">
+            {{'login'|translate}}
+        </div>
+        <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)" class="">
+            <div [hidden]="!showLoginError">
+                <div class="serverErrValidation">
+                    <div>
+                        <i class="icon far fa-times-circle"></i>
+                        <div class="attrDis xs-mar bx-right">{{loginServererror}}</div>
+                    </div>
+                </div>
+            </div>
+            <div [hidden]="!showAddtoCardError">
+                <div class="serverErrValidation">
+                    <div>
+                        <div class="attrDis xs-mar bx-right">{{addtoCardServererror}}</div>
+                    </div>
+                </div>
+            </div>
+            <div [hidden]="!showCheckoutDetailsError">
+                <div class="serverErrValidation">
+                    <div>
+                        <div class="attrDis xs-mar bx-right">{{checkoutDetailsServererror}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <h5 class="">{{'register'|translate}}</h5> -->
+            <div class="col-lg-12  col-xs-12 mb-40 mb-20">
+                <div class="input-wrapper">
+                    <i class="icon-mail-icon custom-icon"></i>
+                    <input [ngClass]="{ '': submitted && formdata.controls['email'].errors}" type="text"
+                        formControlName="email"  class="custom-input" name="username"
+                        placeholder="{{'loginEmail'|translate}}" required autofocus="" />
+                </div>
+                <div class="errorstyle" *ngIf="submitted && formdata.controls['email'].errors">
+                    <span *ngIf="formdata.controls['email'].errors.required" class="validateFire2">{{'emailRequired'
+                        | translate}}
+                    </span>
+                    <span *ngIf="formdata.controls['email'].errors.pattern" class="validateFire2">{{'emailValidation' |
+                        translate}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xs-12  mb-25">
+                <div class="input-wrapper">
+                    <i class="icon-password-icon custom-icon"></i>
+
+                    <input [ngClass]="{ '': submitted && formdata.controls['password'].errors}" type="password"
+                        formControlName="password" class="custom-input" name="password"
+                        placeholder="{{'password'|translate}}" required />
+                </div>
+                <div class="errorstyle" *ngIf="submitted && formdata.controls['password'].errors">
+                    <span *ngIf="formdata.controls['password'].errors.required"
+                        class="validateFire2">{{'passwordRequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xs-12  mb-40  mb-20">
+                <div  class="pad-remember">
+                    <!-- <input type="checkbox" id="rememberMe" formControlName="rememberMe" class="custom-input orange-label checkbox-width">  -->
+                    <div class="form-check orange-radio remember">
+                        <label  class="radio-holder " > 
+                            <input type="checkbox" class="custom-input orange-label checkbox-width"
+                             id="rememberMeCheck" formControlName="rememberMe"/>
+                            <span  class="checkmark"></span>
+                        </label>    
+                    </div>
+
+                    <label class="login-font" for="rememberMeCheck">{{'rememberMe'|translate}}</label>
+                    
+                    <a class="custom-float-right login-font" (click)="openForgetPasswordPopup()">{{'forgetPassword'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-xs-12 ">
+                <button class="primary-btn hide-in-mobile loginBtn" type="submit">{{'loginUser'|translate}}
+                    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                </button>
+                <button class="primary-btn show-in-mobile loginBtn" type="submit">{{'login'|translate}}
+                    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': forgetPassOpenPopup ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{'resetPassword' | translate}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+                    <span aria-hidden="true" class="closeicon">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div [hidden]="!showForgetPassErr">
+                    <div class="serverErrValidation">
+                        <div>
+                            <i class="icon far fa-times-circle"></i>
+                            <div class="attrDis xs-mar bx-right">{{serverForgetPassError}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="pad-popup">
+                        <div class="row">
+                            <div class="input-wrapper col-lg-12 col-md-12 col-xs-12">
+                                <input  type="text"  class="custom-input login-font resetEmail"
+                                [(ngModel)]="resetEmail" [ngModelOptions]="{standalone: true}"
+                                placeholder="{{'loginEmail'|translate}}" autofocus="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 custom-float-right">
+                                <button type="submit" class="btn btn-primary resetPass-btn" data-dismiss="modal"
+                                    (click)="resetPassword(resetEmail)">{{'sendLink'|translate}}
+                                    <i class="fa fa-spinner fa-spin" *ngIf="loadingSendLink"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

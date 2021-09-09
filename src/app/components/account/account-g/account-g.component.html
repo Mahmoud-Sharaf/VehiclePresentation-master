@@ -1,0 +1,88 @@
+<!-- 
+
+<div class="container">
+        <div class="row custom-flex">
+    
+            <div class="col-lg-6" *ngIf="showLogin">
+                <app-login></app-login>
+            </div>
+            <div class="col-lg-6 grey-border" [ngClass]="(showLogin)?'ltr':'rtl'">
+                <div class="switched-form">
+                    <div class="blue-box">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="white-label" *ngIf="checkLoginLabel">
+                                    {{'haveAccount'|translate}}
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="white-label" *ngIf="checkLoginLabel" >
+                                    {{'loginToAccount'|translate}}
+                                </div>
+                                <div class="white-label" *ngIf="checkRegLabel">
+                                    {{'donthaveAccount'|translate}}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <a href="javascript:void(0)" class="orange-label" (click)="checkLogin()"
+                                    *ngIf="checkLoginLabel">{{'login'|translate}}</a>
+                               
+                                <a href="javascript:void(0)" class="orange-label" (click)="checkReg()"
+                                    *ngIf="checkRegLabel">{{'newUser'|translate}}</a>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flower-bg"></div>
+    
+                </div>
+            </div>
+    
+            <div class="col-lg-6" *ngIf="showReg">
+                <app-register></app-register>
+            </div>
+    
+        </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    [ngStyle]="{'display': forgetPassOpenPopup ? 'block' : 'none', 'opacity': 1}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{'resetPassword' | translate}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="closeicon">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div [hidden]="!showForgetPassErr">
+                    <div class="serverErrValidation">
+                        <div>
+                            <i class="icon far fa-times-circle"></i>
+                            <div class="attrDis xs-mar bx-right">{{serverForgetPassError}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="pad-popup">
+                        <div class="row">
+                            <div class="input-wrapper col-lg-12 col-md-12 col-xs-12">
+                                <input  type="text"  class="custom-input login-font resetEmail"
+                                [(ngModel)]="resetEmail" [ngModelOptions]="{standalone: true}"
+                                placeholder="{{'loginEmail'|translate}}" autofocus="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 custom-float-right">
+                                <button type="submit" class="btn btn-primary resetPass-btn" data-dismiss="modal"
+                                    (click)="resetPassword(resetEmail)">{{'sendLink'|translate}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->

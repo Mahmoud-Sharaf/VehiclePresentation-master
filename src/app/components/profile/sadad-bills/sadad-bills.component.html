@@ -1,0 +1,98 @@
+<div *ngIf="sadadBillsCount > 0 " class="sadad-bills-wrapper">
+    <div class="custom-white-wrapper mb-35 sada-bill" *ngFor="let sadadBill of sadadBills">
+        <div class="row">
+            <div class="col-lg-4 col-xs-12 padding-none first-col">
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'billingNo'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{sadadBill.InvoiceNo}}
+                    </div>
+                </div>
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'comanyName'|translate}}
+                    </div>
+                    <div class="custom-text" *ngIf="myLanguageCus == 'Arabic'">
+                        {{sadadBill.InsuranceCompanyNameAr}}
+                    </div>
+                    <div class="custom-text" *ngIf="myLanguageCus == 'English'">
+                        {{sadadBill.InsuranceCompanyNameEn}}
+                    </div>
+                </div>
+                <div class="flex-wrapper ">
+                    <div class="custom-label">
+                        {{'status'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        <div class="orange-label"> {{sadadBill.BillStatus}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-12 padding-none second-col">
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'sadadBillNo'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{sadadBill.SadadBillNo}}
+                    </div>
+                </div>
+                <div class="flex-wrapper mb-15">
+                    <div class="custom-label">
+                        {{'totalBill'|translate}}
+                    </div>
+                    <div class="custom-text">
+                        {{sadadBill.TotalPrice}}
+                    </div>
+                </div>
+            </div>
+            <hr class="border show-in-mobile">
+            <div class="col-lg-4 col-xs-12 padding-none third-col">
+                <div class="custom-flex-wrapper txt-center">
+                    <div class="car-numbers">
+                        <div class="car-plate">
+                            <span class="arabic-character">{{sadadBill.VehiclePlate.CarPlateTextAr}}</span>
+                            <span class="arabic-number">{{sadadBill.VehiclePlate.CarPlateNumberAr}}</span>
+                            <span class="english-number">{{sadadBill.VehiclePlate.CarPlateNumberEn}}</span>
+                            <span class="english-character">{{sadadBill.VehiclePlate.CarPlateTextEn}}</span>
+                        </div>
+                        <div class="car-name"><span class="small-pad">{{sadadBill.VehicleMaker}}</span>
+                            <span class="small-pad">{{sadadBill.VehicleModel}}</span>
+                            <span class="small-pad">{{sadadBill.ModelYear}}</span>
+                        </div>
+                    </div>
+                    <div class="blue-data">
+                        <img src="../../../../assets/imgs/blue-circle.png" alt="data">
+                        <div class="end-date">
+                           
+                            <div class="day"><span class="orange-label">{{sadadBill.RemainingTimeToExpireInSeconds}}</span><span>{{'hour'|translate}}</span></div>
+                            <div class="end-policy">{{'remainingTime'|translate}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row txt-align-c" *ngIf="pagesCountMoreThanten">
+        <div>
+            <div slickContainer #slickController="slick" [slickConfig]="config">
+                <ng-container *ngIf="slickController.initialize">
+                    <span slickItem *ngFor="let page of arrayNoOfPages" class="slick-style"
+                        (click)="reCallGetSadadBills(page)">{{page}}</span>
+                </ng-container>
+            </div>
+            <button (click)="slickController.next()">{{'next'|translate}}</button>
+            <button (click)="slickController.prev()">{{'previous'|translate}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="not-found-data" *ngIf="sadadBillsCount == 0">
+    <span>{{'notFoundData'|translate}}</span>
+</div>
+
+<app-loader *ngIf="showLoading"> </app-loader>

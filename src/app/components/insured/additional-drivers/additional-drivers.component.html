@@ -1,0 +1,649 @@
+<div class="gridDiv gridDivAdditionalDrive">
+    <form autocomplete="off" [formGroup]="formdataDrivers" (ngSubmit)="addNewDriverSubmit(formdataDrivers.value)">
+        <!-- <div *ngIf="driverIDRepeated == true" class="driverRepeatedId-validation">
+            <span>{{'driverIdDuplicated' | translate}}</span>
+        </div>  -->
+        <div class="row custom-margin">
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7">
+                <mat-form-field appearance="standard" class="testMatInput m-15">
+                    <mat-label> {{'nationalIdIqama' | translate}}</mat-label>
+                    <input matInput [ngClass]="{ '': driversForm && formdataDrivers.controls['nationalId'].errors}"
+                        type="tel" (keypress)="allowOnlyNumbers($event)" class="form-control driverID input-readonly"
+                        formControlName="nationalId"  required (change)="detectChangeNoAddition($event)"
+                        [readonly]="isEdit" size="10">
+                </mat-form-field>
+                <div
+                    *ngIf="formdataDrivers.controls['nationalId'].errors && formdataDrivers.controls['nationalId'].errors['mainLength']">
+                    <span class="validateFire2 specialValidator">{{'invalidNationalIdIqama' | translate}}</span>
+                </div>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-6 custom-float-left padding-7 ">
+                <div class="hijriCalendar" *ngIf="showHijriCalendar">
+                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                    *ngIf="myLanguageCus == 'Arabic'">
+                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                      <mat-select   formControlName="hijrimonth"  (change)="fillDateMonth()" 
+                      required [disabled]="isEdit"
+                       class="form-control col-sm-12 selectOptionStyle  input-readonly selectOptionStyledoDimmed input-width">
+                       <mat-option *ngFor="let hijriMonthAr of hijriMonthsAr" [value]="hijriMonthAr.id">
+                        {{hijriMonthAr.value}}
+                       </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                    *ngIf="myLanguageCus == 'English'">
+                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                      <mat-select   formControlName="hijrimonth"  (change)="fillDateMonth()" 
+                      required [disabled]="isEdit"
+                       class="form-control col-sm-12 selectOptionStyle  input-readonly selectOptionStyledoDimmed input-width">
+                       <mat-option *ngFor="let hijriMonthEn of hijriMonthsEn" [value]="hijriMonthEn.id">
+                        {{hijriMonthEn.value}}
+                       </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="meladiCalendar" *ngIf="showMeladiCalendar">
+                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                    *ngIf="myLanguageCus == 'Arabic'">
+                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                      <mat-select formControlName="meladimonth"  (change)="fillDateMonthmelad()" 
+                      required [disabled]="isEdit"
+                       class="form-control col-sm-12 selectOptionStyle  input-readonly selectOptionStyledoDimmed input-width">
+                       <mat-option *ngFor="let meladiMonthAr of meladiMonthsAr" [value]="meladiMonthAr.id">
+                        {{meladiMonthAr.value}}
+                       </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                    *ngIf="myLanguageCus == 'English'">
+                     <mat-label>{{'birthOfDate' | translate}}</mat-label>
+                      <mat-select formControlName="meladimonth"  (change)="fillDateMonthmelad()" 
+                      required [disabled]="isEdit"
+                       class="form-control col-sm-12 selectOptionStyle  input-readonly selectOptionStyledoDimmed input-width">
+                       <mat-option *ngFor="let meladiMonthEn of meladiMonthsEN" [value]="meladiMonthEn.id">
+                        {{meladiMonthEn.value}}
+                       </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-6 custom-float-left padding-7 ">
+                <div class="hijriCalendar" *ngIf="showHijriCalendar">
+                    <mat-form-field  appearance="standard" class="testMatInput m-15">
+                     <mat-label>{{'birthOfyear' | translate}}</mat-label>
+                      <mat-select formControlName="hijriyear"  (change)="fillDateYear()" 
+                      required [disabled]="isEdit" (keypress)="allowOnlyNumbers($event)"
+                       class="form-control col-sm-12 selectOptionStyle input-readonly selectOptionStyledoDimmed input-width">
+                       <mat-option *ngFor="let hijriyear of years" [value]="hijriyear">
+                        {{hijriyear}}
+                       </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="meladiCalendar" *ngIf="showMeladiCalendar">
+                    <mat-form-field  appearance="standard" class="testMatInput m-15">
+                        <mat-label>{{'birthOfyear' | translate}}</mat-label>
+                         <mat-select formControlName="meladiyear"  (change)="fillDateYearmeld()" 
+                         required [disabled]="isEdit" (keypress)="allowOnlyNumbers($event)"
+                          class="form-control col-sm-12 selectOptionStyle input-readonly selectOptionStyledoDimmed input-width">
+                          <mat-option *ngFor="let meladiyear of meladiyears" [value]="meladiyear">
+                           {{meladiyear}}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7 ">
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'Arabic'">
+                 <mat-label>{{'EducationQualification' | translate}}</mat-label>
+                  <mat-select formControlName="educationLevel" required (keypress)="allowOnlyChar($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let education of educationLVL" [value]="education.id">
+                    {{education.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'English'">
+                 <mat-label>{{'EducationQualification' | translate}}</mat-label>
+                  <mat-select formControlName="educationLevel"  required (keypress)="allowOnlyChar($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let education of educationLVL" [value]="education.id">
+                    {{education.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7 ">
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'Arabic'">
+                 <mat-label>{{'DriverMedicalCondition' | translate}}</mat-label>
+                  <mat-select formControlName="medicalConditions" required (keypress)="allowOnlyChar($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let med of medicalConditions" [value]="med.id">
+                    {{med.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'English'">
+                 <mat-label>{{'DriverMedicalCondition' | translate}}</mat-label>
+                  <mat-select formControlName="medicalConditions" required (keypress)="allowOnlyChar($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let med of medicalConditions" [value]="med.id">
+                    {{med.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7 ">
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'Arabic'">
+                 <mat-label>{{'NumberOfAccidentsInLast5Years' | translate}}</mat-label>
+                  <mat-select formControlName="numberOfAccidentLast5YearsRange" required (keypress)="allowOnlyNumbers($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let numberOfAccident of numberOfAccidentLast5YearsRange" [value]="numberOfAccident.id">
+                    {{numberOfAccident.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'English'">
+                 <mat-label>{{'NumberOfAccidentsInLast5Years' | translate}}</mat-label>
+                  <mat-select formControlName="numberOfAccidentLast5YearsRange" required (keypress)="allowOnlyNumbers($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let numberOfAccident of numberOfAccidentLast5YearsRange" [value]="numberOfAccident.id">
+                    {{numberOfAccident.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7 ">
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'Arabic'">
+                 <mat-label>{{'noOfchildren' | translate}}</mat-label>
+                  <mat-select formControlName="noOfchildrenDriver" required (keypress)="allowOnlyNumbers($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let numberOfchildrenAr of childrenCountAr" [value]="numberOfchildrenAr.id">
+                    {{numberOfchildrenAr.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'English'">
+                 <mat-label>{{'noOfchildren' | translate}}</mat-label>
+                  <mat-select formControlName="noOfchildrenDriver" required (keypress)="allowOnlyNumbers($event)"
+                   class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                   <mat-option *ngFor="let numberOfchildrenEn of childrenCountEn" [value]="numberOfchildrenEn.id">
+                    {{numberOfchildrenEn.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7 ">
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'Arabic'">
+                 <mat-label>{{'DrivingPercentage' | translate}}</mat-label>
+                  <mat-select formControlName="drivingPercentage" required (keypress)="allowOnlyNumbers($event)"
+                   class="form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width"
+                   (change)="ChangeDrivingPercentage()">
+                   <mat-option *ngFor="let  drivingPercentage of drivingPercentageList" [value]=" drivingPercentage.name">
+                    {{ drivingPercentage.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'English'">
+                 <mat-label>{{'DrivingPercentage' | translate}}</mat-label>
+                  <mat-select formControlName="drivingPercentage" required (keypress)="allowOnlyNumbers($event)"
+                   class="form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width"
+                   (change)="ChangeDrivingPercentage()">
+                   <mat-option *ngFor="let  drivingPercentage of drivingPercentageList" [value]=" drivingPercentage.name">
+                    {{ drivingPercentage.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="driversForm == true && showErrorMsg == true">
+                    <span class="showLimtPrercentageVal validateFire2">{{'LimtPrercentageVal' | translate}}</span>
+                </div>
+            </div>
+            <div class="form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left padding-7 ">
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'Arabic'">
+                 <mat-label>{{'relationCode' | translate}}</mat-label>
+                  <mat-select formControlName="relationsShip" required (keypress)="allowOnlyChar($event)"
+                   class="form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width"
+                   (change)="ChangeDrivingPercentage()">
+                   <mat-option *ngFor="let  relation of relationsShips" [value]=" relation.id">
+                    {{ relation.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                *ngIf="myLanguageCus == 'English'">
+                 <mat-label>{{'relationCode' | translate}}</mat-label>
+                  <mat-select formControlName="relationsShip" required (keypress)="allowOnlyChar($event)"
+                   class="form-control col-sm-12 selectOptionStyle selectOptionStyledoDimmed  input-width"
+                   (change)="ChangeDrivingPercentage()">
+                   <mat-option *ngFor="let  relation of relationsShips" [value]=" relation.id">
+                    {{ relation.name}}
+                   </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-padding-6 desktop-show col-xs-12">
+                <div class="blue-tabs">
+                    <a href="javascript:void(0)" class="tab" [class.active]="firstBlueTab"
+                        (click)="firstClickedBlueTab()">{{'violationsTitle' | translate}}</a>
+                    <a href="javascript:void(0)" class="tab" [class.active]="secondBlueTab"
+                        (click)="secondClickedBlueTab()">{{'homeCityTitle' | translate}}</a>
+                    <a href="javascript:void(0)" class="tab" [class.active]="thirdBlueTab"
+                        (click)="thirdClickedBlueTab()">{{'drivingLicenseTitle' | translate}}</a>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-lg-12 mobile-show">
+                <div class="mobile-dropdown-acc blue-color-after">
+                    <div class="clickedItem" [class.active]="firstBlueTab" (click)="firstClickedBlueTab()">
+                        <div class="name">{{'violationsTitle' | translate}}</div>
+                        <div class="icon"><i class="icon-down-circle-arrow"></i> </div>
+                    </div>
+                    <div class="full-width-body">
+                        <div class="col-xs-12">
+                            <div class="blue-tab-body first-tab radio-wrapper" *ngIf="firstBlueTab">
+                                <div class="radio-container orange-radio" *ngFor="let violation of violations">
+                                    <label class="radio-holder selectedCheckBox" id="{{violation.id}}">
+                                        {{violation.name}}
+                                        <input id="{{violation.id}}" type="checkbox" [value]="violation.id"
+                                            (change)="violationChange($event,violation.id)"
+                                            formControlName="violation" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clickedItem" [class.active]="secondBlueTab" (click)="secondClickedBlueTab()">
+                        <div class="name">{{'homeCityTitle' | translate}}</div>
+                        <div class="icon"><i class="icon-down-circle-arrow"></i> </div>
+                    </div>
+                    <div class="full-width-body">
+                        <div class="col-xs-12">
+                            <div class="blue-tab-body second-tab" *ngIf="secondBlueTab">
+                                <div
+                                    class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs ">
+                                    <div class="validation"></div>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                     <mat-label>{{'homeCity'| translate}}</mat-label>
+                                      <mat-select formControlName="homeCity" (keypress)="allowOnlyChar($event)"
+                                      (change)="homeCityChange($event.arabicDescription)"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                        {{city.arabicDescription}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                     <mat-label>{{'homeCity'| translate}}</mat-label>
+                                      <mat-select formControlName="homeCity" (keypress)="allowOnlyChar($event)"
+                                      (change)="homeCityChange($event.englishDescription)"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                        {{city.englishDescription}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+
+                                </div>
+                                <div
+                                    class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs">
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                     <mat-label>{{'workCity'| translate}}</mat-label>
+                                      <mat-select formControlName="workCity" (keypress)="allowOnlyChar($event)"
+                                      (change)="workCityChange($event.arabicDescription)"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                        {{city.arabicDescription}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                     <mat-label>{{'workCity'| translate}}</mat-label>
+                                      <mat-select formControlName="workCity" (keypress)="allowOnlyChar($event)"
+                                      (change)="workCityChange($event.englishDescription)"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                        {{city.englishDescription}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clickedItem" [class.active]="thirdBlueTab" [class.active]="thirdBlueTab"
+                        (click)="thirdClickedBlueTab()">
+                        <div class="name">{{'drivingLicenseTitle' | translate}}</div>
+                        <div class="icon"> <i class="icon-down-circle-arrow"></i> </div>
+                    </div>
+                    <div class="full-width-body">
+                        <div class="col-xs-12">
+                            <div class="blue-tab-body third-tab" *ngIf="thirdBlueTab">
+                                <div
+                                    class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs">
+                                    <div class="validation"></div>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                     <mat-label>{{'countryName'| translate}}</mat-label>
+                                      <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                                        {{country.arabicDescription}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                     <mat-label>{{'countryName'| translate}}</mat-label>
+                                      <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                                        {{country.englishDescription}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div
+                                    class=" form-group input-group-lg col-lg-3 col-xs-12 custom-float-left custom-width-tabs">
+                                    <div class="validation"></div>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                     <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                                      <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                                      (change)="licenseYearsListChange()"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                                        {{license.name}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                     <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                                      <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                                      (change)="licenseYearsListChange()"
+                                       class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                       <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                                        {{license.name}}
+                                       </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full-width-body desktop-show">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="blue-tab-body first-tab" *ngIf="firstBlueTab">
+                        <div class="radio-container orange-radio" *ngFor="let violation of violations">
+                            <label class="radio-holder selectedCheckBox" id="{{violation.id}}">
+                                {{violation.name}}
+                                <input id="{{violation.id}}" type="checkbox" [value]="violation.id"
+                                    (change)="violationChange($event,violation.id)" formControlName="violation" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="blue-tab-body second-tab" *ngIf="secondBlueTab">
+                        <div
+                            class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs ">
+                            <div class="validation"></div>
+                            <mat-form-field  appearance="standard" class="testMatInput m-15"
+                            *ngIf="myLanguageCus == 'Arabic'">
+                             <mat-label>{{'homeCity'| translate}}</mat-label>
+                              <mat-select matNativeControl  formControlName="homeCity" (keypress)="allowOnlyChar($event)"
+                              (change)="homeCityChange($event.arabicDescription)"
+                               class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                               <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                {{city.arabicDescription}}
+                               </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field  appearance="standard" class="testMatInput m-15"
+                            *ngIf="myLanguageCus == 'English'">
+                             <mat-label>{{'homeCity'| translate}}</mat-label>
+                              <mat-select formControlName="homeCity" (keypress)="allowOnlyChar($event)"
+                              (change)="homeCityChange($event.englishDescription)"
+                               class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                               <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                {{city.englishDescription}}
+                               </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div
+                            class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs">
+                            <mat-form-field  appearance="standard" class="testMatInput m-15"
+                            *ngIf="myLanguageCus == 'Arabic'">
+                             <mat-label>{{'workCity'| translate}}</mat-label>
+                              <mat-select formControlName="workCity" (keypress)="allowOnlyChar($event)"
+                              (change)="workCityChange($event.arabicDescription)"
+                               class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                               <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                {{city.arabicDescription}}
+                               </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field  appearance="standard" class="testMatInput m-15"
+                            *ngIf="myLanguageCus == 'English'">
+                             <mat-label>{{'workCity'| translate}}</mat-label>
+                              <mat-select formControlName="workCity" (keypress)="allowOnlyChar($event)"
+                              (change)="workCityChange($event.englishDescription)"
+                               class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                               <mat-option *ngFor="let city of allCities" [value]="city.code">
+                                {{city.englishDescription}}
+                               </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="blue-tab-body third-tab" *ngIf="thirdBlueTab">
+                            <!-- <div class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs">
+                                <div class="validation"></div>
+                                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                *ngIf="myLanguageCus == 'Arabic'">
+                                <mat-label>{{'countryName'| translate}}</mat-label>
+                                <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                                class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                                    {{country.arabicDescription}}
+                                </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                *ngIf="myLanguageCus == 'English'">
+                                <mat-label>{{'countryName'| translate}}</mat-label>
+                                <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                                class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                                    {{country.englishDescription}}
+                                </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class=" form-group input-group-lg col-lg-3 col-xs-12 custom-float-left custom-width-tabs">
+                                <div class="validation"></div>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                    <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                                    <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                                    (change)="licenseYearsListChange()"
+                                    class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                    <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                                        {{license.name}}
+                                    </mat-option>
+                                    </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                    <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                                    <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                                    (change)="licenseYearsListChange()"
+                                    class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                    <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                                        {{license.name}}
+                                    </mat-option>
+                                    </mat-select>
+                                    </mat-form-field>
+                            </div> -->
+                        <!-- <div class=" form-group input-group-lg col-lg-3 col-xs-12 custom-float-left custom-width-tabs">
+                            <div class="mar-top-btn">
+                                <button class="add-license" type="button" (click)="addLicense()">{{'addAnotherLicense'|translate}}
+                                </button>
+                            </div>
+                        </div>
+                        <div  formArrayName="licenseYearsArray">
+                          <div *ngFor="let license of licenseYearsArray().controls; let i=index" [formGroupName]="i">
+                            <div class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs">
+                                <div class="validation"></div>
+                                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                *ngIf="myLanguageCus == 'Arabic'">
+                                <mat-label>{{'countryName'| translate}}</mat-label>
+                                <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                                class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                                    {{country.arabicDescription}}
+                                </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                                <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                *ngIf="myLanguageCus == 'English'">
+                                <mat-label>{{'countryName'| translate}}</mat-label>
+                                <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                                class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                                    {{country.englishDescription}}
+                                </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class=" form-group input-group-lg col-lg-3 col-xs-12 custom-float-left custom-width-tabs">
+                                <div class="validation"></div>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'Arabic'">
+                                    <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                                    <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                                    (change)="licenseYearsListChange()"
+                                    class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                    <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                                        {{license.name}}
+                                    </mat-option>
+                                    </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field  appearance="standard" class="testMatInput m-15"
+                                    *ngIf="myLanguageCus == 'English'">
+                                    <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                                    <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                                    (change)="licenseYearsListChange()"
+                                    class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                                    <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                                        {{license.name}}
+                                    </mat-option>
+                                    </mat-select>
+                                    </mat-form-field>
+                            </div>
+                          </div>
+                        
+                         
+                        </div> -->
+                     <div class=" form-group input-group-lg col-lg-3 col-md-3 col-xs-12 custom-float-left custom-width-tabs">
+                          <div class="validation"></div>
+                          <mat-form-field  appearance="standard" class="testMatInput m-15"
+                        *ngIf="myLanguageCus == 'Arabic'">
+                         <mat-label>{{'countryName'| translate}}</mat-label>
+                          <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                           class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                           <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                            {{country.arabicDescription}}
+                           </mat-option>
+                          </mat-select>
+                          </mat-form-field>
+                          <mat-form-field  appearance="standard" class="testMatInput m-15"
+                        *ngIf="myLanguageCus == 'English'">
+                         <mat-label>{{'countryName'| translate}}</mat-label>
+                          <mat-select formControlName="allCountries" (keypress)="allowOnlyChar($event)"
+                           class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                           <mat-option *ngFor="let country of allCountries" [value]="country.code">
+                            {{country.englishDescription}}
+                           </mat-option>
+                          </mat-select>
+                         </mat-form-field>
+                     </div>
+                      <div class=" form-group input-group-lg col-lg-3 col-xs-12 custom-float-left custom-width-tabs">
+                        <div class="validation"></div>
+                        <mat-form-field  appearance="standard" class="testMatInput m-15"
+                        *ngIf="myLanguageCus == 'Arabic'">
+                         <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                          <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                          (change)="licenseYearsListChange()"
+                           class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                           <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                            {{license.name}}
+                           </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field  appearance="standard" class="testMatInput m-15"
+                        *ngIf="myLanguageCus == 'English'">
+                         <mat-label>{{'drivingLicense'| translate}}</mat-label>
+                          <mat-select formControlName="licenseYearsList" (keypress)="allowOnlyNumbers($event)"
+                          (change)="licenseYearsListChange()"
+                           class="form-control col-sm-12 selectOptionStyle  selectOptionStyledoDimmed input-width">
+                           <mat-option *ngFor="let license of licenseYearsList" [value]="license.id">
+                            {{license.name}}
+                           </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 add-drivers-buttons-resp">
+                <button class="secondary-btn add-driver bx-shdw btn additionaDriversCancel custom-float-right"
+                    (click)="RemoveBeforeAdd()">
+                    {{"cancel"|translate}}
+                </button>
+
+                <button *ngIf="!isEditMode" type="submit" [disabled]="this.formdataDrivers.invalid"
+                    class="primary-btn add-driver bx-shdw btn  additionaDriversSave custom-float-right"
+                    (click)="sendMessageToParent()">
+                    {{"add"|translate}}
+                </button>
+
+                <button *ngIf="isEditMode" type="submit"
+                    class="add-driver bx-shdw btn  additionaDriversSave secondary-btn" (click)="sendMessageToParent()">
+                    Edit
+                </button>
+
+            </div>
+        </div>
+    </form>
+</div>

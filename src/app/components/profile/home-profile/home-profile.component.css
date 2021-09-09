@@ -1,0 +1,217 @@
+.terq-bg {
+  background: #f2f9f9;
+}
+.custom-wrapper {
+  padding: 35px 30px;
+}
+/**********/
+.main-navigation {
+  overflow-y: visible;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation .item:nth-of-type(3) i {
+  font-size: 11px;
+}
+.main-navigation .item {
+  width: 265px !important;
+}
+.cancel-padding {
+  padding: 0;
+}
+.main-navigation .item a,
+.main-navigation .item a:hover {
+  text-decoration: none;
+}
+@media (max-width: 1366px) {
+  .main-navigation .item span {
+    margin: 0 15px;
+    font-size: 0.9rem;
+  }
+}
+.primary-btn {
+  height: 44px;
+  border-radius: 10px;
+  font-size: 1.0625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-in-mobile {
+  display: none;
+}
+
+/* ------ Media Query ------*/
+
+@media (max-width: 600px) and (min-width: 320px) {
+  .show-in-mobile {
+    display: block;
+    border-bottom: 1px solid #dedede;
+  }
+  .title-page {
+    background: #146394;
+    padding: 5px 28px 7px 28px;
+    color: white;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    font-size: 23px;
+    position: relative;
+    z-index: 9;
+  }
+  .custom-flex-row {
+    display: block !important;
+  }
+  .custom-wrapper {
+    padding: 10px 20px;
+  }
+
+  .mobile-no-container {
+    padding: 0px;
+    margin: 0px;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .icon-arrow-chart::before {
+    content: "\e912";
+  }
+
+  .icon-policy-icon::before {
+    content: "\e905";
+    font-weight: 600;
+  }
+
+  .icon-car::before {
+    content: "\e913";
+  }
+  .icon-payslip::before {
+    content: "\e914";
+  }
+
+  .icon-ticket::before {
+    content: "\e911";
+  }
+
+  .icon-alert::before {
+    content: "\e900";
+  }
+
+  i::before {
+    color: #006aac;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .icon-car {
+    font-size: 13px !important;
+  }
+
+  .icon-arrow-chart,
+  .icon-policy-icon,
+  .icon-car,
+  .icon-payslip,
+  .icon-ticket,
+  .icon-alert {
+    background: white;
+    display: inline-block;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    font-size: 20px;
+  }
+
+  .menu-profile-btn {
+    background: #146394;
+    padding: 2px 5px;
+    border-radius: 10px;
+    width: 40px;
+    height: 35px;
+  }
+
+  .menu-profile-btn .dash-profile {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 6px 0 0;
+    border-radius: 30px;
+    background: white;
+  }
+  .profile-menu {
+    min-width: 35px;
+    position: relative;
+    bottom: 40px;
+  }
+
+  .profile-menu .main-navigation {
+    list-style: none;
+    padding: 0;
+  }
+
+  .main-navigation .item {
+    position: relative;
+    border-bottom: 2px solid #ccd8dc;
+  }
+  .main-navigation .item:last-child {
+    position: relative;
+    border: none;
+  }
+  .main-navigation .item {
+    padding: 20px 5px;
+    width: 230px;
+    position: relative;
+    cursor: pointer;
+  }
+  .main-navigation .item span {
+    font-size: 15px !important;
+    font-weight: 900;
+  }
+  .profile-menu .main-navigation .item:hover {
+    background: white;
+  }
+
+  .profile-menu .nav-sections {
+    position: fixed;
+    height: 80%;
+    /* background: rgba(255,255,255, .9); */
+    background: white;
+    top: 99px;
+    overflow: auto;
+  }
+}
+/**** regression ***/
+.profile-menu {
+  background: #fff;
+}
+.custom-flex-row {
+  display: flex;
+}
+.profile-menu a {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.paddingZero {
+  padding: 0 !important;
+}
+@media (min-width: 1365px) {
+  .custom-width-col {
+    width: 22%;
+  }
+  .cust-col-77 {
+    width: 77%;
+  }
+}

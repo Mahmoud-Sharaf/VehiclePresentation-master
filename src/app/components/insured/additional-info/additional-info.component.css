@@ -1,0 +1,151 @@
+.blue-tabs .tab {
+  width: calc(100% / 4);
+  font-size: 1rem;
+}
+.form-control {
+  text-align: center;
+}
+.additonalInfo .blue-tabs .tab:nth-of-type(3) {
+  margin: 0 !important;
+}
+.blue-tabs .tab:nth-of-type(2) {
+  margin: 0 !important;
+}
+.col-padding-0 {
+  padding: 0;
+}
+@media (max-width: 1366px) {
+  .blue-tabs .tab {
+    width: calc(96% / 4);
+    font-size: 0.85rem !important;
+    /* background: #fff; color: #146394; */
+  }
+}
+
+.m-15 {
+  margin-top: 15px;
+}
+
+.blue-tabs .tab {
+  background: #fff;
+  color: #146394;
+}
+.blue-tabs .tab.active {
+  background: #146394;
+  color: #fff;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #146394 !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #146394 !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #146394 !important;
+}
+@media (min-width: 992px) {
+  .padding-7 {
+    padding: 0 7px;
+  }
+  .custom-margin {
+    margin-right: -6px;
+    margin-left: -6px;
+    margin-bottom: 60px;
+  }
+}
+.col-padding-8 {
+  padding: 0 8px;
+}
+.col-padding-6 {
+  padding: 0 6px;
+}
+.blue-tabs .tab.active:after {
+  display: none !important;
+}
+.blue-tab-body {
+  border: none !important;
+}
+.blue-tabs.mb-15 {
+  margin-bottom: 30px;
+}
+.blue-tabs.mb-15:before {
+  position: absolute;
+  width: 98%;
+  height: 2px;
+  content: "";
+  background: #156595;
+  top: -20px;
+  left: 1%;
+}
+.blue-tabs.mb-15 {
+  position: relative;
+}
+
+.first-tab,
+.second-tab {
+  justify-content: center;
+}
+.third-tab {
+  justify-content: center;
+}
+.custom-width-tabs {
+  width: 350px !important;
+}
+.blue-tab-body.second-tab .custom-width-tabs {
+  padding: 0 3px;
+}
+.blue-tab-body.first-tab .radio-holder {
+  font-size: 1.25rem !important;
+  font-weight: normal;
+  /* padding-right: 48px; */
+}
+.blue-tab-body.first-tab .orange-radio .checkmark {
+  height: 25px;
+  width: 25px;
+  top: 50%;
+}
+/* .blue-tab-body.first-tab .orange-radio   .checkmark:after {
+  height: 25px;
+  width: 25px;
+  top: 50%;
+} */
+.blue-tab-body.first-tab .orange-radio .checkmark:after {
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  left:11px!important;
+}
+.full-width-body {
+  margin: 10px -15px;
+  background: #fff;
+}
+.full-width-body .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 1200px) and (min-width: 600px) {
+  .blue-tabs .tab {
+    width: calc(97% / 4);
+  }
+  .first-tab {
+    flex-direction: column;
+  }
+}
+@media (max-width: 414px) {
+  .blue-tab-body.first-tab .radio-holder {
+    font-size: 0.9rem !important;
+    font-weight: normal;
+    /* padding-right: 48px; */
+  }
+}
+
+

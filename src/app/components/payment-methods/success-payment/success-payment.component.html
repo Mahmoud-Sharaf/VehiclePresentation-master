@@ -1,0 +1,26 @@
+<app-header class="main-header"></app-header>
+<div class="container">
+    <div class="row">
+        <div class="row purcashedHyperpaylogo">
+            <img src="http://37.224.26.67:7060/Resources/Images/InsuranceCompanylogos/{{getCompanyLogo}}.png ">
+            <!-- <div>
+                <span class="Cgray" *ngIf="myLanguageCus == 'Arabic'">{{productNameAr}}</span>
+                <span  class="Cgray" *ngIf="myLanguageCus == 'English'">{{productNameEn}}</span>
+            </div> -->
+        </div>
+        <div class="row paymentMessage">
+           <p class="txt-sm">{{'paymentSuccussMessage'|translate}}</p>
+        </div>
+        <div class="row">
+
+            <div >
+                <button class="showProfile custom-float-left" (click)="goToProfile()">{{'showProfile'|translate}}</button>                    
+            </div>
+
+            <div >
+                <button  class="addProduct custom-float-right" (click)="goToHomePage()">{{'addOtherProd'|translate}}</button>           
+            </div>
+
+        </div>
+    </div>
+</div>
